@@ -46,6 +46,22 @@
                             </row>
                             <row>
                                 <entry align="left" valign="top">
+                                    <para><emphasis role="bold">Color</emphasis></para>
+                                </entry>
+                                <entry align="left" valign="top">
+                                    <para>Color used for this program in the data capture apps.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry align="left" valign="top">
+                                    <para><emphasis role="bold">Icon</emphasis></para>
+                                </entry>
+                                <entry align="left" valign="top">
+                                    <para>Icon used for this program in the data capture apps.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry align="left" valign="top">
                                     <para><emphasis role="bold">Short name</emphasis></para>
                                 </entry>
                                 <entry align="left" valign="top">

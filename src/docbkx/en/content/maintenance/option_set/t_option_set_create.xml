@@ -58,8 +58,7 @@ For SME: Must the name be unique?" flag="done"?><emphasis
                     <para>Click the add button.</para>
                 </listitem>
                 <listitem>
-                    <para>Type a <emphasis role="bold">Name</emphasis> and a <emphasis role="bold"
-                            >Code</emphasis>.</para>
+                    <para>Type a <emphasis role="bold">Name</emphasis> and a <emphasis role="bold">Code</emphasis>. Optionally also select a <emphasis role="bold">Color</emphasis> and an <emphasis role="bold">Icon</emphasis> which will be used for this option in the data capture apps.</para>
                 </listitem>
                 <listitem>
                     <?oxy_comment_start author="cecilia" timestamp="20160627T104140+0200" comment="For SME: Is it mandatory to sort the options?"?>
