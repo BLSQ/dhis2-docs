@@ -81,8 +81,9 @@
   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/tutorials/dhis2_tutorial_toc.xml" encoding="UTF-8"/>
   
   <!-- Even more about DHIS2 -->
-  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/intro/database_demo_server.xml" encoding="UTF-8"/>
-  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/intro/data_dimensions.xml"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/even_more/database_demo_server.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/even_more/data_dimensions.xml"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/even_more/additional_data_dimensions.xml"/>
   
   <!-- FAQ -->
   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/faq/faq.xml" encoding="UTF-8"/>
