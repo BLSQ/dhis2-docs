@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter version="5.0" xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:mth="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook" xml:id="messages">
+    <title xml:id="dashboard_messages">Messaging</title>
+        <section>
+            <title>About messages and feedback messages</title>
+            <para>
+                <screenshot>
+                    <mediaobject>
+                        <imageobject>
+                        <?oxy_comment_start author="cecilia" timestamp="20160623T084850+0200" comment="Will not replace graphic, do not want to show feedback message options to the &quot;normal&quot; user." flag="done"?>
+                        <imagedata width="80%" align="center"
+                            fileref="resources/images/messaging/view_inbox.png" format="PNG"
+                        /><?oxy_comment_end?>
+                    </imageobject>
+                    </mediaobject>
+                </screenshot>
+            </para>
+            <para>Within DHIS2 you can send messages and feedback messages to users, user groups and
+            organisation units. When you send a feedback message, it is routed to a particular user
+            group called the feedback recipient group. If you're a member of this user group, you've
+            access to feedback handling tools. You can for example set the status of an incoming
+            feedback to "Pending" while you're waiting for information. </para>
+      <para>In addition to the user-to-user and feedback messages, depending on your configuration
+        the system will also send you system-generated messages. These messages could be triggered
+        by different events, including system or background job failures and validation analysis
+        results. Feedback handling tools are also available for validation results and the priority
+        will be set to the importance of the validation rule violated. </para>
+        <para>To visit the app click <emphasis role="bold">message icon in header bar</emphasis> or
+            find the <emphasis role="bold">Messaging</emphasis> app in the app search box.</para>
+      <note>
+        <para>Messages and feedback messages are not sent to users' e-mail addresses, the messages
+          only appear within DHIS2.</para>
+            <para>With 2.30 we introduced a new messaging app which offers a richer messaging
+                experience. Specifically:<itemizedlist>
+                    <listitem>
+                        <para>Switch between list view and compact view by clicking the icon in the
+                            top right corner. This enables the user to view messages in two
+                            different views. The list view is simplistic and gives a good overview
+                            of all messages and is especially suited for feedback and validation
+                            messages. The compact view is a modern way of view messages where the
+                            user has more information in one view, hence viewing and replying
+                            several messages is easier. The first screenshot in this section
+                            displays list view, while the screenshot in section <emphasis
+                                role="bold">Read a message</emphasis> displays the compact
+                            view.</para>
+                    </listitem>
+                    <listitem>
+                        <para>A new search field is added which enables the user to search for
+                            messages. The search filters messages on different message attributes;
+                            subject, text and senders. This implies that you are able to narrow down
+                            the message conversation list by entering a search.</para>
+                    </listitem>
+                    <listitem>
+                        <para>A auto refresh feature is added so that the app fetches new messages
+                            at a set interval, every 5 minutes. This feature is disabled by
+                            default.</para>
+                    </listitem>
+                    <listitem>
+                        <para>For every message conversation you are able to add participants to the
+                            conversation. This is very useful if you want input on that particular
+                            conversation or if someone should also see the information. It is not
+                            possible to delete participants from a conversation.</para>
+                    </listitem>
+                </itemizedlist></para>
+            </note>
+        </section>
+        <section>
+            <title>Create a message</title>
+            <para>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="90%" align="center" scale="70"
+                            fileref="resources/images/messaging/create_private_message.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </para>
+            <orderedlist>
+                <listitem>
+                    <para>Click <emphasis role="bold">Compose</emphasis>. </para>
+                </listitem>
+                <listitem>
+                <para>Define who you want to receive the message. You can send a message to
+                    organisation units, users and user groups.</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>In the <emphasis role="bold">To</emphasis> field you can search for
+                            organisation units, users and user groups and select the wished
+                            recipients. </para>
+                    </listitem>
+                </itemizedlist>
+            </listitem>
+                <listitem>
+                    <para>Type a subject and a message.</para>
+                </listitem>
+                <listitem>
+                    <para>Click
+
+
+
+
+
+
+
+
+
+
+                        <emphasis role="bold">Send</emphasis>.
+
+
+
+
+
+
+
+
+
+
+                    </para>
+                </listitem>
+            </orderedlist>
+        </section>
+        <section>
+            <title>Read a message</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="90%" align="center" scale="70"
+                    fileref="resources/images/messaging/read_message.png" format="PNG"/>
+            </imageobject>
+        </mediaobject>
+            <orderedlist>
+                <listitem>
+                    <para>Select the appropriate message type to the left.</para>
+                </listitem>
+                <listitem>
+                    <para>Click a message.</para>
+                    <para>If the message is part of a conversation, you'll see all messages in this
+            conversation.</para>
+                </listitem>
+            </orderedlist>
+        </section>
+        <section>
+            <title>Create a feedback message</title>
+            <orderedlist>
+                <listitem>
+                    <para>Follow the steps as for creating a message, only selecting  <emphasis
+                        role="bold">Feedback message</emphasis> instead of entering
+                    recipients.</para>
+                </listitem>
+            <listitem>
+                <para>The message will be created as a feedback message and will appear in all of
+                    the specified users' <emphasis role="bold">Ticket</emphasis> folder.</para>
+            </listitem>
+            </orderedlist>
+        </section>
+        <section>
+            <title>Manage validation and feedback messages</title>
+            <para>
+                <note>
+                    <para>You'll only see feedback messages and have access to the extended handling
+                    tools if you are a member of the user group that is set up to handle feedback
+                    messages.</para>
+                <para>With the new app you manage extended tools for tickets and validation messages
+                    through the icon menu which appears when viewing a message or checking of
+                    messages in the conversation list.</para>
+                </note>
+            </para>
+        <informaltable frame="all">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="1*"/>
+                <tbody>
+                    <row>
+                        <entry>All messages selected</entry>
+                        <entry>All messages selected and extended choice picker selected</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata
+                                        fileref="resources/images/messaging/view_validation_select_all.png"
+                                        align="center" format="PNG" width="100%"/>
+                                </imageobject>
+                            </mediaobject>
+                        </entry>
+                        <entry>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata
+                                        fileref="resources/images/messaging/view_validation_select_all_icon_menu.png"
+                                        align="center" format="PNG" width="100%"/>
+                                </imageobject>
+                            </mediaobject>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </informaltable>
+            <para>You'll receive feedback messages to your <emphasis role="bold">Ticket</emphasis>
+            folder and validation messages to your <emphasis role="bold">Validation</emphasis>
+            folder. For feedback and validation messages you've the following options in addition to
+            the messages options: </para>
+            <table frame="all">
+                <title>Feedback handling tools</title>
+                <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="3.23*"/>
+                <thead>
+                    <row>
+                        <entry>Function</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <para>
+                                <emphasis role="bold">Priority</emphasis>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>You can mark a feedback/validation message with different
+                                priorities: <emphasis role="bold">None</emphasis>, <emphasis
+                                    role="bold">Low</emphasis>, <emphasis role="bold"
+                                    >Medium</emphasis> or <emphasis role="bold">High</emphasis>. </para>
+                            <para>Setting the priority makes it easier to keep track of which
+                                feedback message you need resolved first, and which feedback
+                                messages that can wait.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <emphasis role="bold">Status</emphasis>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>All feedback/validation messages get the status <emphasis
+                                    role="bold">Open</emphasis> when created. </para>
+                            <para>To keep track of existing feedback messages, you can change the
+                                status to <emphasis role="bold">Pending</emphasis>, <emphasis
+                                    role="bold">Invalid</emphasis> or <emphasis role="bold"
+                                    >Solved</emphasis>. </para>
+                            <para>You can filter feedback/validation messages based on their status
+                                with the two drop down menues in the internal header bar.</para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <emphasis role="bold">Assigned to</emphasis>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>You can assign a feedback message to any member of the user group
+                                that is set up to handle feedback messages.</para>
+                            <para>You can assign a validation message to any user in the
+                                system.</para>
+                            <para>
+                                <emphasis role="bold">-</emphasis> means that you haven't assigned a
+                                user to the feedback message. </para>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <para>
+                                <emphasis role="bold">Internal reply</emphasis>
+                            </para>
+                        </entry>
+                        <entry>
+                            <para>When you work in a feedback
+                                <?oxy_comment_start author="cecilia" timestamp="20160623T101148+0200" comment="For SME: What&apos;s the correct role name?"?>handling
+                                <?oxy_comment_end?>team you might want to discuss the feedback
+                                before sending an answer to the sender. You can keep this discussion
+                                in the same message conversation as the feedback itself. </para>
+                            <para>To send a reply that within the feedback handling user group,
+                                click <emphasis role="bold">INTERNAL REPLY</emphasis>. </para>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+            </table>
+        </section>
+        <section>
+            <title>Configure feedback message function</title>
+            <para>To configure the feedback message function, you must:</para>
+            <orderedlist>
+                <listitem>
+                    <?oxy_comment_start author="cecilia" timestamp="20160623T113416+0200" comment="At next revision:
+Add link to correct section in user guide.
+
+Removed text for now since it is unclear which section the reference point to:
+Refer to the section in this manual on &quot;User groups&quot; for more information of how to do this." flag="done"?>
+                    <para>Create a user group (for example &quot;Feedback message recipients&quot;) that
+            contains all the users who should receive feedback messages.</para>
+                    <?oxy_comment_end?>
+                </listitem>
+                <listitem>
+                    <para>Open the
+
+
+
+
+
+
+
+
+
+
+                        <emphasis role="bold">System
+
+
+
+
+
+
+
+
+
+
+
+                            <?oxy_comment_start author="cecilia" timestamp="20161130T144441+0100" comment="System Settings app?"?>Settings
+
+
+
+
+
+
+
+
+
+
+                            <?oxy_comment_end?>
+                        </emphasis>
+            app and click
+
+
+
+
+
+
+
+
+
+
+                        <emphasis role="bold">General</emphasis> >
+                        <emphasis role="bold">Feedback
+              recipients</emphasis> and select the user group you created in the previous
+            step.
+
+
+
+
+
+
+
+
+
+
+                    </para>
+                </listitem>
+            </orderedlist>
+        </section>
+</chapter>

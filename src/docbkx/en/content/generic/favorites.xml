@@ -79,7 +79,7 @@
                         interpretation</emphasis>.</para>
             </listitem>
             <listitem>
-<para>In the text field, type a comment, question or interpretation. You can see this information in
+                <para>In the text field, type a comment, question or interpretation. You can also mention other users with '@username'. Start by typing '@' plus the first letters of the username or real name and a mentioning bar will display the available users. Mentioned users will receive an internal DHIS2 message with the interpretation or comment. You can see the interpretation in
                     the <emphasis role="bold">Dashboard</emphasis> app.</para>
             </listitem>
             <listitem>
@@ -106,6 +106,22 @@
             </listitem>
             <listitem>
                 <para>Click <emphasis role="bold">Share</emphasis>.</para>
+            </listitem>
+        </orderedlist>
+    </section>
+    <section>
+        <title>Set as favorite</title>
+        <orderedlist>
+            <listitem>
+                <para>Open a favorite.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    Click <emphasis role="bold">>>></emphasis> in the top right of the workspace.
+                </para>
+            </listitem>
+            <listitem>
+                <para>Click on the upper-right star icon to set as favorite.</para>
             </listitem>
         </orderedlist>
     </section>
