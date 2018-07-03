@@ -14,7 +14,7 @@
   <title>Additional data dimensions</title>
   <section>
     <title>About additional data dimensions</title>
-    <para>DHIS 2 has the ability to add dimensions to data in addition to what was described in the previous chapter. We will call these dimensions &quot;attribute categories&quot; (ACs). The categories described in the previous chapter we will call &quot;disaggregation categories&quot; (DCs) to differentiate them from ACs.</para>
+    <para>DHIS2 has the ability to add dimensions to data in addition to what was described in the previous chapter. We will call these dimensions &quot;attribute categories&quot; (ACs). The categories described in the previous chapter we will call &quot;disaggregation categories&quot; (DCs) to differentiate them from ACs.</para>
     <para>ACs and DCs are quite similar—they work in much the same way, are accessed through the same part of the maintenance interface, and exist in the same part of the database. The main difference between them is what they are connected to: a DC is attached to a data element. An AC, however, is attached to a data set. This means values for all DC options can be entered on the same data entry screen, whereas you must choose the AC option before you begin to enter data.</para>
     <para>In setting up a system, you could just use DCs and ignore ACs altogether. However, ACs are a way to simplify data entry screens or reduce the size of the cross-product of category option combos.</para>
     <para>When you’re deciding which categories should be DCs and which should be ACs, here’s a good rubric:</para>
