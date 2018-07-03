@@ -11,47 +11,23 @@
 	xmlns:mth="http://www.w3.org/1998/Math/MathML"
 	xmlns:db="http://docbook.org/ns/docbook"
 	xml:id="custom_dimensions">
-  <title>Custom dimensions</title>
+  <title>Additional data dimensions</title>
   <section>
-    <title>Data dimensions: Core building blocks in DHIS2</title>
-    <para>A data value in DHIS2 is described by at least three dimensions: 1) data element, 2) organisation unit, and 3) period. These dimensions  form the core building blocks of the data model. </para>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="resources/images/data_dimensions/datavalue_with_dimensions.png" format="PNG" width="800px" align="center"/>
-      </imageobject>
-    </mediaobject>
-    <para>As an example, if you want to know how many children that were immunised for measles in Gerehun CHC in December 2014, the three dimensions which describe that value are the Data Element &quot;Measles doses given&quot;, the Organisation Unit &quot;Gerehun CHC&quot;, and the Period &quot;Dececmber 2014&quot;. All data values have at least these three dimensions describing What, Where and When.</para>
-    <para>In addition to the organisation unit, period and data element dimensions, data values may also be associated with a custom dimension consisting of attributes. A common use of this dimension is to describe data values which are reported by multiple partners in the same location for the same data element and time period. In principle, it can be used as a &quot;free-form&quot; dimension, to describe multiple observations of the same phenomena at the same place and time. </para>
-    <para><table frame="all">
-        <title/>
-        <tgroup cols="4">
-          <colspec colname="c1"/>
-          <colspec colname="c2"/>
-          <colspec colname="c3"/>
-          <colspec colname="c4"/>
-          <thead>
-            <row>
-              <entry>Organisation Unit</entry>
-              <entry>Data Element</entry>
-              <entry>Period</entry>
-              <entry>Value</entry>
-            </row>
-          </thead>
-          <tbody>
-            <row>
-              <entry>Gerehun CHC</entry>
-              <entry>Measles doses given</entry>
-              <entry>Dec-09</entry>
-              <entry>22</entry>
-            </row>
-            <row>
-              <entry>Tugbebu CHP</entry>
-              <entry>Measles doses given</entry>
-              <entry>Dec-09</entry>
-              <entry>18</entry>
-            </row>
-          </tbody>
-        </tgroup>
-      </table></para>
+    <title>About additional data dimensions</title>
+    <para>DHIS 2 has the ability to add dimensions to data in addition to what was described in the previous chapter. We will call these dimensions &quot;attribute categories&quot; (ACs). The categories described in the previous chapter we will call &quot;disaggregation categories&quot; (DCs) to differentiate them from ACs.</para>
+    <para>ACs and DCs are quite similar—they work in much the same way, are accessed through the same part of the maintenance interface, and exist in the same part of the database. The main difference between them is what they are connected to: a DC is attached to a data element. An AC, however, is attached to a data set. This means values for all DC options can be entered on the same data entry screen, whereas you must choose the AC option before you begin to enter data.</para>
+    <para>In setting up a system, you could just use DCs and ignore ACs altogether. However, ACs are a way to simplify data entry screens or reduce the size of the cross-product of category option combos.</para>
+    <para>When you’re deciding which categories should be DCs and which should be ACs, here’s a good rubric:</para>
+    <itemizedlist>
+      <listitem><para>Use DCs when you want to use different combinations of categories on different data elements within a data set</para></listitem>
+      <listitem><para>Use DCs when you want to enter all the category option combinations on one data entry screen</para></listitem>
+      <listitem><para>Use ACs when you want to use the same combination of categories for all the data in a data set</para></listitem>
+      <listitem><para>Use ACs when you want to enter only one category option combination on one data entry screen</para></listitem>
+    </itemizedlist>
+    <para>While we referred to DCs as part of the what dimension for simplicity in the former chapter, it’s actually more complex. Either DCs or ACs can answer any question about a data element, including <emphasis role="italic">what</emphasis> (of course), <emphasis role="italic">who</emphasis>, <emphasis role="italic">why</emphasis>, <emphasis role="italic">how</emphasis>, or even a <emphasis role="italic">where</emphasis> or a <emphasis role="italic">when</emphasis> beyond the organisation unit and period dimensions.</para>
+  </section>
+  <section>
+    <title>Create or edit an attribute category and its options</title>
+    <para>For the process of creating an attribute category as well as options and combinations, see Chapter 20.2: Manage categories</para>
   </section>
 </chapter>
