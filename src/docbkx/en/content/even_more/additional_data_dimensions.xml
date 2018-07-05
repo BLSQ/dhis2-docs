@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter version="5.0"
+	xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+	xmlns="http://docbook.org/ns/docbook"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xl="http://www.w3.org/1999/xlink"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns:mth="http://www.w3.org/1998/Math/MathML"
+	xmlns:db="http://docbook.org/ns/docbook"
+	xml:id="custom_dimensions">
+  <title>Additional data dimensions</title>
+  <section>
+    <title>About additional data dimensions</title>
+    <para>DHIS2 has the ability to add dimensions to data in addition to what was described in the previous chapter. We will call these dimensions &quot;attribute categories&quot; (ACs). The categories described in the previous chapter we will call &quot;disaggregation categories&quot; (DCs) to differentiate them from ACs.</para>
+    <para>ACs and DCs are quite similar—they work in much the same way, are accessed through the same part of the maintenance interface, and exist in the same part of the database. The main difference between them is what they are connected to: a DC is attached to a data element. An AC, however, is attached to a data set. This means values for all DC options can be entered on the same data entry screen, whereas you must choose the AC option before you begin to enter data.</para>
+    <para>In setting up a system, you could just use DCs and ignore ACs altogether. However, ACs are a way to simplify data entry screens or reduce the size of the cross-product of category option combos.</para>
+    <para>When you’re deciding which categories should be DCs and which should be ACs, here’s a good rubric:</para>
+    <itemizedlist>
+      <listitem><para>Use DCs when you want to use different combinations of categories on different data elements within a data set</para></listitem>
+      <listitem><para>Use DCs when you want to enter all the category option combinations on one data entry screen</para></listitem>
+      <listitem><para>Use ACs when you want to use the same combination of categories for all the data in a data set</para></listitem>
+      <listitem><para>Use ACs when you want to enter only one category option combination on one data entry screen</para></listitem>
+    </itemizedlist>
+    <para>While we referred to DCs as part of the what dimension for simplicity in the former chapter, it’s actually more complex. Either DCs or ACs can answer any question about a data element, including <emphasis role="italic">what</emphasis> (of course), <emphasis role="italic">who</emphasis>, <emphasis role="italic">why</emphasis>, <emphasis role="italic">how</emphasis>, or even a <emphasis role="italic">where</emphasis> or a <emphasis role="italic">when</emphasis> beyond the organisation unit and period dimensions.</para>
+  </section>
+  <section>
+    <title>Create or edit an attribute category and its options</title>
+    <para>For the process of creating an attribute category as well as options and combinations, see Chapter 20.2: Manage categories</para>
+  </section>
+</chapter>
