@@ -20,7 +20,7 @@
   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/intro/ug_overview.xml"/> 
     
   <!-- introduction to dhis2 -->
-  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude"  href="content/intro/introduction.xml" encoding="UTF-8"/>  
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/intro/introduction.xml" encoding="UTF-8"/>  
     
   <!-- Dashboard -->
   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/dashboard/dashboard.xml" encoding="UTF-8"/>
