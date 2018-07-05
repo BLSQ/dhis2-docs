@@ -14778,6 +14778,83 @@ interval=WEEK" -u admin:district</screen>
         value<screen>/api/28/events/query.json?orgUnit=DiszpKrYNg8&amp;programStage=Zj7UnCAulEk&amp;filter=qrur9Dvnyt5:GT:20:LT:50&amp;<emphasis role="bold">order=qrur9Dvnyt5:desc</emphasis></screen></para>
     </section>
     </section>
+    <section>
+      <title>Relationships</title>
+      <para>Relationships can be added in two different ways, using the web api. The first way to do
+        this, is by embedding the relationship in the payload of another tracker entity, which only
+        works for tracked entity instances at the moment. Alternatively, you can use the
+        relationships endpoint <code>/api/relationships</code>. Both endpoints uses the same payload
+        to represent a relationship, but including the payload in another tracker entity, the
+        relationship have to be owned by that entity. The owning side of a relationship is defined
+        by the "from" property of a relationship.</para>
+      <para>Unlike other tracker entities like tracked entities, enrollments or events,
+        relationships has additional checks for access when you are creating or editing them. In
+        addition to having data-write access to the relationshipType you are working with, you also
+        need write-access to the "from" entity and at least read access to the "to" entitiy. For
+        viewing relationships, you need read access for all these entities. This means you can't
+        view or edit relationships where one of the entities are inaccessible for the logged in
+        user.</para>
+      <para>The relationship payload is based on the same payloads used for tracked entities,
+        enrollments and events, meaning any references uses the same objects, and uids are
+        represented with the entity name, for example "relationship" or "enrollment". An example
+        payload can be seen
+        here:<screen>{
+  "relationship": &lt;uid>,
+  "relationshipType": &lt;uid>,
+  "from" {
+    "trackedEntityInstance": {
+      "trackedEntityInstance": &lt;uid>
+    }
+  },
+  "to" {
+    "trackedEntityInstance": {
+      "trackedEntityInstance": &lt;uid>
+    }
+  }
+}</screen></para>
+      <para>One thing to note, is the nested properties with the same names. The "to" and "from"
+        properties are RelationshipItems, which can refer to either tracked entity instance,
+        enrollment or event. Because of this, combined with using the same notation as we have for
+        other tracker entities, these names are duplicated in this fasion. In addition to these
+        properties shown in the example, viewing a relationship will also optionally include the
+        refrenced objects for each side, the name of the relationshipType and other common
+        information like created, last updated and last updated by.</para>
+      <para>The following example is for updating a relationship using the tracked entity instances
+        endpoint <code>/api/trackedEntityInstances</code>. We will refer to the relationship payload
+        as &lt;Relationship>, and this example will work for both the POST and PUT endpoints,
+        described in a previous
+        section.<screen>{
+  "trackedEntityInstance": &lt;uid>,
+  "relationships": [
+    &lt;Relationship>,
+    ...
+  ],
+  &lt;other properties>
+}</screen></para>
+      <para>With the <code>/api/relationships</code> endpoint, you can work with any
+        relationshipType you have access to, including relationshipTypes for Enrollment or Events as
+        well. The following endpoints are available for
+        relationships:<screen>GET /api/relationships?tei=&lt;uid></screen></para>
+      <para>Returns a list of relationships. This endpoint requires you to specify the owning
+        entity, by using either "tei", "enrollment" or "event" parameter, set to the uid of the
+        entity you are specifying.
+        <screen>POST /api/relationships
+
+Payload: &lt;Relationship></screen></para>
+      <para>When creating a new relationship, you need to specify "relationshipType", "from" and
+        "to" as a minimum. As previously mentioned, you need write access for the relationshipType
+        and "from" entity, and read access to the "to" entity. This also applies to the update
+        endpoint:</para>
+      <screen>PUT /api/relationships/&lt;uid>
+
+Payload: &lt;Relationship></screen>
+      <para>Including the "relationship" property, representing the uid, in the payload is not
+        required in this endpoint, as it has already been specified in the url.</para>
+      <para>Deleting a relationship requires the same access as create and update, and can be done
+        in the following endpoint:<screen>DELETE /api/relationships/&lt;uid></screen></para>
+      <para>Finally, viewing a single relationship can be done
+        here:<screen>GET /api/relationships/&lt;uid></screen></para>
+    </section>
     
     <section xml:id="webapi_tei_update_strategies">
       <title>Update strategies</title>
