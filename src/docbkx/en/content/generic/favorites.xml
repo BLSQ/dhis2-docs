@@ -110,7 +110,12 @@
         </orderedlist>
     </section>
     <section>
-        <title>Set as favorite</title>
+        <title>Subscribe to a favorite</title>
+        <para>
+            When you are subscribed to a favorite, you receive internal messages whenever
+            another user likes/creates/updates an interpretation or creates/update an interpretation
+            comment of this favorite.
+        </para>
         <orderedlist>
             <listitem>
                 <para>Open a favorite.</para>
@@ -121,7 +126,7 @@
                 </para>
             </listitem>
             <listitem>
-                <para>Click on the upper-right star icon to set as favorite.</para>
+                <para>Click on the upper-right bell icon to subscribe to this favorite.</para>
             </listitem>
         </orderedlist>
     </section>

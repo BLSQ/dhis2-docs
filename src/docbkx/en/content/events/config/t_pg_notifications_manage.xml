@@ -116,6 +116,19 @@
                                 <screen>V{program_name}</screen>
                             </para>
                         </entry>
+                    </row>               
+                    <row>
+                        <entry>
+                            <para/>
+                        </entry>
+                        <entry>
+                            <para>Tracked Entity Attributes</para>
+                        </entry>
+                        <entry>
+                            <para>
+                                <screen>A{pWEEfUJUjej}</screen>
+                            </para>
+                        </entry>
                     </row>
                     <row>
                         <entry>
@@ -206,6 +219,23 @@
                             </para>
                         </entry>
                     </row>
+                    
+                    <row>
+                        <entry>
+                            <para/>
+                        </entry>
+                        <entry>
+                            <para>Data Element</para>
+                        </entry>
+                        <entry>
+                            <para>
+                                <screen>#{X8zyunlgUfM}</screen>
+                            </para>
+                        </entry>
+                    </row>
+                    
+                    
+                    
                 </tbody>
             </tgroup>
         </table>
@@ -247,24 +277,21 @@
         </para>
         <orderedlist>
             <listitem>
-                <para>Open the <emphasis role="bold">Program / Attributes</emphasis> app and click
-                        <emphasis role="bold">Program</emphasis>.</para>
+                <para>Open the <emphasis role="bold">Maintenance</emphasis> app and click
+                    <emphasis role="bold">Program and then notifications</emphasis>.</para>
+                <para>A list of existing program notifications for the selected program
+                    opens. If the program doesn't have any program notifications, the
+                    list is empty.</para>
             </listitem>
             <listitem>
-                <para>Click the relevant program and select <emphasis role="bold">View program
-                        notifications</emphasis>.</para>
-                <para>A list of existing program notifications for the selected program opens. If
-                    the program doesn't have any program notifications, the list is empty.</para>
-            </listitem>
-            <listitem>
-                <para>Click <emphasis role="bold">Add new</emphasis>.</para>
+                <para>Click on add button and select<emphasis role="bold"> Program notification</emphasis>.</para>             
             </listitem>
             <listitem>
                 <para>Enter a <emphasis role="bold"
                         ><?oxy_comment_start author="cecilia" timestamp="20161003T212441+0200" comment="Verify with SME: No code or short name fields in UI, correct?"?>Name<?oxy_comment_end?></emphasis>.</para>
             </listitem>
             <listitem>
-                <para>In the <emphasis role="bold">Trigger by</emphasis> field, select what should
+                <para>In the <emphasis role="bold">When-to-send it</emphasis> field, select what should
                     trigger the notification.</para>
                 <table frame="all">
                     <title/>
@@ -336,12 +363,23 @@
                                         scheduled date that the notification will be send.</para>
                                 </entry>
                             </row>
+                            <row>
+                                <entry>
+                                    <para>Program Rule</para>
+                                </entry>
+                                <entry>
+                                    <para>Notification will be triggered as a result of program rule exeuction.</para>
+                                </entry>
+                                <entry>
+                                    <para>Program rule with ProgramRuleActionType.SENDMESSAGE need to be in place to make this trigger successful.</para>
+                                </entry>
+                            </row>
                         </tbody>
                     </tgroup>
                 </table>
             </listitem>
             <listitem>
-                <para>In the <emphasis role="bold">Recipients</emphasis> field, select who should
+                <para>In the <emphasis role="bold">Who-to-send-it</emphasis> field, select who should
                     receive the program notification.</para>
                 <table frame="all">
                     <title/>
@@ -421,7 +459,7 @@
                                     <para>Send notification only  to those users who belong to any of the organisation unit in the hierarchy.</para>
                                 </entry>
                                 <entry>
-                                    <para>-</para>
+                                    <para>This option is only available when User Group is selected as recipient.</para>
                                 </entry>
                             </row>
                             <row>
@@ -432,13 +470,20 @@
                                     <para>Send notification only to those users who belong to parent organisation unit.</para>
                                 </entry>
                                 <entry>
-                                    <para>-</para>
+                                    <para>This option is only available when User Group is selected as recipient.</para>
                                 </entry>
-                            </row>
-                            
-                            
-                            
-                            
+                            </row>                       
+                            <row>
+                                <entry>
+                                    <para>Program Attribute</para>
+                                </entry>
+                                <entry>
+                                    <para>TrackedEntityAttribute can also be selected as recipient.</para>
+                                </entry>
+                                <entry>
+                                    <para>This parameter will only be effective if TrackedEntityAttribute value type is PHONE_NUMBER/EMAIL.</para>
+                                </entry>
+                            </row>                      
                         </tbody>
                     </tgroup>
                 </table>
@@ -482,21 +527,50 @@
     </section>
     <section>
         <title>Create a program stage notification</title>
+        <para>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%"
+                            fileref="resources/images/program/what_to_send-psnt.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </para>
+        <para>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%"
+                            fileref="resources/images/program/what_to_send-psnt.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </para>
+        <para>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="80%"
+                            fileref="resources/images/program/what_to_send-psnt.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </para>
         <orderedlist>
             <listitem>
-                <para>Open the <emphasis role="bold">Program / Attributes</emphasis> app and click
-                        <emphasis role="bold">Program</emphasis>.</para>
-            </listitem>
-            <listitem>
-                <para>Click the relevant program and select <emphasis role="bold">View program
-                        stages</emphasis>.</para>
-            </listitem>
-            <listitem>
-                <para>Click the relevant program stage and select <emphasis role="bold">View program
-                        stage notifications</emphasis>.</para>
+                <para>Open the <emphasis role="bold">Maintenance</emphasis> app and click
+                        <emphasis role="bold">Program and then notifications</emphasis>.</para>
                 <para>A list of existing program stage notifications for the selected program stage
                     opens. If the program stage doesn't have any program stage notifications, the
                     list is empty.</para>
+            </listitem>
+            <listitem>
+                <para>Click on add button and select<emphasis role="bold"> Program stage notification</emphasis>.</para>
+               
             </listitem>
             <listitem>
                 <para>Click <emphasis role="bold">Add new</emphasis>.</para>
@@ -506,7 +580,7 @@
                         ><?oxy_comment_start author="cecilia" timestamp="20161003T212441+0200" comment="Verify with SME: No code or short name fields in UI, correct?"?>Name<?oxy_comment_end?></emphasis>.</para>
             </listitem>
             <listitem>
-                <para>In the <emphasis role="bold">Trigger by</emphasis> field, select what should
+                <para>In the <emphasis role="bold">When-to-send-it</emphasis> field, select what should
                     trigger the notification.</para>
                 <table frame="all">
                     <title/>
@@ -551,6 +625,17 @@
                                 <entry>
                                     <para>You need to enter the number of days before or after the
                                         scheduled date that the notification will be send.</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Program Rule</para>
+                                </entry>
+                                <entry>
+                                    <para>Notification will be triggered as a result of program rule exeuction.</para>
+                                </entry>
+                                <entry>
+                                    <para>Program rule with ProgramRuleActionType.SENDMESSAGE need to be in place to make this trigger successful.</para>
                                 </entry>
                             </row>
                         </tbody>
@@ -653,6 +738,17 @@
                                 </entry>
                                 <entry>
                                     <para>-</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>Data Element</para>
+                                </entry>
+                                <entry>
+                                    <para>Data Element associated with ProgramStage can be selected as recipient.</para>
+                                </entry>
+                                <entry>
+                                    <para>Data Element will only be effective if DataElement has value type PHONE_NUMBER/EMAIL.</para>
                                 </entry>
                             </row>
                         </tbody>
