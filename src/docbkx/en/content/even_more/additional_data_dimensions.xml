@@ -24,10 +24,10 @@
       <listitem><para>Use ACs when you want to use the same combination of categories for all the data in a data set</para></listitem>
       <listitem><para>Use ACs when you want to enter only one category option combination on one data entry screen</para></listitem>
     </itemizedlist>
-    <para>While we referred to DCs as part of the what dimension for simplicity in the former chapter, it’s actually more complex. Either DCs or ACs can answer any question about a data element, including <emphasis role="italic">what</emphasis> (of course), <emphasis role="italic">who</emphasis>, <emphasis role="italic">why</emphasis>, <emphasis role="italic">how</emphasis>, or even a <emphasis role="italic">where</emphasis> or a <emphasis role="italic">when</emphasis> beyond the organisation unit and period dimensions.</para>
+    <para>While we referred to DCs as part of the <emphasis role="italic">what</emphasis> dimension for simplicity in the former chapter, it’s actually more complex. Either DCs or ACs can answer any question about a data element, including <emphasis role="italic">what</emphasis> (of course), <emphasis role="italic">who</emphasis>, <emphasis role="italic">why</emphasis>, <emphasis role="italic">how</emphasis>, or even a <emphasis role="italic">where</emphasis> or a <emphasis role="italic">when</emphasis> beyond the organisation unit and period dimensions.</para>
   </section>
   <section>
     <title>Create or edit an attribute category and its options</title>
-    <para>For the process of creating an attribute category as well as options and combinations, see Chapter 20.2: Manage categories</para>
+    <para>For the process of creating an attribute category as well as options and combinations, see Chapter 19.2: Manage categories</para>
   </section>
 </chapter>
