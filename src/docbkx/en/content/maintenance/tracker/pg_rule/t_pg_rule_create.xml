@@ -546,6 +546,9 @@ Kolla med mArkus"?>
                                         <para>Used to selectively hide a single option for an option
                                             set in a given data element/tracked entity attribute.
                                         </para>
+                                        <para>When combined with <emphasis role="bold">show option group</emphasis>
+                                            the <emphasis role="bold">hide option</emphasis> takes presedence.
+                                        </para>
                                     </entry>
                                 </row>
                                 <row>
@@ -556,12 +559,12 @@ Kolla med mArkus"?>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>
-                                            <emphasis role="bold">Data element to hide option
+                                            <emphasis role="bold">Data element to hide option group
                                                 for</emphasis>
                                         </para>
                                         <para>
                                             <emphasis role="bold">Tracked entity attribute to hide
-                                                option for </emphasis>
+                                                option group for </emphasis>
                                         </para>
                                         <para>
                                             <emphasis role="bold">Option group that should be hidden
@@ -571,6 +574,9 @@ Kolla med mArkus"?>
                                     <entry align="left" valign="top">
                                         <para>Used to hide all options in a given option group and
                                             data element/tracked entity attribute. </para>
+                                        <para>When combined with <emphasis role="bold">show option group</emphasis>
+                                            the <emphasis role="bold">hide option group</emphasis> takes presedence.
+                                        </para>
                                     </entry>
                                 </row>
                                 <row>
@@ -581,12 +587,12 @@ Kolla med mArkus"?>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>
-                                            <emphasis role="bold">Data element to hide option
+                                            <emphasis role="bold">Data element to show option group
                                                 for</emphasis>
                                         </para>
                                         <para>
-                                            <emphasis role="bold">Tracked entity attribute to hide
-                                                option for </emphasis>
+                                            <emphasis role="bold">Tracked entity attribute to show
+                                                option group for </emphasis>
                                         </para>
                                         <para>
                                             <emphasis role="bold">Option group that should be shown
