@@ -24,6 +24,9 @@
     
   <!-- Dashboard -->
   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/dashboard/dashboard.xml" encoding="UTF-8"/>
+
+  <!-- Messages -->
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/messages/messages.xml" encoding="UTF-8"/>
    
   <!-- Enter data -->
   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/data_entry/toc_data_entry.xml" encoding="UTF-8"/>
