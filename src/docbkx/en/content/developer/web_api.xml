@@ -1987,7 +1987,8 @@ rabbitmq.connection-timeout = 60000</screen></para>
     <title>Kafka integration</title>
     <para>Kafka integration was added in 2.30 and is currently supported for doing bulk imports of
       tracker data (tracked entities, enrollments, events), to integrate with kafka you need to
-      first install and configure kafka (see <link xlink:href="https://kafka.apache.org/"
+      first install and configure Kafka (see <link
+        xlink:href="https://docs.confluent.io/current/installation/installing_cp/index.html"
         xmlns:xlink="http://www.w3.org/1999/xlink"/> for more information), then update your
       "dhis.conf" with at least the "<emphasis>kafka.bootstrap-servers</emphasis>" key, an example
       can be seen below (only <emphasis>bootstrap-servers</emphasis> is required, the rest is just
@@ -2009,6 +2010,9 @@ kafka.max-poll-records = 1000</screen></para>
         only difference is that they are all asynchronous, and you will need to get the import
         summaries using normal task summary approach. Internally there is a scheduled system job
         called "Kafka Job" which runs every second to check for new objects waiting in Kafka.</para>
+      <para>The topics will be created by DHIS2 if they don't exist, but be aware that they will
+        then have their basic default settings applied (1 replication factor, and 1 partition
+        only).</para>
     </section>
   </section>
   <section xml:id="webapi_csv_metadata_import">
