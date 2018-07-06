@@ -5,8 +5,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
     xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
-    xmlns:db="http://docbook.org/ns/docbook"
-    xml:id="create_program_rule">
+    xmlns:db="http://docbook.org/ns/docbook" xml:id="create_program_rule">
     <title>Create or edit a program rule</title>
     <para>
         <note>
@@ -27,17 +26,25 @@
                 are only meant for the program administrator.</para>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">Program</emphasis></para>
+                    <para>
+                        <emphasis role="bold">Program</emphasis>
+                    </para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="bold">Name</emphasis></para>
+                    <para>
+                        <emphasis role="bold">Name</emphasis>
+                    </para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="bold">Description</emphasis></para>
+                    <para>
+                        <emphasis role="bold">Description</emphasis>
+                    </para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="bold"
-                            ><?oxy_comment_start author="cecilia" timestamp="20170528T180304+0200" comment="What does this setting mean?"?>Priority<?oxy_comment_end?></emphasis></para>
+                    <para>
+                        <emphasis role="bold"
+                            ><?oxy_comment_start author="cecilia" timestamp="20170528T180304+0200" comment="What does this setting mean?"?>Priority<?oxy_comment_end?></emphasis>
+                    </para>
                     <para>
                         <example>
                             <para>Let's say you have 16 program rules in your program. You configure
@@ -116,15 +123,23 @@ Create event:Foreslår å skjule dette som en option i listen. Det hadde bare v�
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Assign value</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Assign value</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to assign value
-                                                to</emphasis></para>
-                                        <para><emphasis role="bold">Program rule variable to assign
-                                                value to</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                assign</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to assign value
+                                                to</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Program rule variable to assign
+                                                value to</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and
+                                                assign</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used to help the user calculate and fill out fields in
@@ -147,13 +162,21 @@ Create event:Foreslår å skjule dette som en option i listen. Det hadde bare v�
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Display text</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Display text</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Display widget</emphasis></para>
-                                        <para><emphasis role="bold">Static text</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                display after static text</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Display widget</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Static text</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and display
+                                                after static text</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used to display information that is not an error or a
@@ -164,14 +187,21 @@ Create event:Foreslår å skjule dette som en option i listen. Det hadde bare v�
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Display key/value
-                                                pair</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Display key/value pair</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Display widget</emphasis></para>
-                                        <para><emphasis role="bold">Key label</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                display as value</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Display widget</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Key label</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and display
+                                                as value</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used to display information that is not an error or a
@@ -184,17 +214,26 @@ Create event:Foreslår å skjule dette som en option i listen. Det hadde bare v�
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Error on
-                                            complete</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Error on complete</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to display error
-                                                next to </emphasis></para>
-                                        <para><emphasis role="bold">Tracked entity attribute to
-                                                display error next to </emphasis></para>
-                                        <para><emphasis role="bold">Static text</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                display after static text</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to display error next
+                                                to </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to
+                                                display error next to </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Static text</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and display
+                                                after static text</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used whenever you've cross-consistencies in the form
@@ -213,15 +252,22 @@ Create event:Foreslår å skjule dette som en option i listen. Det hadde bare v�
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Hide field</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Hide field</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to
-                                            hide</emphasis></para>
-                                        <para><emphasis role="bold">Tracked entity attribute to
-                                                hide</emphasis></para>
-                                        <para><emphasis role="bold">Custom message for blanked
-                                                field</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to hide</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to
+                                                hide</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Custom message for blanked
+                                                field</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used when you want to hide a field from the
@@ -245,12 +291,16 @@ Create event:Foreslår å skjule dette som en option i listen. Det hadde bare v�
                                     <entry align="left" valign="top">
                                         <?oxy_comment_start author="cecilia" timestamp="20170528T193841+0200" comment="How does this work? 
 Can&apos;t make it work in the UI."?>
-                                        <para><emphasis role="bold">Hide section</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Hide section</emphasis>
+                                        </para>
                                         <?oxy_comment_end?>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Program stage section to
-                                                hide</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Program stage section to
+                                                hide</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>TBA</para>
@@ -258,15 +308,17 @@ Can&apos;t make it work in the UI."?>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Hide program
-                                            stage</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Hide program stage</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <?oxy_comment_start author="cecilia" timestamp="20170528T194936+0200" comment="No custom message anymore? Was one in legacy app.
 
 Kolla med mArkus"?>
-                                        <para><emphasis role="bold">Program stage to
-                                            hide</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Program stage to hide</emphasis>
+                                        </para>
                                         <?oxy_comment_end?>
                                     </entry>
                                     <entry align="left" valign="top">
@@ -276,14 +328,19 @@ Kolla med mArkus"?>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Make field
-                                            mandatory</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Make field mandatory</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to make
-                                                mandatory</emphasis></para>
-                                        <para><emphasis role="bold">Tracked entity attribute to make
-                                                mandatory</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to make
+                                                mandatory</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to make
+                                                mandatory</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>TBA</para>
@@ -291,16 +348,26 @@ Kolla med mArkus"?>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Show error</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Show error</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to display error
-                                                next to</emphasis></para>
-                                        <para><emphasis role="bold">Tracked entity attribute to
-                                                display error next to </emphasis></para>
-                                        <para><emphasis role="bold">Static text</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                display after static text</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to display error next
+                                                to</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to
+                                                display error next to </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Static text</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and display
+                                                after static text</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used whenever there are rules which must strictly be
@@ -322,16 +389,26 @@ Kolla med mArkus"?>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Show warning</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Show warning</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to display warning
-                                                next to</emphasis></para>
-                                        <para><emphasis role="bold">Tracked entity attribute to
-                                                display warning next to </emphasis></para>
-                                        <para><emphasis role="bold">Static text</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                display after static text</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to display warning
+                                                next to</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to
+                                                display warning next to </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Static text</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and display
+                                                after static text</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used to give the user a warning about the entered
@@ -354,17 +431,26 @@ Kolla med mArkus"?>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Warning on
-                                            complete</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Warning on complete</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Data element to display warning
-                                                next to</emphasis></para>
-                                        <para><emphasis role="bold">Tracked entity attribute to
-                                                display warning next to </emphasis></para>
-                                        <para><emphasis role="bold">Static text</emphasis></para>
-                                        <para><emphasis role="bold">Expression to evaluate and
-                                                display after static text</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Data element to display warning
+                                                next to</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to
+                                                display warning next to </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Static text</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Expression to evaluate and display
+                                                after static text</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
                                         <para>Used to give the user a warning if he/she tries to
@@ -386,35 +472,132 @@ Kolla med mArkus"?>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Send Message
-                                        </emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Send Message </emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Message template to send</emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Message template to
+                                                send</emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para>Send Message triggers a notification based on provided message template. This action will be taken when ever there is a change in <emphasis role="bold">data value</emphasis>.
-                                            However this behaviour can be controled by providing event/enrollment status in program rule expression for example.
+                                        <para>Send Message triggers a notification based on provided
+                                            message template. This action will be taken when ever
+                                            there is a change in <emphasis role="bold">data
+                                                value</emphasis>. However this behaviour can be
+                                            controled by providing event/enrollment status in
+                                            program rule expression for example.
                                             <screen>V{event_status} == 'COMPLETED'</screen>
                                         </para>
-                                        <para>Message template will be parsed and variables will be substituted with actual values.</para>
+                                        <para>Message template will be parsed and variables will be
+                                            substituted with actual values.</para>
                                     </entry>
                                 </row>
                                 <row>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Schedule Message
-                                        </emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Schedule Message </emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para><emphasis role="bold">Message template to send</emphasis></para>
-                                        <para><emphasis role="bold">Data field which contains expression to evaluate the date which notification should be sent at.                               
-                                        </emphasis></para>
+                                        <para>
+                                            <emphasis role="bold">Message template to
+                                                send</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Data field which contains
+                                                expression to evaluate the date which notification
+                                                should be sent at. </emphasis>
+                                        </para>
                                     </entry>
                                     <entry align="left" valign="top">
-                                        <para>Schedule Message will schedule notification at date provided by Expression in the data field. Sample expression is given below
+                                        <para>Schedule Message will schedule notification at date
+                                            provided by Expression in the data field. Sample
+                                            expression is given below
                                             <screen>d2:addDays( '2018-04-20', '2' )</screen>
                                         </para>
-                                        <para>Message template will be parsed and variables will be substituted with actual values.</para>
+                                        <para>Message template will be parsed and variables will be
+                                            substituted with actual values.</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry align="left" valign="top">
+                                        <para>
+                                            <emphasis role="bold">Hide option </emphasis>
+                                        </para>
+                                    </entry>
+                                    <entry align="left" valign="top">
+                                        <para>
+                                            <emphasis role="bold">Data element to hide option
+                                                for</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to hide
+                                                option for </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Option that should be hidden
+                                            </emphasis>
+                                        </para>
+                                    </entry>
+                                    <entry align="left" valign="top">
+                                        <para>Used to selectively hide a single option for an option
+                                            set in a given data element/tracked entity attribute.
+                                        </para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry align="left" valign="top">
+                                        <para>
+                                            <emphasis role="bold">Hide option group </emphasis>
+                                        </para>
+                                    </entry>
+                                    <entry align="left" valign="top">
+                                        <para>
+                                            <emphasis role="bold">Data element to hide option
+                                                for</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to hide
+                                                option for </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Option group that should be hidden
+                                            </emphasis>
+                                        </para>
+                                    </entry>
+                                    <entry align="left" valign="top">
+                                        <para>Used to hide all options in a given option group and
+                                            data element/tracked entity attribute. </para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry align="left" valign="top">
+                                        <para>
+                                            <emphasis role="bold">Show option group </emphasis>
+                                        </para>
+                                    </entry>
+                                    <entry align="left" valign="top">
+                                        <para>
+                                            <emphasis role="bold">Data element to hide option
+                                                for</emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Tracked entity attribute to hide
+                                                option for </emphasis>
+                                        </para>
+                                        <para>
+                                            <emphasis role="bold">Option group that should be shown
+                                            </emphasis>
+                                        </para>
+                                    </entry>
+                                    <entry align="left" valign="top">
+                                        <para>Used to show only options from a given option group in
+                                            a given data element/tracked entity attribute. To show
+                                            an option group implicitly hides all options that is not
+                                            part of the group(s) that is shown. </para>
                                     </entry>
                                 </row>
                             </tbody>
@@ -432,6 +615,5 @@ Kolla med mArkus"?>
         <listitem>
             <para>Click <emphasis role="bold">Save</emphasis>.</para>
         </listitem>
-    </orderedlist>    
+    </orderedlist>
 </section>
-
