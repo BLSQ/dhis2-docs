@@ -57,7 +57,8 @@ Also add info about search results, that you can download the list. What is the 
       <listitem>
         <?oxy_comment_start author="cecilia" timestamp="20160905T160429+0200" comment="For SME: What does this mean?"?>
         <para>Both skip-logic and validation error/warning messages are supported during
-          registration.</para><?oxy_comment_end?>
+          registration.</para>
+        <?oxy_comment_end?>
       </listitem>
       <listitem>
         <para>When you close an organisation unit, you can't register or edit events
@@ -204,7 +205,8 @@ Is it always &quot;firstname&quot; and &quot;last name&quot;?"?>information<?oxy
         <mediaobject>
           <imageobject>
             <imagedata width="80%" align="center"
-              fileref="resources/images/tracker_capture/tracker_capture_register_integrated_search.png"/>
+              fileref="resources/images/tracker_capture/tracker_capture_register_integrated_search.png"
+            />
           </imageobject>
         </mediaobject>
       </screenshot>
@@ -300,12 +302,14 @@ Does it search fin node + children or only children?"?>existing<?oxy_comment_end
         </screenshot>
       </para>
       <para>Lists can also be downloaded or printed. </para>
-      <para><inlinemediaobject>
+      <para>
+        <inlinemediaobject>
           <imageobject>
-            <imagedata
-              fileref="resources/images/tracker_capture/tracker_capture_lists_download.png"/>
+            <imagedata fileref="resources/images/tracker_capture/tracker_capture_lists_download.png"
+            />
           </imageobject>
-        </inlinemediaobject></para>
+        </inlinemediaobject>
+      </para>
     </section>
     <section xml:id="advanced_tracked_entity_instance_search">
       <title>Search</title>
@@ -316,7 +320,9 @@ Does it search fin node + children or only children?"?>existing<?oxy_comment_end
         program context, this is done individually for each program in the program maintenance app.
         For configuring searching without a program context, this is done individually for each
         tracked entity type in the tracked entity type maintenance app.</para>
-      <para><emphasis role="bold">Searching without a program context:</emphasis><orderedlist>
+      <para>
+        <emphasis role="bold">Searching without a program context:</emphasis>
+        <orderedlist>
           <listitem>
             <para>Open <emphasis role="bold">Tracker Capture app</emphasis></para>
           </listitem>
@@ -331,8 +337,11 @@ Does it search fin node + children or only children?"?>existing<?oxy_comment_end
             <para>Fill in search criteria and click the <emphasis role="bold">search</emphasis> icon
               button.</para>
           </listitem>
-        </orderedlist></para>
-      <para><emphasis role="bold">Searching with a program context:</emphasis><orderedlist>
+        </orderedlist>
+      </para>
+      <para>
+        <emphasis role="bold">Searching with a program context:</emphasis>
+        <orderedlist>
           <listitem>
             <para>Open <emphasis role="bold">Tracker Capture app</emphasis></para>
           </listitem>
@@ -353,7 +362,8 @@ Does it search fin node + children or only children?"?>existing<?oxy_comment_end
             <para>Fill in search criteria and click the <emphasis role="bold">search</emphasis> icon
               button</para>
           </listitem>
-        </orderedlist></para>
+        </orderedlist>
+      </para>
       <para>
         <screenshot>
           <mediaobject>
@@ -397,6 +407,14 @@ Does it search fin node + children or only children?"?>existing<?oxy_comment_end
         </itemizedlist></para>
       <para>When choosing to open the registration form, the search values will automatically be
         filled into the registration form.</para>
+    </section>
+    <section xml:id="break_glass">
+      <title>Breaking the glass</title>
+      <para>If the program is configured with access level <emphasis role="bold"
+          >protected</emphasis>, and the user searches and finds tracked entity instances that is
+        owned by organisation unit that the user does not have data capture authority for, the user
+        is presented with the option of breaking the glass. The user will gove a reason for breaking
+        the glass, then gain temporary ownership of the tracked entity instance.</para>
     </section>
   </section>
   <section xml:id="enroll_existing_tracked_entity_instance_in_program">
@@ -449,7 +467,9 @@ Do the data entry widgets look different depending on the program?"?>widgets<?ox
             <tbody>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Timeline Data entry</emphasis></para>
+                  <para>
+                    <emphasis role="bold">Timeline Data entry</emphasis>
+                  </para>
                 </entry>
                 <entry>
                   <para>For data entry using either default or custom forms.</para>
@@ -476,9 +496,11 @@ Do the data entry widgets look different depending on the program?"?>widgets<?ox
               </row>
               <row>
                 <entry>
-                  <para><emphasis role="bold">Tabular
+                  <para>
+                    <emphasis role="bold">Tabular
                       <?oxy_comment_start author="cecilia" timestamp="20161005T165624+0200" comment="Feature has been redone, verify with SME."?>data<?oxy_comment_end?>
-                      entry</emphasis></para>
+                      entry</emphasis>
+                  </para>
                 </entry>
                 <entry>
                   <para>For tabular-style data entry.</para>
@@ -582,8 +604,9 @@ Do the data entry widgets look different depending on the program?"?>widgets<?ox
           </listitem>
         </orderedlist></para>
       <note>
-        <para><emphasis>Note that this will only work for events that are
-          repeatable.</emphasis></para>
+        <para>
+          <emphasis>Note that this will only work for events that are repeatable.</emphasis>
+        </para>
       </note>
       <para>
         <screenshot>

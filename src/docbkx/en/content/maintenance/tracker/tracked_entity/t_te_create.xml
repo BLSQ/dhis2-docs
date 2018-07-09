@@ -22,6 +22,9 @@
             <para>Type a <emphasis role="bold">Name</emphasis> of the tracked entity.</para>
         </listitem>
         <listitem>
+            <para>(Optional) select a <emphasis role="bold">Color</emphasis> and an <emphasis role="bold">Icon</emphasis> that will be used by the data capture apps to identify this tracked entity type.</para>
+        </listitem>
+        <listitem>
             <para>(Optional) Enter a <emphasis role="bold">Description</emphasis> of the tracked
                 entity.</para>
         </listitem>

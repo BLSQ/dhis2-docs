@@ -1389,6 +1389,14 @@ http://server/api/26/constants/ID</screen></para>
               are moving metadata between 2 non-synced instances, it might make sense to set this to
               EXCLUDE to ease the handling of these generated objects.</entry>
           </row>
+          <row>
+            <entry>skipSharing</entry>
+            <entry>false/true</entry>
+            <entry>Enabling this will strip the sharing properties from the exported objects. This
+              includes <emphasis>user</emphasis>, <emphasis>publicAccess</emphasis>,
+                <emphasis>userGroupAccesses</emphasis>, <emphasis>userAccesses</emphasis>, and
+                <emphasis>externalAccess</emphasis>.</entry>
+          </row>
         </tbody>
       </tgroup>
     </table>
@@ -1979,7 +1987,8 @@ rabbitmq.connection-timeout = 60000</screen></para>
     <title>Kafka integration</title>
     <para>Kafka integration was added in 2.30 and is currently supported for doing bulk imports of
       tracker data (tracked entities, enrollments, events), to integrate with kafka you need to
-      first install and configure kafka (see <link xlink:href="https://kafka.apache.org/"
+      first install and configure Kafka (see <link
+        xlink:href="https://docs.confluent.io/current/installation/installing_cp/index.html"
         xmlns:xlink="http://www.w3.org/1999/xlink"/> for more information), then update your
       "dhis.conf" with at least the "<emphasis>kafka.bootstrap-servers</emphasis>" key, an example
       can be seen below (only <emphasis>bootstrap-servers</emphasis> is required, the rest is just
@@ -1987,7 +1996,7 @@ rabbitmq.connection-timeout = 60000</screen></para>
       defaults):<screen>kafka.bootstrap-servers = localhost:9092
 kafka.client-id = dhis2
 kafka.retries = 10
-kafka.poll-records = 100</screen></para>
+kafka.max-poll-records = 1000</screen></para>
     <para>After adding this, you will need to create the topics that you are interested in using,
       below we will show how that is done for tracker data (the only currently supported
       topics).</para>
@@ -1999,11 +2008,11 @@ kafka.poll-records = 100</screen></para>
 /api/events/queue (topic: bulk-events)</screen></para>
       <para>You can use these endpoints exactly as you would with the normal tracker endpoint, the
         only difference is that they are all asynchronous, and you will need to get the import
-        summaries using normal task summary approach. You will also need to schedule a "Kafka Job"
-        in the scheduler app (there is one defined already, but you might want to change the time,
-        or also add more as the default will only run once a day). Depending on what you have
-        defined in the "kafka.poll-records"  key, 100 or more objects will be handled each time the
-        scheduled job is run.</para>
+        summaries using normal task summary approach. Internally there is a scheduled system job
+        called "Kafka Job" which runs every second to check for new objects waiting in Kafka.</para>
+      <para>The topics will be created by DHIS2 if they don't exist, but be aware that they will
+        then have their basic default settings applied (1 replication factor, and 1 partition
+        only).</para>
     </section>
   </section>
   <section xml:id="webapi_csv_metadata_import">
@@ -2604,6 +2613,19 @@ kafka.poll-records = 100</screen></para>
       using the same URL as above.</para>
     <para>The favorite status will appear as a boolean <emphasis>favorite</emphasis> field on the
       object (e.g. the dashboard) in the metadata response.</para>
+  </section>
+  <section xml:id="webapi_subscription">
+    <title>Subscriptions</title>
+    <para>A logged user can subscribe to certain types of objects. Currently subscribable objects are
+     those of type Chart, EventChart, EventReport, Map and ReportTable.</para>
+    <para>To get the subscribers of an object (return an array of user IDs) you can make a <emphasis>GET</emphasis> request:
+    <screen>/api/30/&lt;object-type>/&lt;object-id>/subscribers</screen></para>
+    <para>See example as follows:<screen>/api/30/charts/DkPKc1EUmC2/subscribers</screen></para>
+    <para>To check whether the current user is subscribed to an object (returns a boolean) you can perform a <emphasis>GET</emphasis> call:
+    <screen>/api/30/&lt;object-type>/&lt;object-id>/subscribed</screen></para>
+    <para>See example as follows:<screen>/api/30/charts/DkPKc1EUmC2/subscribed</screen></para>
+    <para>To subscribe/de-subscribe to an object you perform a <emphasis>POST/DELETE</emphasis> request (no content type required):
+    <screen>/api/30/&lt;object-type>/&lt;object-id>/subscriber</screen></para>
   </section>
   <section xml:id="webapi_file_resources">
     <title>File resources</title>
@@ -6152,7 +6174,7 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
       <para>The response is a <emphasis role="italic">200 OK</emphasis> with the following JSON
         body:<screen>{ &quot;markedRead&quot; : [ &quot;ZrKML5WiyFm&quot;, &quot;Gc03smoTm6q&quot; ] }</screen></para>
       <para>In 2.30 we have included the option to add recipients to an existing message
-      conversation. The resource is located at <screen>https://play.dhis2.org/demo/api/30/messageConversations/id/addRecipients</screen>
+      conversation. The resource is located at <screen>https://play.dhis2.org/demo/api/30/messageConversations/id/recipients</screen>
       The options for this resource is a list of users, user groups and organisation units. The request should look like this:
       <screen>
 {
@@ -6235,20 +6257,20 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
     <para>For resources related to data analysis in DHIS 2, such as pivot tables, charts, maps,
       event reports and event charts, you can write and share data interpretations. An
       interpretation can be a comment, question, observation or interpretation about a data report
-      or visualization.<screen>/api/26/interpretations</screen></para>
+      or visualization.<screen>/api/30/interpretations</screen></para>
     <section xml:id="webapi_reading_interpretations">
       <title>Reading interpretations</title>
       <para>To read interpretations we will interact with the <emphasis role="italic"
-          >/api/26/interpretations</emphasis> resource. A typical GET request using field filtering
+          >/api/30/interpretations</emphasis> resource. A typical GET request using field filtering
         can look like
-        this:<screen>GET /api/26/interpretations?fields=*,comments[id,text,user]</screen></para>
+        this:<screen>GET /api/30/interpretations?fields=*,comments[id,text,user,mentions]</screen></para>
       <para>The output in JSON response format could look like below (additional fields omitted for
         brevity):</para>
       <screen>{
     &quot;interpretations&quot;: [{
         &quot;id&quot;: &quot;XSHiFlHAhhh&quot;,
         &quot;created&quot;: &quot;2013-05-30T10:24:06.181+0000&quot;,
-        "text": "Data looks suspicious, could be a data entry mistake.",
+        "text": "<p>Data looks suspicious, could be a data entry mistake.</p>",
         &quot;type&quot;: &quot;REPORT_TABLE&quot;,
         "likes": 2,
         "user": {
@@ -6260,7 +6282,7 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
     }, {
         &quot;id&quot;: &quot;kr4AnZmYL43&quot;,
         &quot;created&quot;: &quot;2013-05-29T14:47:13.081+0000&quot;,
-        "text": "Delivery rates in Bo looks high.",
+        "text": "<p>Delivery rates in Bo looks high.</p>",
         &quot;type&quot;: &quot;CHART&quot;,
         "likes": 3,
         "user": {
@@ -6269,17 +6291,35 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
         "chart": {
           "id": "HDEDqV3yv3H"
         },
+        mentions: [
+        {
+          "created": "2018-06-25T10:25:54.498",
+          "username": "boateng"
+        }
+        ],
         &quot;comments&quot;: [{
             "id": "iB4Etq8yTE6",
-            "text": "This report indicates a surge",
+            "text": "<p>This report indicates a surge</p>",
             "user": {
                 "id": "B4XIfwOcGyI"
             }, {
             "id": "iB4Etq8yTE6",
-            "text": "Likely caused by heavy rainfall",
+            "text": "<p>Likely caused by heavy rainfall</p>",
             "user": {
                 "id": "B4XIfwOcGyI"
+            },
+            {
+            "id": "SIjkdENan8p",
+            "text": "<p>have a look at this @boateng</p>",
+            "user": {
+              "id": "xE7jOejl9FI"
+            },
+            "mentions": [{
+              "created": "2018-06-25T10:03:52.316",
+              "username": "boateng"
             }]
+            }
+          }]
         }
     }]
 }</screen>
@@ -6341,6 +6381,10 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
               <entry>Array of comments for the interpretation. The text field holds the actual
                 comment.</entry>
             </row>
+            <row>
+              <entry>mentions</entry>
+              <entry>Array of mentions for the interpretation. A list of users identifiers.</entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
@@ -6348,7 +6392,16 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
         the URL to retrieve the data associated with the resource (as apposed to the metadata). As
         an example, by following the map link and appending /data one can retrieve a PNG (image)
         representation of the thematic map through the following URL:</para>
-      <screen>https://play.dhis2.org/demo/api/26/maps/bhmHJ4ZCdCd/data</screen>
+      <screen>https://play.dhis2.org/demo/api/30/maps/bhmHJ4ZCdCd/data</screen>
+      <para>For all analytical objects you can filter by <emphasis role="italic">mentions</emphasis>.
+      To retrieve all the interpretations/comments where a user has been mentioned you have three options.
+      You can filter by the interpretation mentions (mentions in the interpretation description):
+      <screen>GET /api/30/interpretations?fields=*,comments[*]&amp;filter=mentions.username:in:[boateng]</screen>
+      You can filter by the interpretation comments mentions (mentions in any comment):
+      <screen>GET /api/30/interpretations?fields=*,comments[*]&amp;filter=comments.mentions.username:in:[boateng]</screen>
+      or you can filter by intepretations which contains the mentions either in the interpretation or in any comment (OR junction):
+      <screen>GET /api/30/interpretations?fields=*,comments[*]&amp;filter=mentions:in:[boateng]</screen>
+      </para>
     </section>
     <section xml:id="webapi_writing_interpretations">
       <title>Writing interpretations</title>
@@ -15008,6 +15061,26 @@ qPEdI1xn7k0,COMPLETED,&lt;pid>,&lt;psid>,&lt;enrollment-id>,&lt;ou>,2016-01-01,2
           CREATE, UPDATE, DELETE to be present in the payload at the same time.</para>
       </section>
     </section>
+
+    <section xml:id="webapi_tracker_ownership_management">
+      <title>Tracker Ownership Management</title>
+      <para>A new concept called Tracker Ownership is introduced from 2.30. There will now be one owner organisation unit for a tracked entity instance in the context of a program. Programs that are configured with an access level of <emphasis>PROTECTED</emphasis> or <emphasis>CLOSED</emphasis> will adhere to the ownership privileges. Only those users belonging to the owning org unit for a tracked entity-program combination will be able to access the data related to that program for that tracked entity.
+      </para>
+       <section xml:id="webapi_tracker_ownership_override_api">
+        <title>Tracker Ownership Override : Break the Glass</title>
+        <para>It is possible to temporarily override this ownership privilege for a program that is configured with an access level of <emphasis>PROTECTED</emphasis>. Any user will be able to temporarily gain access to the program related data, if the user specifies a reason for accessing the tracked entity-program data. This act of temporarily gaining access is termed as <emphasis>breaking the glass</emphasis>. Currently, the temporary access is granted for 3 hours. DHIS2 audits breaking the glass along with the reason specified by the user. It is not possible to gain temporary access to a program that has been configured with an access level of <emphasis>CLOSED</emphasis>. To break the glass for a tracked entity program combination, you can issue a POST request as shown:
+
+<screen>/api/30/tracker/ownership/override?trackedEntityInstance=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;reason=patient+showed+up+for+emergency+care</screen>
+
+      </para>
+      </section>
+       <section xml:id="webapi_tracker_ownership_transfer_api">
+        <title>Tracker Ownership Transfer</title>
+        <para>It is possible to transfer the ownership of a tracked entity-program from one org unit to another. This will be useful in case of patient referrals or migrations. Only an owner (or users who have broken the glass) can transfer the ownership. To transfer ownership of a tracked entity-program to another organisation unit, you can issue a PUT request as shown:
+        <screen>/api/30/tracker/ownership/transfer?trackedEntityInstance=DiszpKrYNg8&amp;program=eBAyeGv0exc&amp;ou=EJNxP3WreNP</screen>
+        </para>
+      </section>
+    </section>
   </section>
 
   <section xml:id="webapi_anonymous_events_api">
@@ -16368,5 +16441,27 @@ qPEdI1xn7k0,COMPLETED,&lt;pid>,&lt;psid>,&lt;enrollment-id>,&lt;ou>,2016-01-01,2
       this:<screen>curl &quot;localhost:8080/api/synchronization/metadataPull&quot; -X POST
   -d &quot;https://dhis2.org/metadata-repo/221/trainingland-org-units/metadata.json&quot;
   -H &quot;Content-Type:text/plain&quot; -u admin:district -v</screen></para>
+  </section>
+  <section xml:id="webapi_icons">
+    <title>Icons</title>
+    <para>DHIS2 includes a collection of icons that can be used to give visual context to metadata.
+      These icons can be accessed through the icons resource.<screen>GET /api/icons</screen></para>
+    <para>This endpoint returns a list of information about the available icons. Eeach entry
+      contains information about the icon, and a reference to the actual
+      icon.<screen>{
+  key: "mosquito_outline",
+  description: "",
+  keywords: [
+    "malaria",
+    "mosquito",
+    "denge"
+  ],
+  href: "&lt;dhis server>/api/icons/mosquito_outline/icon.svg"
+}</screen></para>
+    <para>The keywords can be used to filter which icons to return. Passing a list of keywords with
+      the request will only return icons that match all the
+      keywords:<screen>GET /api/icons?keywords=shape,small</screen></para>
+    <para>A list of  all unique keywords can be found at the keywords
+      resource:<screen>GET /api/icons/keywords</screen></para>
   </section>
 </chapter>
