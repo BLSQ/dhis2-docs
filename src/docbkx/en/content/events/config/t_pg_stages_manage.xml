@@ -41,6 +41,9 @@
                         <para>Enter a <emphasis role="bold">Name</emphasis>.</para>
                     </listitem>
                     <listitem>
+                        <para>(Optional) select a <emphasis role="bold">Color</emphasis> and an <emphasis role="bold">Icon</emphasis> that will be used by the data capture apps to identify this program stage.</para>
+                    </listitem>
+                    <listitem>
                         <para>Enter a <emphasis role="bold">Description</emphasis>.</para>
                     </listitem>
                     <listitem>

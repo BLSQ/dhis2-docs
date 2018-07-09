@@ -110,6 +110,27 @@
         </orderedlist>
     </section>
     <section>
+        <title>Subscribe to a favorite</title>
+        <para>
+            When you are subscribed to a favorite, you receive internal messages whenever
+            another user likes/creates/updates an interpretation or creates/update an interpretation
+            comment of this favorite.
+        </para>
+        <orderedlist>
+            <listitem>
+                <para>Open a favorite.</para>
+            </listitem>
+            <listitem>
+                <para>
+                    Click <emphasis role="bold">>>></emphasis> in the top right of the workspace.
+                </para>
+            </listitem>
+            <listitem>
+                <para>Click on the upper-right bell icon to subscribe to this favorite.</para>
+            </listitem>
+        </orderedlist>
+    </section>
+    <section>
         <title>Create a link to a favorite</title>
         <para>
             <orderedlist>

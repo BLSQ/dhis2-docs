@@ -49,6 +49,14 @@ Find out who does this? Admin? Implementer? User? " flag="done"?>ata<?oxy_commen
             <para>In many countries data elements are assigned a code.</para>
         </listitem>
         <listitem>
+            <para>(Optional) In the <emphasis role="bold">Color</emphasis> field, assign a
+                color which will be used for this data element in the data capture apps.</para>
+        </listitem>
+        <listitem>
+            <para>(Optional) In the <emphasis role="bold">Icon</emphasis> field, assign an
+                icon which will be used for this data element in the data capture apps.</para>
+        </listitem>
+        <listitem>
             <para>In the <emphasis role="bold">Description</emphasis> field, type a description of
                 the data element. Be as precise as possible and include complete information about
                 how the data element is measured and what its purpose is.</para>

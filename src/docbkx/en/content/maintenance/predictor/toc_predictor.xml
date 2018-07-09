@@ -11,6 +11,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="c_predictor.xml" encoding="UTF-8"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="samples_predictor.xml" encoding="UTF-8"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="t_predictor_create.xml" encoding="UTF-8"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="t_predictor_group_create.xml" encoding="UTF-8"/>
     
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../common/mtn_clone.xml" encoding="UTF-8"/>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../common/mtn_delete.xml" encoding="UTF-8"/>
