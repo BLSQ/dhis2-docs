@@ -10,7 +10,7 @@
 	xmlns:svg="http://www.w3.org/2000/svg"
 	xmlns:mth="http://www.w3.org/1998/Math/MathML"
 	xmlns:db="http://docbook.org/ns/docbook"
-	xml:id="custom_dimensions">
+	xml:id="additional_data_dimensions">
   <title>Additional data dimensions</title>
   <section>
     <title>About additional data dimensions</title>
@@ -28,6 +28,6 @@
   </section>
   <section>
     <title>Create or edit an attribute category and its options</title>
-    <para>For the process of creating an attribute category as well as options and combinations, see the section of this manual named &quot;Manage categories&quot;.</para>
+    <para>For the process of creating an attribute category as well as options and combinations, see the section of this manual named Manage categories.</para>
   </section>
 </chapter>
