@@ -659,7 +659,7 @@ cluster.members = 193.157.199.131:4001</screen></para>
   <para>You must restart each Tomcat instance to make the changes take effect. The two instances have now been made aware of each other and DHIS 2 will ensure that their caches are kept in sync.</para>
   </section>
   <section xml:id="install_cluster_configuration_redis">
-	<title>Cluster shared data store configuration</title>
+    <title>Cluster shared data store configuration</title>
     <para>In a cluster setup, a <emphasis>Redis</emphasis> instance is required and will handle shared user sessions, application cache and cluster node leadership.</para>
  <para>DHIS2 will connect to Redis if the  <emphasis>redis.enabled</emphasis> configuration property in <emphasis>dhis.conf</emphasis> is set to <emphasis>true</emphasis> along with the following four properties:</para>
  <orderedlist>
