@@ -597,6 +597,7 @@ read3.connection.url = jdbc:postgresql://127.0.0.13/dbread3</screen></para>
     <title>Web server cluster configuration</title>
     <para>This section describes how to set up the DHIS 2 application to run in a cluster.</para>
     <section xml:id="install_cluster_configuration_introduction">
+	  <title>Clustering overview</title>
       <para>Clustering is a common technique for improving system scalability and availability.
         Clustering refers to setting up multiple web servers such as Tomcat instances and have them
         serve a single application. Clustering allows for <emphasis>scaling out</emphasis> an
@@ -606,16 +607,14 @@ read3.connection.url = jdbc:postgresql://127.0.0.13/dbread3</screen></para>
       <para>When setting up multiple Tomcat instances there is a need for making the instances aware
         of each other. This awareness will enable DHIS 2 to keep the local data (Hibernate) caches in sync and in a consistent state. When an update is done on
         one instance, the caches on the other instances must be notified so that they can be invalidated and avoid becoming stale.</para>
-    </section>
-    <section>
-      There are two aspects to configure in <emphasis>dhis.conf</emphasis> in order to run DHIS 2 in a cluster.
+	  <para>There are two aspects to configure in <emphasis>dhis.conf</emphasis> in order to run DHIS 2 in a cluster.</para>
       <itemizedlist>
 		<listitem><para>Each instance must specify the other DHIS 2 application members of the cluster.</para></listitem>
 		<listitem><para>An instance of the Redis data store must be installed and connection information must be configured for each DHIS 2 application instance.</para></listitem>
 	  </itemizedlist>
     </section>
     <section xml:id="install_cluster_configuration">
-      <title>Cluster configuration</title>
+      <title>Cluster instance configuration</title>
       <para>A DHIS 2 cluster setup is based on manual configuration of each instance. For each DHIS
         2 instance one must specify the public <emphasis>hostname</emphasis> as well as the
         hostnames of the other instances participating in the cluster. </para>
@@ -660,6 +659,7 @@ cluster.members = 193.157.199.131:4001</screen></para>
   <para>You must restart each Tomcat instance to make the changes take effect. The two instances have now been made aware of each other and DHIS 2 will ensure that their caches are kept in sync.</para>
   </section>
   <section xml:id="install_cluster_configuration_redis">
+	<title>Cluster shared data store configuration</title>
     <para>In a cluster setup, a <emphasis>Redis</emphasis> instance is required and will handle shared user sessions, application cache and cluster node leadership.</para>
  <para>DHIS2 will connect to Redis if the  <emphasis>redis.enabled</emphasis> configuration property in <emphasis>dhis.conf</emphasis> is set to <emphasis>true</emphasis> along with the following four properties:</para>
  <orderedlist>
