@@ -1,20 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<section version="5.0"
-    xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
-    xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
-    xmlns:db="http://docbook.org/ns/docbook"
-    xml:id="create_event_program">
+<section version="5.0" xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd" xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML" xmlns:db="http://docbook.org/ns/docbook" xml:id="create_event_program">
     <title>Create or edit an event program</title>
     <section>
         <title>Enter event program details</title>
         <orderedlist>
             <listitem>
-                <para>Open the <emphasis role="bold">Maintenance</emphasis> app and click <emphasis
-                        role="bold">Program</emphasis> > <emphasis role="bold"
-                    >Program</emphasis>.</para>
+                <para>Open the <emphasis role="bold">Maintenance</emphasis> app and click <emphasis role="bold">Program</emphasis> > <emphasis role="bold">Program</emphasis>.</para>
             </listitem>
             <listitem>
                 <para>Click the add button.</para>
@@ -113,8 +104,7 @@ monitoring and evaluation people"?>program<?oxy_comment_end?>.</para>
                                 </entry>
                                 <entry align="left" valign="top">
                                     <para>The data approval workflow you want to use. The default
-                                        setting is <emphasis role="bold"
-                                            ><?oxy_comment_start author="cecilia" timestamp="20170601T120008+0200" comment="Suggest to SME to change UI to &quot;None&quot;."?>No<?oxy_comment_end?>
+                                        setting is <emphasis role="bold"><?oxy_comment_start author="cecilia" timestamp="20170601T120008+0200" comment="Suggest to SME to change UI to &quot;None&quot;."?>No<?oxy_comment_end?>
                                             value</emphasis>.</para>
                                 </entry>
                             </row>
@@ -316,8 +306,7 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                 <para>Click <emphasis role="bold">Create data entry form</emphasis>.</para>
             </listitem>
             <listitem>
-                <para>Click <emphasis role="bold">Basic</emphasis>, <emphasis role="bold"
-                        >Section</emphasis> or <emphasis role="bold">Custom</emphasis>.</para>
+                <para>Click <emphasis role="bold">Basic</emphasis>, <emphasis role="bold">Section</emphasis> or <emphasis role="bold">Custom</emphasis>.</para>
             </listitem>
             <listitem>
                 <para>To create a <emphasis role="bold">Basic</emphasis> data entry form: Drag and
@@ -348,8 +337,7 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
             </listitem>
             <listitem>
                 <para>To create a <emphasis role="bold">Custom</emphasis> data entry from: Use the
-                    WYSIWYG editor to create a completely customized form. If you select <emphasis
-                        role="bold">Source</emphasis>, you can paste HTML code directly in the
+                    WYSIWYG editor to create a completely customized form. If you select <emphasis role="bold">Source</emphasis>, you can paste HTML code directly in the
                     editing area. You can also insert images for example flags or logos.</para>
             </listitem>
             <listitem>
@@ -358,11 +346,14 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
         </orderedlist>
     </section>
     <section>
-        <title>Assign organisation units</title>
+        <title>Access</title>
+        <para>Access options decide who can capture data for the program or view/edit the program's
+            metadata. A program can be shared to organisation units, and in addition, the main
+            program and any program stages' access options can be configured through the <emphasis
+                role="bold">Sharing dialog</emphasis>. Access options are available in the <emphasis
+                role="bold">Access</emphasis> tab.</para>
+        <para>Assign organization units:</para>
         <orderedlist>
-            <listitem>
-                <para>Click <emphasis role="bold">Assign organisation units</emphasis>.</para>
-            </listitem>
             <listitem>
                 <para>In the organisation tree, double-click the organisation units you want to add
                     to the program to.</para>
@@ -371,8 +362,46 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                     <?oxy_comment_start author="cecilia" timestamp="20160526T100438+0200" comment="Issue submitted on GitHub to make it possible to search by code too, jsut like the Create new org unit form." flag="done"?>name<?oxy_comment_end?>.
                     The selected organisation units display in orange.</para>
             </listitem>
+        </orderedlist>
+        <para>Change roles and access:</para>
+        <orderedlist>
             <listitem>
-                <para>Click next.</para>
+                <para>Scroll down to the <emphasis role="bold">Roles and access</emphasis>
+                    section.</para>
+                <para>The first row shows the main program's access options, and each subsequent row
+                    shows the options of one program stage. Program stages with a warning icon
+                    (exclamation mark) contain access options that deviate from the main program,
+                    meaning they are accessed by a different combination of users.</para>
+            </listitem>
+            <listitem>
+                <para>Click on either of the rows and the <emphasis role="bold">Sharing
+                        dialog</emphasis> will show.</para>
+            </listitem>
+            <listitem>
+                <para>Modify the access options accordingly. See documentation on the sharing dialog
+                    for details.</para>
+            </listitem>
+            <listitem>
+                <para>Click the <emphasis role="bold">Apply</emphasis> button.</para>
+            </listitem>
+            <listitem>
+                <para>Repeat the process for each program/program stage. You can also copy all
+                    access options from the main program to your child programs:<orderedlist>
+                        <listitem>
+                            <para>Select the program stages you want to have similar access options
+                                as the main program by toggling the checkboxes on the righthand side
+                                of the program stages. You can also choose to <emphasis role="bold"
+                                    >Select all</emphasis> program stages, <emphasis role="bold"
+                                    >Deselect all</emphasis> program stages or <emphasis role="bold"
+                                    >Select similar</emphasis> stages, in terms of access options,
+                                to that of the main program. Similar stages are toggled by
+                                default.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Click <emphasis role="bold">Apply to selected
+                                stages</emphasis></para>
+                        </listitem>
+                    </orderedlist></para>
             </listitem>
         </orderedlist>
     </section>
@@ -559,9 +588,7 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
         </orderedlist>
         <para>
             <note>
-                <para>You configure when the program notifications are sent in the <emphasis
-                        role="bold">Data Administration</emphasis> app > <emphasis role="bold"
-                        >Scheduling</emphasis> > <emphasis role="bold">Program notifications
+                <para>You configure when the program notifications are sent in the <emphasis role="bold">Data Administration</emphasis> app > <emphasis role="bold">Scheduling</emphasis> > <emphasis role="bold">Program notifications
                         scheduler</emphasis>. </para>
                 <itemizedlist>
                     <listitem>
@@ -577,4 +604,3 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
         </para>
     </section>    
 </section>
-
