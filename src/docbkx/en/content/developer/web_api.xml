@@ -6199,6 +6199,77 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
 }
       </screen></para>
     </section>
+    <section xml:id="webapi_message_attachments">
+      <title>Message Attachments</title>
+      <para>Creating messages with attachments is done in two steps: uploading the file to the
+          <emphasis>attachments</emphasis> resource, and then including one or several of the
+        attachment IDs when creating a new message.</para>
+      <para>A POST request to the <emphasis>attachments</emphasis> resource will upload the file to
+        the
+        server.<screen>curl -F file=@attachment.png -u admin:district https://play.dhis2.org/demo/api/messageConversations/attachments</screen></para>
+      <para>The request returns an object that represents the attachment. The id of this object must
+        be used when creating a message in order to link the attachment with the
+        message.<screen>{  
+   "created":"2018-07-20T16:54:18.210",
+   "lastUpdated":"2018-07-20T16:54:18.212",
+   "externalAccess":false,
+   "publicAccess":"--------",
+   "user":{  
+      "name":"John Traore",
+      "created":"2013-04-18T17:15:08.407",
+      "lastUpdated":"2018-03-09T23:06:54.512",
+      "externalAccess":false,
+      "displayName":"John Traore",
+      "favorite":false,
+      "id":"xE7jOejl9FI"
+   },
+   "lastUpdatedBy":{  
+      "id":"xE7jOejl9FI",
+      "name":"John Traore"
+   },
+   "favorite":false,
+   "id":"fTpI4GOmujz"
+}</screen></para>
+      <para>When creating a new message, the ids can be passed in the request body to link the
+        uploaded files to the message being
+        created.<screen>{
+  &quot;subject&quot;: &quot;Hey&quot;,
+  &quot;text&quot;: &quot;How are you?&quot;,
+  &quot;users&quot;: [
+    {
+      &quot;id&quot;: &quot;OYLGMiazHtW&quot;
+    },
+    {
+      &quot;id&quot;: &quot;N3PZBUlN8vq&quot;
+    }
+  ],
+  &quot;userGroups&quot;: [
+    {
+      &quot;id&quot;: &quot;ZoHNWQajIoe&quot;
+    }
+  ],
+  &quot;organisationUnits&quot;: [
+    {
+      &quot;id&quot;: &quot;DiszpKrYNg8&quot;
+    }
+  ],
+  "attachments": [
+    {
+      "fTpI4GOmujz",
+      "h2ZsOxMFMfq"
+  ]
+}  </screen></para>
+      <para>When replying to a message, the ids can be passed as a request
+        parameter.<screen>curl -d &quot;Yes the Mortality data set has been reported&quot; 
+  &quot;https://play.dhis2.org/demo/api/26/messageConversations/ZjHHSjyyeJ2?attachments=fTpI4GOmujz,h2ZsOxMFMfq&quot; 
+  -H &quot;Content-Type:text/plain&quot; -u mobile:district -X POST -v</screen></para>
+      <para>Once a message with an attachment has been created, the attached file can be accessed
+        with a GET request to the following
+        URL.<screen>https://play.dhis2.org/demo/api/26/messageConversations/&lt;mcId>/&lt;msgId>/attachments/&lt;attachmentId></screen></para>
+      <para>Where &lt;mcId> is the <emphasis>messageConversation</emphasis> ID, &lt;msgId> is the ID
+        of the <emphasis>message</emphasis> that contains the attachment, and &lt;attachmentId> is
+        the ID of the specific <emphasis>messageAttachment</emphasis>.</para>
+    </section>
     <section xml:id="webapi_messaging_tickets">
       <title>Tickets and Validation Result Notifications</title>
       <para>You can use the "write feedback" tool to create tickets and messages. The only
