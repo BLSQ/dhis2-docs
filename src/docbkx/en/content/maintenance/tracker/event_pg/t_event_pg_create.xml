@@ -17,7 +17,8 @@
                     >Program</emphasis>.</para>
             </listitem>
             <listitem>
-                <para>Click the add button.</para>
+                <para>Click the add button, click <emphasis role="bold">Event program</emphasis> in
+                    the popup-dialog. </para>
             </listitem>
             <listitem>
                 <para>Enter program details, then click next.</para>
@@ -72,6 +73,11 @@ Default i analytics apps charts title" flag="done"?>program<?oxy_comment_end?>.
                                         The short name is used as the default chart or table title
                                         in the analytics apps.</para>
                                 </entry>
+                            </row>
+                            <row>
+                                <entry align="left" valign="top"><emphasis role="bold"
+                                        >Code</emphasis></entry>
+                                <entry align="left" valign="top">The code of the program.</entry>
                             </row>
                             <row>
                                 <entry align="left" valign="top">
@@ -174,13 +180,10 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                                 </entry>
                             </row>
                             <row><emphasis role="bold">
-                                    <entry align="left" valign="top">Capture coordinates</entry>
-                                </emphasis><entry align="left" valign="top">
-                                    <para>Select checkbox to capture an event's coordinates.</para>
-                                    <para>Many types of events may be recorded at a facility or be
-                                        owned-by a health worker at a facility, but actually take
-                                        place somewhere in the community.</para>
-                                </entry></row>
+                                    <entry align="left" valign="top">Feature type</entry>
+                                </emphasis><entry align="left" valign="top">By setting the feature
+                                    type, you can allow coordinates, polygons or multi polygons to
+                                    be captured for the program.</entry></row>
                             <row>
                                 <entry align="left" valign="top"><emphasis role="bold">Complete
                                         allowed only if validation passes</emphasis></entry>
@@ -423,8 +426,8 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                         <para>Select a <emphasis role="bold">Notification trigger</emphasis>.</para>
                         <informaltable frame="all">
                             <tgroup cols="2" align="left">
-                                <colspec colname="c1" colnum="1" colwidth="1.0*"/>
-                                <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+                                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                                <colspec colname="c2" colnum="2" colwidth="1*"/>
                                 <thead>
                                     <row>
                                         <entry align="left" valign="top">
@@ -457,6 +460,13 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                                                 be send.</para>
                                         </entry>
                                     </row>
+                                    <row>
+                                        <entry align="left" valign="top">Program rule</entry>
+                                        <entry align="left" valign="top">The program stage
+                                            notification is sent when a Program rule has the action
+                                            "Send message", has selected this "Subject Template"
+                                            (1.3), and is evaluated to true.</entry>
+                                    </row>
                                 </tbody>
                             </tgroup>
                         </informaltable>
@@ -474,8 +484,8 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                             recipient</emphasis>.</para>
                         <informaltable frame="all">
                             <tgroup cols="2" align="left">
-                                <colspec colname="c1" colnum="1" colwidth="1.0*"/>
-                                <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+                                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                                <colspec colname="c2" colnum="2" colwidth="1*"/>
                                 <thead>
                                     <row>
                                         <entry align="left" valign="top">
@@ -532,14 +542,12 @@ Verifed with SME that it should be added, submitted JIRA issue."?>days<?oxy_comm
                                         </entry>
                                     </row>
                                     <row>
-                                        <entry align="left" valign="top">
-                                            <?oxy_comment_start author="cecilia" timestamp="20170601T112453+0200" comment="What does this option do?"?>
-                                            <para>Program</para>
-                                            <?oxy_comment_end?>
-                                        </entry>
-                                        <entry align="left" valign="top">
-                                            <para>TBA</para>
-                                        </entry>
+                                        <entry align="left" valign="top">Data element</entry>
+                                        <entry align="left" valign="top">When selected, you get a
+                                            list of all Data Elements added in Section 1.2 that has
+                                            either Phone number or Email as its value type. The data
+                                            entry operator will be provided with the selected data
+                                            element when registering an event.</entry>
                                     </row>
                                 </tbody>
                             </tgroup>
