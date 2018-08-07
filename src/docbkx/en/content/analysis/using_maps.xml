@@ -313,16 +313,20 @@
             </inlinemediaobject></para>
           <itemizedlist>
             <listitem>
-              <para>Select <emphasis role="bold">Group events</emphasis> to group nearby events, or
+              <para>Select <emphasis role="bold">Group events</emphasis> to group nearby events (cluster), or
                   <emphasis role="bold">View all events</emphasis> to display events
                 individually.</para>
             </listitem>
             <listitem>
-              <para>Select a color for the event or cluster points.</para>
+              <para>Select a <emphasis role="bold">color</emphasis> for the event or cluster points.</para>
             </listitem>
             <listitem>
-              <para>Select the radius (between 1 and 20) for grouped events; also known as <emphasis
-                  role="bold">clusters</emphasis>.</para>
+              <para>Select the <emphasis role="bold">radius</emphasis> (between 1 and 20) for the events.</para>
+            </listitem>
+            <listitem>
+              <para>Select <emphasis role="bold">Show buffer</emphasis> to display visual buffer around each event. 
+                The radius of the buffer can be modified here. This option is only available if you select 
+                <emphasis role="bold">View all events</emphasis> above.</para>
             </listitem>
           </itemizedlist>
         </listitem>
