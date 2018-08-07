@@ -39,6 +39,13 @@
             </varlistentry>
             <varlistentry>
               <term><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                linkend="using_maps_tracked_entity_layer">Events</link></term>
+              <listitem>
+                <para> </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term><link xmlns:xlink="http://www.w3.org/1999/xlink"
                 linkend="using_maps_facility_layer">Facilities</link></term>
               <listitem>
               <para> </para>
@@ -409,6 +416,302 @@
       </orderedlist>
     </section>
   </section>
+
+<section xml:id="using_maps_tracked_entity_layer">
+    <title>Manage tracked entity layers</title>
+    <para>The tracked entity layer displays the geographical location of tracked entities registered in the DHIS2. 
+      Provided that tracked entities have associated point or polygon coordinates, you can explore these on a map.
+    </para>
+    <para>
+      <screenshot>
+        <title>Example of a tracked entity layer</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata width="100%" fileref="resources/images/maps/maps_tracked_entity_layer.png" format="png"
+            align="left"/>
+        </imageobject>
+      </mediaobject>
+      </screenshot>
+    </para>
+    <para>Tracked entity layers are represented by layer cards in the layer panel such as:</para>
+    <para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="resources/images/maps/maps_tracked_entity_layer_card.png" format="png"
+          align="left" width="40%"/>
+      </imageobject>
+    </mediaobject>
+    </para>
+    <para>Along the top of the tracked entity card from left to right are:</para>
+    <itemizedlist>
+      <listitem>
+        <para>A grab field to allow dragging and re-ordering layers with the mouse</para>
+      </listitem>
+      <listitem>
+        <para>The title and period associated with the layer</para>
+      </listitem>
+      <listitem>
+        <para>An eye symbol for toggling the visibility of the layer</para>
+      </listitem>
+      <listitem>
+        <para>An arrow symbol to collapse and expand the tracked entity card</para>
+      </listitem>
+    </itemizedlist>
+    <para>In the middle of the tracked entity card is a legend indicating the styling of the layer.</para>
+    <para>Along the bottom of the tracked entity card from left to right are:</para>
+    <itemizedlist>
+      <listitem>
+        <para>An edit (pencil) button to open the layer configuration dialog</para>
+      </listitem>
+      <listitem>
+        <para>A slider for modifying the layer transparency</para>
+      </listitem>
+      <listitem>
+        <para>A delete (trash can) icon to remove the layer from the current map.</para>
+      </listitem>
+    </itemizedlist>
+    <section xml:id="maps_create_tracked_enity_layer">
+      <title>Create a tracked entity layer</title>
+          <para>To create an tracked entity layer, choose <emphasis role="bold">Tracked entities</emphasis> on the
+          <emphasis role="bold">Add layer </emphasis>selection. This opens the Tracked entity layer
+        configuration dialog.</para>
+      
+      <orderedlist>
+        <listitem>
+          <para>In the <emphasis role="bold">DATA</emphasis> tab:</para>
+          <para><inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/maps/maps_event_layer_dialog_DATA.png"
+                  width="50%"/>
+              </imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Select a program and then select a program stage. The <emphasis role="bold"
+                  >Stage</emphasis> field is only shown once a program is selected.</para>
+              <para>If there is only one stage available for the selected program, the stage is
+                automatically selected.</para>
+            </listitem>
+            
+            <listitem>
+              <para>Select a value from the <emphasis role="bold">Coordinate field</emphasis> for
+                the positions shown on the map. By default, "Event location" is selected. Depending
+                on the data elements or attributes that belong to a program, other coordinates such
+                as "Household position" are available. </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        
+        <listitem>
+          <para>In the <emphasis role="bold">PERIOD</emphasis> tab</para>
+          <para><inlinemediaobject>
+              <imageobject><imagedata
+                  fileref="resources/images/maps/maps_event_layer_dialog_PERIOD.png" width="50%"
+                /></imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>select the time span for when the events took place. You can select either a
+                fixed period or a relative period.</para>
+                <variablelist>
+                  <varlistentry>
+                    <term>Fixed period</term>
+                    <listitem>
+                      <para>In the <emphasis role="bold">Period</emphasis> field, select <emphasis
+                          role="bold">Start/end dates</emphasis> and fill in a start date and an end
+                        date. </para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Relative period</term>
+                    <listitem>
+                      <para>In the <emphasis role="bold">Period</emphasis> field, select one of the
+                        relative periods, for example <emphasis role="bold">This month</emphasis> or
+                          <emphasis role="bold">Last year</emphasis>.</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        
+        
+        <listitem>
+          <para>In the <emphasis role="bold">FILTER</emphasis> tab:</para>
+        
+          <para><inlinemediaobject>
+              <imageobject><imagedata
+                  fileref="resources/images/maps/maps_event_layer_dialog_FILTER.png" width="50%"
+                /></imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Click ADD FILTER and select an available data item to add a new filter to the
+                data set. </para>
+                <itemizedlist>
+                  <listitem>
+                    <para>For data item of type <emphasis>text</emphasis> you will get two choices:
+                        <emphasis role="bold">Contains</emphasis> implies that the query will match
+                      all values which contains your search value, and <emphasis role="bold">Is
+                        exact</emphasis> implies that only values which is completely identical to
+                      your search query will be returned. </para>
+                  </listitem>
+                  <listitem>
+                    <para>For data item of type <emphasis>option set</emphasis>, you can select any
+                      of the options from the drop down box by using the down-wards arrow or by
+                      start typing directly in the box to filter for options.</para>
+                  </listitem>
+                </itemizedlist>
+              
+              <para>Multiple filters may be added. Click the X on the far right of the filter to
+                remove it.</para>
+            </listitem>
+            
+          </itemizedlist>
+      
+        </listitem>
+      
+          
+        <listitem>
+          <para>In the <emphasis role="bold">ORG UNITS</emphasis> tab:</para>
+        
+          <para><inlinemediaobject>
+              <imageobject><imagedata
+                  fileref="resources/images/maps/maps_event_layer_dialog_ORG_UNITS.png" width="50%"
+                /></imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Select the organisation units you want to include in the layer. It is possible
+                to select either </para>
+              <itemizedlist>
+                <listitem>
+                  <para>One or more specific organisation units, or</para>
+                </listitem>
+                <listitem>
+                  <para>A relative level in the organisation unit hierarchy, with respect to the
+                    user. By selecting a <emphasis role="bold">User organisation unit</emphasis> the
+                    map data will appear differently for users at different levels in the
+                    organisation unit hierarchy.</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        
+        </listitem>
+        
+        
+        <listitem>
+          <para>In the <emphasis role="bold">STYLE</emphasis> tab:</para>
+          <para><inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/maps/maps_event_layer_dialog_STYLE.png"
+                  width="50%"/>
+              </imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Select <emphasis role="bold">Group events</emphasis> to group nearby events (cluster), or
+                  <emphasis role="bold">View all events</emphasis> to display events
+                individually.</para>
+            </listitem>
+            <listitem>
+              <para>Select a <emphasis role="bold">color</emphasis> for the event or cluster points.</para>
+            </listitem>
+            <listitem>
+              <para>Select the <emphasis role="bold">radius</emphasis> (between 1 and 20) for the events.</para>
+            </listitem>
+            <listitem>
+              <para>Select <emphasis role="bold">Show buffer</emphasis> to display visual buffer around each event. 
+                The radius of the buffer can be modified here. This option is only available if you select 
+                <emphasis role="bold">View all events</emphasis> above.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">ADD LAYER</emphasis>.</para>
+        </listitem>
+      </orderedlist>
+      
+    </section>
+    <section>
+      <title>Modify an event layer</title>
+      <para>
+        <orderedlist>
+          <listitem>
+            <para>In the layer panel, click the edit (pencil) icon on the event layer card.</para>
+          </listitem>
+          <listitem>
+            <para>Modify the setting on the DATA, PERIOD, FILTER, ORG UNIT and STYLE tabs as
+              desired.</para>
+          </listitem>
+          <listitem>
+            <para>Click <emphasis role="bold">UPDATE LAYER</emphasis>.</para>
+          </listitem>
+        </orderedlist>
+      </para>
+    </section>
+    <section>
+      <?oxy_comment_start author="rachaelb" timestamp="20161005T154653+0200" comment="Move to maintenance part of doc?"?>
+      <title><?oxy_comment_end?>Modify information in event pop-up windows</title>
+      <para>For events in a cluster map, you can modify the information displayed in the event
+        pop-up window.</para>
+      <screenshot>
+        <title>Pop-up window with event information</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/maps/maps_eventlayer_eventinfopopup.png" format="png"
+              width="40%" align="left"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>
+        <orderedlist>
+          <listitem>
+            <para>Open the <emphasis role="bold">Programs / Attributes</emphasis> app.</para>
+          </listitem>
+          <listitem>
+            <para>Click <emphasis role="bold">Program</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Click the program you want to modify and select <emphasis role="bold">View program
+                stages</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Click the program stage name and select <emphasis role="bold"
+              >Edit</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Scroll down to the <emphasis role="bold">Selected data elements</emphasis>
+              section.</para>
+          </listitem>
+          <listitem>
+            <para>For every data element you want to display in the pop-up window, select
+              corresponding <emphasis role="bold">Display in reports</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Click <emphasis role="bold">Update</emphasis>.</para>
+          </listitem>
+        </orderedlist>
+      </para>
+    </section>
+    <section>
+      <title>Clear event layer</title>
+      <para>To clear all event layer data in a map: </para>
+      <orderedlist>
+        <listitem>
+          <para>In the layer panel, click the delete (trash can) icon on the event layer
+            card.</para>
+          <para>The layer is removed from the current map.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
+
+
+
   <section xml:id="using_maps_facility_layer">
     <title>Manage facility layers</title>
     <para>The facility layer displays icons that represent types of facilities. Polygons do not show
