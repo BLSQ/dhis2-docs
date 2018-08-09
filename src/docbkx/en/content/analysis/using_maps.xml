@@ -1868,7 +1868,19 @@
   <section xml:id="mapsInterpretation">
     <title>Map interpretations</title>
     <para>An interpretation is a description of a map at a given period. This information is visible in the 
-      <emphasis role="bold">Dashboard app</emphasis>.</para>
+      <emphasis role="bold">Dashboard app</emphasis>. Click <emphasis role="bold">Interpretations</emphasis> 
+      in the top right of the workspace to open the interpretations panel. The button is only clickable if the map is saved.</para>
+    <para>
+      <screenshot>
+        <title>The interpretations panel shown on the right side of the workspace</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="100%" fileref="resources/images/maps/maps_interpretations_panel.png" format="png"
+            align="left"/>
+            </imageobject>
+        </mediaobject>
+      </screenshot>
+    </para>
     <section>
       <title>View interpretations based on relative periods</title>
       <para>To view interpretations for relative periods, such as a year ago:</para>
@@ -1877,7 +1889,7 @@
           <para>Open a favorite with interpretations.</para>
         </listitem>
         <listitem>
-          <para>Click <emphasis role="bold">Interpretations</emphasis> in the top right of the workspace.</para>
+          <para>Click <emphasis role="bold">Interpretations</emphasis> in the top right of the workspace to open the interpretations panel.</para>
         </listitem>
         <listitem>
           <para>Click an interpretation. Your map displays the data and the date based on when the interpretation was created. 
@@ -1894,7 +1906,7 @@
           <para>Open a favorite with interpretations.</para>
         </listitem>
         <listitem>
-          <para>Click <emphasis role="bold">Interpretations</emphasis> in the top right of the workspace.</para>
+          <para>Click <emphasis role="bold">Interpretations</emphasis> in the top right of the workspace to open the interpretations panel.</para>
         </listitem>
         <listitem>
           <para>Click + to write a new interpretations.</para>
