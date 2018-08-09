@@ -38,7 +38,7 @@
                 shows an overview of the layers for the current map:</para>
             <itemizedlist>
                 <listitem>
-                    <para>As layers are added, using the (+) Add layer button, they are arranged and
+                    <para>As layers are added, using the <emphasis role="bold">(+) Add layer</emphasis> button, they are arranged and
                         managed in this panel.</para>
                 </listitem>
                 <listitem>
@@ -62,56 +62,84 @@ https://www.google.com/permissions/trademark/trademark-list.html
     <para></para>
     <itemizedlist>
         <listitem>
-            <para>The <emphasis role="bold">Favorites</emphasis> button near the top left allows you
-                to save and open maps:</para>
+            <para>The <emphasis role="bold">File</emphasis> button near the top left allows you
+                to open and save maps:</para>
             <variablelist>
                 <varlistentry>
-                    <term>New             </term>
+                    <term>New</term>
                     <listitem>
-                        <para>will clear any existing map layers to create a new thematic map.
-                        </para>
+                        <para>will clear any existing map layers to create a new map.</para>
                     </listitem>
                 </varlistentry>
                 <varlistentry>
                     <term>Open</term>
                     <listitem>
-                        <para>will display a <emphasis role="bold">Favorites</emphasis> dialog to
-                            select an existing thematic map. Favorites can also be renamed, shared
-                            and deleted through the Favorites dialog. <emphasis>The title of the
-                                current favorite is displayed in the header bar above the Favorites
-                                button.</emphasis></para>
+                        <para>will display a dialog box with a list of existing maps where they be opened, renamed, shared
+                            and deleted. <emphasis>The title of the current map is displayed in the header bar above the File
+                            button.</emphasis></para>
                     </listitem>
                 </varlistentry>
                 <varlistentry>
                     <term>Save</term>
                     <listitem>
-                        <para>will save any changes to the current favorite.</para>
+                        <para>will save any changes to the current map.</para>
                     </listitem>
                 </varlistentry>
                 <varlistentry>
                     <term>Save as</term>
                     <listitem>
-                        <para>will save the current thematic map as a new favorite.</para>
+                        <para>will save the current map with a new name.</para>
                     </listitem>
                 </varlistentry>
                 <varlistentry>
-                    <term>Write interpretation</term>
+                    <term>Rename</term>
                     <listitem>
-                        <para>will open a dialog where an interpretation for the current favorite
-                            can be written.</para>
+                        <para>allows you to change the name and/or description of the current map.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Translate</term>
+                    <listitem>
+                        <para>allows you to translate the name and/or description of the current map.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Share</term>
+                    <listitem>
+                        <para>will open a dialog where the current map can be shared with everyone or a group of users.</para>
                     </listitem>
                 </varlistentry>
                 <varlistentry>
                     <term>Get link</term>
                     <listitem>
-                        <para>will provide a direct link and API link to the current
-                            favorite.</para>
+                        <para>will provide a direct link to the current map.</para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term>Delete</term>
+                    <listitem>
+                        <para>deletes the current map.</para>
                     </listitem>
                 </varlistentry>
             </variablelist>
         </listitem>
-
     </itemizedlist>
+    <para></para>
+    <itemizedlist>
+        <listitem>
+            <para>The <emphasis role="bold">Interpretations</emphasis> button at top right opens an interpretations panel on
+            the right side of the workspace. The button is only clickable if the map is saved.</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Details</emphasis> shows information about the current map.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Interpretations</emphasis> allows you to view, add, edit and share interpretations about the current map.</para>
+                </listitem>
+            </itemizedlist>
+        </listitem>
+    </itemizedlist>
+    <para></para>
     <itemizedlist>
         <listitem>
             <para>The <emphasis role="bold">+</emphasis> and <emphasis role="bold">-

@@ -39,6 +39,13 @@
             </varlistentry>
             <varlistentry>
               <term><link xmlns:xlink="http://www.w3.org/1999/xlink"
+                linkend="using_maps_tracked_entity_layer">Tracked entities</link></term>
+              <listitem>
+                <para> </para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term><link xmlns:xlink="http://www.w3.org/1999/xlink"
                 linkend="using_maps_facility_layer">Facilities</link></term>
               <listitem>
               <para> </para>
@@ -313,16 +320,20 @@
             </inlinemediaobject></para>
           <itemizedlist>
             <listitem>
-              <para>Select <emphasis role="bold">Group events</emphasis> to group nearby events, or
+              <para>Select <emphasis role="bold">Group events</emphasis> to group nearby events (cluster), or
                   <emphasis role="bold">View all events</emphasis> to display events
                 individually.</para>
             </listitem>
             <listitem>
-              <para>Select a color for the event or cluster points.</para>
+              <para>Select a <emphasis role="bold">color</emphasis> for the event or cluster points.</para>
             </listitem>
             <listitem>
-              <para>Select the radius (between 1 and 20) for grouped events; also known as <emphasis
-                  role="bold">clusters</emphasis>.</para>
+              <para>Select the <emphasis role="bold">radius</emphasis> (between 1 and 20) for the events.</para>
+            </listitem>
+            <listitem>
+              <para>Select <emphasis role="bold">Show buffer</emphasis> to display visual buffer around each event. 
+                The radius of the buffer can be modified here. This option is only available if you select 
+                <emphasis role="bold">View all events</emphasis> above.</para>
             </listitem>
           </itemizedlist>
         </listitem>
@@ -405,6 +416,186 @@
       </orderedlist>
     </section>
   </section>
+
+<section xml:id="using_maps_tracked_entity_layer">
+    <title>Manage tracked entity layers</title>
+    <para>The tracked entity layer displays the geographical location of tracked entities registered in the DHIS2. 
+      Provided that tracked entities have associated point or polygon coordinates, you can explore these on a map.
+    </para>
+    <para>
+      <screenshot>
+        <title>Example of a tracked entity layer</title>
+         <mediaobject>
+          <imageobject>
+            <imagedata width="100%" fileref="resources/images/maps/maps_tracked_entity_layer.png" format="png"
+              align="left"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+    <para>Tracked entity layers are represented by layer cards in the layer panel such as:</para>
+    <para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="resources/images/maps/maps_tracked_entity_layer_card.png" format="png"
+          align="left" width="40%"/>
+      </imageobject>
+    </mediaobject>
+    </para>
+    <para>Along the top of the tracked entity card from left to right are:</para>
+    <itemizedlist>
+      <listitem>
+        <para>A grab field to allow dragging and re-ordering layers with the mouse.</para>
+      </listitem>
+      <listitem>
+        <para>The title and period associated with the layer.</para>
+      </listitem>
+      <listitem>
+        <para>An eye symbol for toggling the visibility of the layer.</para>
+      </listitem>
+      <listitem>
+        <para>An arrow symbol to collapse and expand the tracked entity card.</para>
+      </listitem>
+    </itemizedlist>
+    <para>In the middle of the tracked entity card is a legend indicating the styling of the layer.</para>
+    <para>Along the bottom of the tracked entity card from left to right are:</para>
+    <itemizedlist>
+      <listitem>
+        <para>An edit (pencil) button to open the layer configuration dialog.</para>
+      </listitem>
+      <listitem>
+        <para>A slider for modifying the layer transparency.</para>
+      </listitem>
+      <listitem>
+        <para>A delete (trash can) icon to remove the layer from the current map.</para>
+      </listitem>
+    </itemizedlist>
+    <section xml:id="maps_create_tracked_enity_layer">
+      <title>Create a tracked entity layer</title>
+      <para>To create an tracked entity layer, choose <emphasis role="bold">Tracked entities</emphasis> on the
+        <emphasis role="bold">Add layer</emphasis> selection. This opens the Tracked entity layer
+        configuration dialog.</para>
+      <orderedlist>
+        <listitem>
+          <para>In the <emphasis role="bold">DATA</emphasis> tab:</para>
+          <para><inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/maps/maps_tracked_entity_layer_dialog_DATA.png"
+                  width="50%"/>
+              </imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Select the <emphasis role="bold">Tracked Entity Type</emphasis> you want to show on the map.</para>
+            </listitem>
+            <listitem>
+              <para>Select a <emphasis role="bold">Program</emphasis> where the tracked entities belong.</para>
+            </listitem>
+            <listitem>
+              <para>Set the <emphasis role="bold">Program status</emphasis> to be <emphasis role="bold">Active</emphasis> or <emphasis role="bold">Completed</emphasis>.</para>
+            </listitem>
+            <listitem>
+              <para>Set the <emphasis role="bold">Follow up</emphasis> status of the tracked entity for the given program.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        
+        <listitem>
+          <para>In the <emphasis role="bold">PERIOD</emphasis> tab</para>
+          <para><inlinemediaobject>
+              <imageobject><imagedata
+                  fileref="resources/images/maps/maps_tracked_entity_layer_dialog_PERIOD.png" width="50%"
+                /></imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>If no program is selected, you can set start and end dates when the tracked entities were last updated.</para>
+            </listitem>
+            <listitem>
+              <para>If a program is selected, you can set start and end dates for the program period.</para>              
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        
+        <listitem>
+          <para>In the <emphasis role="bold">ORG UNITS</emphasis> tab:</para>
+          <para><inlinemediaobject>
+              <imageobject><imagedata
+                  fileref="resources/images/maps/maps_tracked_entity_layer_dialog_ORG_UNITS.png" width="50%"
+                /></imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Select the organisation units you want to include in the layer. You have 3 selection modes:</para>
+              <itemizedlist>
+                <listitem>
+                  <para><emphasis role="bold">Selected only</emphasis>: Include tracked entities belonging to selected org units only.</para>
+                </listitem>
+                <listitem>
+                  <para><emphasis role="bold">Selected and below</emphasis>: Included tracked entities in and right below selected org units.</para>
+                </listitem>
+                <listitem>
+                  <para><emphasis role="bold">Selected and all below</emphasis>: Included tracked entities in and all below selected org units.</para>
+                </listitem>                
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        
+        <listitem>
+          <para>In the <emphasis role="bold">STYLE</emphasis> tab:</para>
+          <para><inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/maps/maps_tracked_entity_layer_dialog_STYLE.png"
+                  width="50%"/>
+              </imageobject>
+            </inlinemediaobject></para>
+          <itemizedlist>
+            <listitem>
+              <para>Select a <emphasis role="bold">color</emphasis> for the tracked entities points and polygons.</para>
+            </listitem>
+            <listitem>
+              <para>Select the <emphasis role="bold">point size</emphasis> (radius between 1 and 20) for the points.</para>
+            </listitem>
+            <listitem>
+              <para>Select <emphasis role="bold">Show buffer</emphasis> to display visual buffer around each tracked entity. 
+                The buffer distance in meters can be modified here.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">ADD/UPDATE LAYER</emphasis>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Modify a tracked entity layer</title>
+      <para>
+        <orderedlist>
+          <listitem>
+            <para>In the layer panel, click the edit (pencil) icon on the tracked entity layer card.</para>
+          </listitem>
+          <listitem>
+            <para>Modify the setting on the DATA, PERIOD, ORG UNIT and STYLE tabs as desired.</para>
+          </listitem>
+          <listitem>
+            <para>Click <emphasis role="bold">UPDATE LAYER</emphasis>.</para>
+          </listitem>
+        </orderedlist>
+      </para>
+    </section>
+    <section>
+      <title>Clear a tracked entity layer</title>
+      <para>To clear a tracked entity layer from a map: </para>
+      <orderedlist>
+        <listitem>
+          <para>In the layer panel, click the delete (trash can) icon on the tracked entity layer card.</para>
+          <para>The layer is removed from the current map.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+
   <section xml:id="using_maps_facility_layer">
     <title>Manage facility layers</title>
     <para>The facility layer displays icons that represent types of facilities. Polygons do not show
@@ -1467,18 +1658,23 @@
           linkend="manage_external_maplayer"/>.</para>
     </note>
   </section>
-  <section xml:id="using_maps_favorites">
-    <title>Manage map favorites</title>
-    <para>Saving your maps as favorites makes it easy to restore them later. It also gives you the
-      opportunity to share them with other users as an interpretation or put it on the dashboard.
-      You can save all types of layer configurations as a favorite.</para>
+  <section xml:id="using_maps_file_menu">
+    <title>File menu</title>
+    <para>Use the <emphasis role="bold">File menu</emphasis> to manage your maps. Several menu items will be disabled until you open or save a map.</para>
+    <para>Saving your maps makes it easy to restore them later. It also gives you the opportunity to share them with other 
+      users as an interpretation or put it on the dashboard. You can save all types of layer configurations as a favorite.
+    </para>
     <section>
-      <title>Open a favorite</title>
+      <title>Create a new map</title>
+      <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">New</emphasis>.</para>
+      <para>NB! This will clear the current map layers you have without saving. </para>
+    </section>
+    <section>
+      <title>Open a new map</title>
       <orderedlist>
         <listitem>
-          <para>Select <emphasis role="bold">Open</emphasis> from the <emphasis role="bold"
-              >Favorites</emphasis> menu.</para>
-          <para>The <emphasis role="bold">Favorites</emphasis> dialog box opens.</para>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Open</emphasis>. 
+            A dialog box opens with a list of maps.</para>
           <para>
             <mediaobject>
               <imageobject>
@@ -1489,161 +1685,272 @@
           </para>
         </listitem>
         <listitem>
-          <para>Find the favorite you want to open. You can either use <emphasis role="bold"
-              >&lt;</emphasis> and <emphasis role="bold">></emphasis> or the search field to find a
-            saved favorite. The list is filtered on every character that you enter.</para>
+          <para>Find the favorite you want to open. You can either use &lt; and &gt; or the search field to find a saved map. 
+            The list is filtered on every character that you enter. You can filter the list by selecting 
+            <emphasis role="bold">Show all</emphasis>, <emphasis role="bold">Created by me</emphasis> or 
+            <emphasis role="bold">Created by others</emphasis>.</para>
         </listitem>
         <listitem>
-          <para>Click the name to open that favorite.</para>
+          <para>Click the name of the map you want to open.</para>
         </listitem>
       </orderedlist>
     </section>
     <section>
-      <title>Save a map as a new favorite</title>
-      <para>When you have created a map it is convenient to save it as a favorite: </para>
+      <title>Save a map</title>
+      <para>When you have created a map it is convenient to save it for later use:</para>
       <orderedlist>
         <listitem>
-          <para>Select <emphasis role="bold">Save as</emphasis> from the <emphasis role="bold"
-              >Favorites</emphasis> menu.</para>
-          <para>The <emphasis role="bold">Save as new favorite</emphasis> dialog box opens. </para>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Save</emphasis>.</para>
         </listitem>
         <listitem>
-          <para>In the text field, type the name you want to give your map favorite.</para>
+          <para>Enter a <emphasis role="bold">Name</emphasis> (required) and a <emphasis role="bold">Description</emphasis> (optional) the first time you save a map.</para>
         </listitem>
         <listitem>
           <para>Click <emphasis role="bold">SAVE</emphasis>.</para>
-          <para>Your favorite is added to the list.</para>
         </listitem>
       </orderedlist>
     </section>
     <section>
-      <title>Overwrite the current favorite</title>
-      <para>Select <emphasis role="bold">Save</emphasis> from the <emphasis role="bold"
-          >Favorites</emphasis> menu.</para>
-    </section>
-    <section>
-      <title>Rename a favorite</title>
+      <title>Save a copy of a map</title>
       <orderedlist>
         <listitem>
-          <para>Select <emphasis role="bold">Open</emphasis> from the <emphasis role="bold"
-              >Favorites</emphasis> menu.</para>
-          <para>The <emphasis role="bold">Favorites</emphasis> dialog box opens.</para>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Save as...</emphasis></para>
         </listitem>
         <listitem>
-          <para>Find the favorite you want to rename.</para>
-          <para>You can either use <emphasis role="bold">&lt;</emphasis> and <emphasis role="bold"
-              >></emphasis> or the search field to find a saved favorite. </para>
-        </listitem>
-        <listitem>
-          <para>Click the more options icon (three dots) at the right of the favorite row, and
-            select <emphasis role="bold">Rename</emphasis>.</para>
-          <para>The <emphasis role="bold">Rename favorite</emphasis> dialog box opens.</para>
-        </listitem>
-        <listitem>
-          <para>Edit the name and/or description.</para>
+          <para>Enter a <emphasis role="bold">Name</emphasis> (required) and a <emphasis role="bold">Description</emphasis> (optional) for the map.</para>
         </listitem>
         <listitem>
           <para>Click <emphasis role="bold">SAVE</emphasis>.</para>
-          <para>The favorite is updated.</para>
         </listitem>
       </orderedlist>
     </section>
     <section>
-      <title>Delete a favorite</title>
+      <title>Rename a map</title>
       <orderedlist>
         <listitem>
-          <para>Select <emphasis role="bold">Open</emphasis> from the <emphasis role="bold"
-              >Favorites</emphasis> menu.</para>
-          <para>The <emphasis role="bold">Favorites</emphasis> dialog box opens.</para>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Rename</emphasis>.</para>
         </listitem>
         <listitem>
-          <para>Find the favorite you want to delete.</para>
-          <para>You can either use <emphasis role="bold">&lt;</emphasis> and <emphasis role="bold"
-              >></emphasis> or the search field to find a saved favorite. </para>
+          <para>Enter a new <emphasis role="bold">Name</emphasis> and/or <emphasis role="bold">Description</emphasis> for your map.</para>
         </listitem>
         <listitem>
-          <para>Click the more options icon (three dots) at the right of the favorite row, and
-            select <emphasis role="bold">Delete</emphasis>.</para>
-          <para>A confirmation dialog is displayed.</para>
+          <para>Click <emphasis role="bold">RENAME</emphasis>. The map is updated.</para>
+        </listitem>
+      </orderedlist>
+      <para>You can also rename maps without opening them:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Open</emphasis>. A dialog box opens with a list of maps. </para>
         </listitem>
         <listitem>
-          <para>Click <emphasis role="bold">DELETE</emphasis> to confirm that you want to delete the
-            favorite.</para>
+          <para>Find the map you want to rename. You can either use &lt; and &gt; or the search field.</para>
+        </listitem>
+        <listitem>
+          <para>Click the more options icon (three dots) at the right of the map row, and select <emphasis role="bold">Rename</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Follow the steps above.</para>
         </listitem>
       </orderedlist>
     </section>
     <section>
-      <title>Modify sharing settings for a favorite</title>
-      <para>After you have created a map and saved it as a favorite, you can share the favorite with
-        everyone or a user group. To modify the sharing settings:</para>
-      <para>
-        <orderedlist>
-          <listitem>
-            <para>Select <emphasis role="bold">Open</emphasis> from the <emphasis role="bold"
-                >Favorites</emphasis> menu.</para>
-            <para>The <emphasis role="bold">Favorites</emphasis> dialog box opens.</para>
-          </listitem>
-          <listitem>
-            <para>Find the favorite you want to share.</para>
-            <para>You can either use <emphasis role="bold">&lt;</emphasis> and <emphasis role="bold"
-                >></emphasis> or the search field to find a saved favorite.</para>
-          </listitem>
-          <listitem>
-            <para>Click the more options icon (three dots) at the right of the favorite row, and
-              select <emphasis role="bold">Share</emphasis>.</para>
-            <para>The <emphasis role="bold">Sharing settings</emphasis> dialog box opens.</para>
-          </listitem>
-          <listitem>
-            <para>In the text box, search for the name of the user or group you want to share your
-              favorite with and select it.</para>
-            <para>The chosen user or group is added to the list of recipients. </para>
-            <para>Repeat the step to add more user groups. </para>
-          </listitem>
-          <listitem>
-            <para>If you want to allow external access, select the corresponding box.</para>
-          </listitem>
-          <listitem>
-            <para>For each user group, choose an access setting. The options are:</para>
+      <title>Translate a map</title>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Translate</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Select the <emphasis role="bold">Locale</emphasis> (language) your translation.</para>
+        </listitem>
+        <listitem>
+          <para>Enter a translated <emphasis role="bold">Name</emphasis> and <emphasis role="bold">Description</emphasis>. 
+            The original text will show below the field.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">SAVE</emphasis>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Modify sharing settings for a map</title>
+      <para>After you have created a map and saved it, you can share the map with everyone or a user group. 
+        To modify the sharing settings:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Share</emphasis>. 
+            The sharing settings dialog opens. </para>
+        </listitem>
+        <listitem>
+          <para>In the text box, search for the name of the user or group you want to share your favorite with and select it.</para>
+          <para>The chosen user or group is added to the list of recipients.</para>
+          <para>Repeat the step to add more user groups.</para>
+        </listitem>
+        <listitem>
+          <para>If you want to allow external access, select the corresponding box.</para>
+        </listitem>
+        <listitem>
+          <para>For each user group, choose an access setting. The options are:</para>
+          <itemizedlist>
+            <listitem>
+              <para>None (for default groups only, as they cannot be removed)</para>
+            </listitem>
+            <listitem>
+              <para>Can view</para>
+            </listitem>
+            <listitem>
+              <para>Can edit and view</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">CLOSE</emphasis> to close the dialog.</para>
+        </listitem>
+      </orderedlist>
+      <para>You can also rename maps without opening them:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Open</emphasis>. 
+            A dialog box opens with a list of maps.</para>
+        </listitem>
+        <listitem>
+          <para>Find the map you want to share. You can either use &lt; and &gt; or the search field.</para>
+        </listitem>
+        <listitem>
+          <para>Click the more options icon (three dots) at the right of the map row, and select <emphasis role="bold">Share</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Follow the steps above.</para>
+        </listitem>
+      </orderedlist>
+    </section>  
+    <section>
+      <title>Get the link to a map</title>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Get link</emphasis>. 
+            A link dialog opens.</para>
+        </listitem>
+        <listitem>
+          <para>Copy the link.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Delete a map</title>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Delete</emphasis>. 
+            A confirmation dialog is displayed.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">DELETE</emphasis> to confirm that you want to delete the favorite. 
+            Your map is deleted and the layers are cleared from the view.</para>
+        </listitem>
+      </orderedlist>
+      <para>You can also delete maps without opening them:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">File</emphasis> > <emphasis role="bold">Open</emphasis>. 
+            A dialog box opens with a list of maps.</para>
+        </listitem>
+        <listitem>
+          <para>Find the map you want to delete. You can either use &lt; and &gt; or the search field.</para>
+        </listitem>
+        <listitem>
+          <para>Click the more options icon (three dots) at the right of the map row, and select <emphasis role="bold">Delete</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Follow step 2 above.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+  <section xml:id="mapsInterpretation">
+    <title>Map interpretations</title>
+    <para>An interpretation is a description of a map at a given period. This information is visible in the 
+      <emphasis role="bold">Dashboard app</emphasis>. Click <emphasis role="bold">Interpretations</emphasis> 
+      in the top right of the workspace to open the interpretations panel. The button is only clickable if the map is saved.</para>
+    <para>
+      <screenshot>
+        <title>The interpretations panel shown on the right side of the workspace</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata width="100%" fileref="resources/images/maps/maps_interpretations_panel.png" format="png"
+            align="left"/>
+            </imageobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+    <section>
+      <title>View interpretations based on relative periods</title>
+      <para>To view interpretations for relative periods, such as a year ago:</para>
+      <orderedlist>
+        <listitem>
+          <para>Open a favorite with interpretations.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">Interpretations</emphasis> in the top right of the workspace to open the interpretations panel.</para>
+        </listitem>
+        <listitem>
+          <para>Click an interpretation. Your map displays the data and the date based on when the interpretation was created. 
+            To view other interpretations, click them.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Write interpretation for a map</title>
+      <para>To create an interpretation, you first need to create a map and save it. 
+        If you've shared your map with other people, the interpretation you write is visible to those people.</para>
+      <orderedlist>
+        <listitem>
+          <para>Open a favorite with interpretations.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">Interpretations</emphasis> in the top right of the workspace to open the interpretations panel.</para>
+        </listitem>
+        <listitem>
+          <para>Click + to write a new interpretations.</para>
+        </listitem>
+        <listitem>
+          <para>In the text field, type a comment, question or interpretation. You can also mention other users with '@username'. 
+            Start by typing '@' plus the first letters of the username or real name and a mentioning bar will display the available users. 
+            Mentioned users will receive an internal DHIS2 message with the interpretation or comment. You can see the interpretation in the 
+            <emphasis role="bold">Dashboard app</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">SAVE</emphasis> if you want your interpretation to have the same sharing settings as the map.</para> 
+          <para>Click <emphasis role="bold">SAVE &amp; SHARE</emphasis> if you want to change the sharing settings (see below) for your interpretation.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Change sharing settings for an interpretation</title>
+      <orderedlist>
+        <listitem>
+          <para>Click an interpretation (see how to view an interpretation above).</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">Share</emphasis> below the interpretation. The sharing settings dialog opens.</para>
+        </listitem>
+        <listitem>
+          <para>Search for and add a users and user groups that you want to share your map with.</para>
+        </listitem>
+        <listitem>
+          <para>Change sharing settings for the users you want to modify:</para>
             <itemizedlist>
               <listitem>
-                <para>None (for default groups only, as they cannot be removed)</para>
+                <para><emphasis role="bold">Can edit and view</emphasis>: Everyone can view and edit the object.</para>
               </listitem>
               <listitem>
-                <para>Can view</para>
+                <para><emphasis role="bold">Can view only</emphasis>: Everyone can view the object.</para>
               </listitem>
               <listitem>
-                <para>Can edit and view</para>
+                <para><emphasis role="bold">No access</emphasis>: The public won't have access to the object. This setting is only applicable to Public access.</para>
               </listitem>
             </itemizedlist>
-          </listitem>
-          <listitem>
-            <para>Click <emphasis role="bold">CLOSE</emphasis> to close the dialog.</para>
-          </listitem>
-        </orderedlist>
-      </para>
-    </section>
-    <section xml:id="mapsInterpretation">
-      <title>Share a map interpretation</title>
-      <para role="">For
-        <?oxy_comment_start author="Home" timestamp="20160407T151353+0200" comment="Which ones?"?>certain<?oxy_comment_end?>
-        analysis-related resources in DHIS2, you can share a data interpretation. An interpretation
-        is a link to the relevant resource together with a text expressing some insight about the
-        data. </para>
-      <para role="">To create an interpretation of a map and share it with all users of the
-        system:</para>
-      <orderedlist>
-        <listitem>
-          <para>Select <emphasis role="bold">Write interpretation</emphasis> from the <emphasis
-              role="bold">Favorites</emphasis> menu.</para>
-          <para>The <emphasis role="bold">Write interpretation</emphasis> dialog box opens.</para>
         </listitem>
         <listitem>
-          <para>In the text field, type a comment, question or interpretation.</para>
-        </listitem>
-        <listitem>
-          <para>Click <emphasis role="bold">SAVE</emphasis>.</para>
-          <para>The dialog box closes automatically. You can see the interpretation on the <emphasis
-              role="bold">Dashboard</emphasis>.</para>
+          <para>Click <emphasis role="bold">CLOSE</emphasis> when sharing settings are updated.</para>
         </listitem>
       </orderedlist>
     </section>
