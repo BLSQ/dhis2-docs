@@ -664,6 +664,16 @@
             to not synchronize some sensitive or not relevant data and to keep them only
             locally.</para>
         </listitem>
+        <listitem>
+          <para>The newly introduced authority F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION should be
+            used when there is a requirement that some mandatory attribute / data element has at the
+            same time a &quot;Skip synchronization&quot; property turned on. Such a setting will lead to
+            validation failure on the central server as the given attribute / data element will not
+            be present in the payload.</para>
+          <para>The validation won't fail for the user with this authority. The authority should be
+            assigned to the user, on the central server, that will be used for synchronization
+            job.</para>
+        </listitem>
       </itemizedlist></para>
   </section>
   <section xml:id="dataAdmin_metaDataSync">
