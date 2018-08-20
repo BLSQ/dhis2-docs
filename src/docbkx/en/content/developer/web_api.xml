@@ -3434,6 +3434,27 @@ kafka.max-poll-records = 1000</screen></para>
           immediately followed by the uid of the attribute, e.g.
           &quot;attributeDnrLSdo4hMl&quot;.</para>
       </section>
+      <section xml:id="webapi_data_values_async_import">
+		<title>Async data value import</title>
+		<para>Data values can be sent and imported in an asynchronous fashion by suppling an <emphasis role="italic">async</emphasis> query parameter set to <emphasis role="italic">true</emphasis>:
+		  <screen>/api/26/dataValueSets?async=true</screen>
+		</para>
+		<para>This will initate an asynchronous import job for which you can monitor the status at the task summaries API. The API response indicates the unique identifier of the job, type of job and the URL you can use to monitor the import job status. The response will look similar to this:
+		  <screen>{
+  "httpStatus": "OK",
+  "httpStatusCode": 200,
+  "status": "OK",
+  "message": "Initiated dataValueImport",
+  "response": {
+    "name": "dataValueImport",
+    "id": "YR1UxOUXmzT",
+    "created": "2018-08-20T14:17:28.429",
+    "jobType": "DATAVALUE_IMPORT",
+    "relativeNotifierEndpoint": "/api/system/tasks/DATAVALUE_IMPORT/YR1UxOUXmzT"
+  }</screen>
+		</para>
+		<para>Please read the section on <emphasis role="italic">asynchronous task status</emphasis> for more information.</para>
+      </section>
     </section>
     <section xml:id="webapi_data_values_csv">
       <title>CSV data value format</title>
