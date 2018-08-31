@@ -164,6 +164,12 @@
             </listitem>
             </orderedlist>
         </section>
+    <section>
+        <title>Attachments</title>
+        <para>With 2.31 we introduced attachments to messages. When creating or replying to a
+            message conversation you have the possibility to add attachments. Currently there are no
+            limitations to type or size of the file.</para>
+    </section>
         <section>
             <title>Manage validation and feedback messages</title>
             <para>
