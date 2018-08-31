@@ -14936,7 +14936,7 @@ interval=WEEK" -u admin:district</screen>
                 summary.</entry>
             </row>
             <row>
-              <entry>importStrategy</entry>
+              <entry>strategy</entry>
               <entry>CREATE |&#160;UPDATE |&#160;CREATE_AND_UPDATE |&#160;DELETE</entry>
               <entry>Save objects of all, new or update import status on the server.</entry>
             </row>
@@ -15088,8 +15088,8 @@ qPEdI1xn7k0,COMPLETED,&lt;pid>,&lt;psid>,&lt;enrollment-id>,&lt;ou>,2016-01-01,2
       
       <section xml:id="webapi_sync_import_strategy">
         <title>Import strategy: SYNC</title>
-        <para>In 2.30 a new ImportStrategy was added. The ImportStrategy.SYNC should be used only by internal 
-          synchronization task and not for regular import. This new import stategy allows all 3 operations: 
+        <para>The import strategy SYNC should be used only by internal 
+          synchronization task and not for regular import. The SYNC stategy allows all 3 operations: 
           CREATE, UPDATE, DELETE to be present in the payload at the same time.</para>
       </section>
     </section>
