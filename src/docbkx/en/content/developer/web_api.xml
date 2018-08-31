@@ -14615,8 +14615,7 @@ interval=WEEK" -u admin:district</screen>
                   <entry>status</entry>
                   <entry>enum</entry>
                   <entry>false</entry>
-                  <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE
-                    |&#160;SKIPPED</entry>
+                  <entry>Status of event, can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED</entry>
                 </row>
                 <row>
                   <entry>lastUpdatedStartDate</entry>
@@ -14652,8 +14651,7 @@ interval=WEEK" -u admin:district</screen>
                   <entry>totalPages</entry>
                   <entry>boolean</entry>
                   <entry>false</entry>
-                  <entry>Indicates whether to include the total number of pages in the paging
-                    response.</entry>
+                  <entry>Indicates whether to include the total number of pages in the paging response.</entry>
                 </row>
                 <row>
                   <entry>skipPaging</entry>
@@ -14740,6 +14738,12 @@ interval=WEEK" -u admin:district</screen>
                     with <emphasis>attributeCc</emphasis>)</entry>
                 </row>
                 <row>
+                  <entry>async</entry>
+                  <entry>false | true</entry>
+                  <entry>false</entry>
+                  <entry>Indicates whether the import should be done asynchronous or synchronous.</entry>
+                </row>
+                <row>
                   <entry>includeDeleted</entry>
                   <entry>boolean</entry>
                   <entry>false</entry>
@@ -14781,8 +14785,7 @@ interval=WEEK" -u admin:district</screen>
             <screen>/api/29/events.json?orgUnit=DiszpKrYNg8&amp;program=eBAyeGv0exc
   &amp;trackedEntityInstance=gfVxE3ALA9m&amp;startDate=2014-01-01&amp;endDate=2014-12-31</screen></para>
         </section>
-      </section>
-    
+      </section>    
 
     <section>
       <title>Event grid query</title>
@@ -14880,17 +14883,17 @@ interval=WEEK" -u admin:district</screen>
   &quot;http://server/api/29/events?strategy=DELETE&quot;</screen>
     </section>
     <section xml:id="webapi_updating_and_deleting_items">
-      <title>UIDs Reuse and Items Deletion via POST and PUT methods</title>
-      <para>As it was already stated above, tracker endpoints
+      <title>Identifier reuse and item deletion via POST and PUT methods</title>
+      <para>Tracker endpoints
           <emphasis>/trackedEntityInstances</emphasis>, <emphasis>/enrollments</emphasis>,
-          <emphasis>/events</emphasis> fully support CRUD. What is important to mention is that the
-        system keeps track of used UIDs. Therefore, a once created and then deleted item (event,
-        enrollment, …) cannot be created and/or updated again. If you try to delete an already
-        deleted item, system is transparent and does return a success as deletion of an already
-        deleted item means no change.</para>
-      <para>The second thing to mention is that it is not allowed to delete an item via an update
+          <emphasis>/events</emphasis> support CRUD operations. The system keeps track of used 
+        identifiers. Therefore, an item which has been created and then deleted (e.g. events,
+        enrollments) cannot be created or updated again. If attempting to delete an already
+        deleted item, the system returns a success response as deletion of an already
+        deleted item implies no change.</para>
+      <para>The system does not allow to delete an item via an update
           (<emphasis>PUT</emphasis>) or create (<emphasis>POST</emphasis>) method. Therefore, an
-        attribute <emphasis>deleted</emphasis> is completely ignored in both
+        attribute <emphasis>deleted</emphasis> is ignored in both
           <emphasis>PUT</emphasis> and <emphasis>POST</emphasis> methods, and in
           <emphasis>POST</emphasis> method it is by default set to
         <emphasis>false</emphasis>.</para>
