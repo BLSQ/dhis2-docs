@@ -12105,6 +12105,10 @@ interval=WEEK" -u admin:district</screen>
               <entry>Require periods to match period type of data set. Default: "false"</entry>
             </row>
             <row>
+              <entry>keyDataImportStrictDataElements</entry>
+              <entry>Require data elements to be part of data set. Default: "false" </entry>
+            </row>
+            <row>
               <entry>keyDataImportStrictCategoryOptionCombos</entry>
               <entry>Require category option combos to match category combo of data element.
                 Default: "false"</entry>
