@@ -924,6 +924,27 @@ LAST_FINANCIAL_YEAR, LAST_5_FINANCIAL_YEARS</screen>
         of the filters must match to have a result returned</para>
       <screen>/api/dataElements.json?filter=id:in:[id1,id2]&amp;filter=code:eq:code1&amp;rootJunction=OR</screen>      
     </section>
+    <section>
+      <title>Identifiable token filter</title>
+      <para>In addition to the specific property based filterings mentioned above, we also have
+          <emphasis role="bold">token</emphasis> based <emphasis role="bold">OR</emphasis> filtering
+        across a set of properties: id, code and name (also shortName if available). These
+        properties are commonly referred as <emphasis role="bold">identifiable</emphasis>. The idea
+        is to filter metadata whose id, name, code or short name containing something.</para>
+      <para>Example: Filter all data elements containing <emphasis>2nd</emphasis> in any of the
+        following: id,name,code, shortName</para>
+      <para>
+        <screen>api/dataElements.json?filter=identifiable:token:2nd</screen>
+      </para>
+      <para>It is also possible to specifiy multiple filtering values.</para>
+      <para>Example: Get all data elements where <emphasis>fbfJHSPpUQD</emphasis> or
+          <emphasis>2nd</emphasis> or <emphasis>3rd</emphasis> is found in any of the <emphasis
+          role="bold">identifiable</emphasis>
+        properties.<screen>api/dataElements.json?filter=identifiable:token:fbfJHSPpUQD 2nd 3rd</screen></para>
+      <para>It is also possible to combine identifiable filter with property based filter and expect
+        the <emphasis>rootJunction</emphasis> to be
+        applied.<screen>api/dataElements.json?filter=identifiable:token:fbfJHSPpUQD 2nd 3rd&amp;filter=displayName:ilike:tt1</screen><screen>api/dataElements.json?filter=identifiable:token:fbfJHSPpUQD 2nd 3rd&amp;filter=displayName:ilike:tt1&amp;rootJunction=OR</screen></para>
+    </section>
   </section>
   <section xml:id="webapi_metadata_field_filter">
     <title>Metadata field filter</title>
@@ -8282,7 +8303,7 @@ ORDER BY oul.level, par.name, ou.name</screen>
                 <entry>timeField</entry>
                 <entry>No</entry>
                 <entry>The time field to base event aggregation on. Applies to event data items only. Can be a predefined option or the ID of an attribute or data element having a time-based value type.</entry>
-                <entry>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | &lt;Attribute ID> | &lt;Data element ID></entry>
+                <entry>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | CREATED | LAST_UPDATED | &lt;Attribute ID> | &lt;Data element ID></entry>
               </row>
             </tbody>
           </tgroup>
@@ -12082,6 +12103,10 @@ interval=WEEK" -u admin:district</screen>
             <row>
               <entry>keyDataImportStrictPeriods</entry>
               <entry>Require periods to match period type of data set. Default: "false"</entry>
+            </row>
+            <row>
+              <entry>keyDataImportStrictDataElements</entry>
+              <entry>Require data elements to be part of data set. Default: "false" </entry>
             </row>
             <row>
               <entry>keyDataImportStrictCategoryOptionCombos</entry>

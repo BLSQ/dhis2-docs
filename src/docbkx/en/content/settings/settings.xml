@@ -1084,15 +1084,6 @@ SME:
           </row>
           <row>
             <entry valign="top">
-              <para><emphasis role="bold">Mapzen search API key</emphasis></para>
-            </entry>
-            <entry valign="top">
-              <para>Defines the API key for the Mapzen API. This API is used to search addresses
-                globally within DHIS 2.</para>
-            </entry>
-          </row>
-          <row>
-            <entry valign="top">
               <para><emphasis role="bold">Google Maps API key</emphasis></para>
             </entry>
             <entry valign="top">
