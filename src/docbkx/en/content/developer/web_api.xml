@@ -4908,6 +4908,122 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
       endpoint:<screen>/api/26/validation/sendNotifications</screen></para>
     <para>Only unsendt results are sendt using this endpoint.</para>
   </section>
+  <section xml:id="webapi_data_analysis">
+    <title>Data analysis</title>
+    <para>Several resources for performing data analysis and finding data quality and validation issues are provided.</para>
+    <section xml:id="webapi_data_analysis_validation_rules">
+      <title>Validation rule analysis</title>
+      <para>To run validation rules and retieve
+        violations:<screen>/api/dataAnalysis/validationRules</screen></para>
+      <para>The following query parameters are supported:<table frame="all">
+          <title>Validation rule analysis query parameters</title>
+          <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Query parameter</entry>
+                <entry>Description</entry>
+                <entry>Option</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>vrg</entry>
+                <entry>Validation rule group</entry>
+                <entry>ID</entry>
+              </row>
+              <row>
+                <entry>ou</entry>
+                <entry>Organisation unit</entry>
+                <entry>ID</entry>
+              </row>
+              <row>
+                <entry>startDate</entry>
+                <entry>Start date for the timespan</entry>
+                <entry>Date</entry>
+              </row>
+              <row>
+                <entry>endDate</entry>
+                <entry>End date for the timespan</entry>
+                <entry>Date</entry>
+              </row>
+              <row>
+                <entry>persist</entry>
+                <entry>Whether to persist violations in the system</entry>
+                <entry>false | true</entry>
+              </row>
+              <row>
+                <entry>notification</entry>
+                <entry>Whether to send notifications about violations</entry>
+                <entry>false | true</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+    </section>
+    <section xml:id="webapi_data_analysis_std_dev_outlier">
+      <title>Standard deviation based outlier analysis</title>
+      <para>To identify data outliers based on standard deviations of the average
+        value:<screen>/api/dataAnalysis/stdDevOutlier</screen></para>
+      <para>The following query parameters are supported:<table frame="all">
+          <title>Standard deviation outlier analysis query parameters</title>
+          <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Query parameter</entry>
+                <entry>Description</entry>
+                <entry>Option</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>ou</entry>
+                <entry>Organisation unit</entry>
+                <entry>ID</entry>
+              </row>
+              <row>
+                <entry>startDate</entry>
+                <entry>Start date for the timespan</entry>
+                <entry>Date</entry>
+              </row>
+              <row>
+                <entry>endDate</entry>
+                <entry>End date for the timespan</entry>
+                <entry>Date</entry>
+              </row>
+              <row>
+                <entry>ds</entry>
+                <entry>Data sets, parameter can be repeated</entry>
+                <entry>ID</entry>
+              </row>
+              <row>
+                <entry>standardDeviation</entry>
+                <entry>Number of standard deviations from the average</entry>
+                <entry>Numeric value</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+    </section>
+    <section xml:id="webapi_data_analysis_min_max_outlier">
+      <title>Min/max value based outlier analysis</title>
+      <para>To identify data outliers based on min/max
+        values:<screen>/api/dataAnalysis/minMaxOutlier</screen></para>
+      <para>The supported query parameters are equal to the <emphasis>std dev based outlier
+          analysis</emphasis> resource described above.</para>
+    </section>
+    <section>
+      <title>Follow-up data analysis</title>
+      <para>To identify data marked for follow-up:<screen>/api/dataAnalysis/followup</screen></para>
+      <para>The supported query parameters are equal to the <emphasis>std dev based outlier
+          analysis</emphasis> resource described above.</para>
+    </section>
+  </section>
   <section xml:id="webapi_data_integrity">
     <title>Data integrity</title>
     <para>The data integrity capabilities of the data administration module are available through
@@ -6383,7 +6499,7 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
     &quot;interpretations&quot;: [{
         &quot;id&quot;: &quot;XSHiFlHAhhh&quot;,
         &quot;created&quot;: &quot;2013-05-30T10:24:06.181+0000&quot;,
-        "text": "<p>Data looks suspicious, could be a data entry mistake.</p>",
+        "text": "Data looks suspicious, could be a data entry mistake.",
         &quot;type&quot;: &quot;REPORT_TABLE&quot;,
         "likes": 2,
         "user": {
@@ -6395,7 +6511,7 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
     }, {
         &quot;id&quot;: &quot;kr4AnZmYL43&quot;,
         &quot;created&quot;: &quot;2013-05-29T14:47:13.081+0000&quot;,
-        "text": "<p>Delivery rates in Bo looks high.</p>",
+        "text": "Delivery rates in Bo looks high.",
         &quot;type&quot;: &quot;CHART&quot;,
         "likes": 3,
         "user": {
@@ -6412,18 +6528,18 @@ FTRrcoaog83,201401,DiszpKrYNg8,bRowv6yZOF2,bRowv6yZOF2,12,system,2014-03-02T21:4
         ],
         &quot;comments&quot;: [{
             "id": "iB4Etq8yTE6",
-            "text": "<p>This report indicates a surge</p>",
+            "text": "This report indicates a surge.",
             "user": {
                 "id": "B4XIfwOcGyI"
             }, {
             "id": "iB4Etq8yTE6",
-            "text": "<p>Likely caused by heavy rainfall</p>",
+            "text": "Likely caused by heavy rainfall.",
             "user": {
                 "id": "B4XIfwOcGyI"
             },
             {
             "id": "SIjkdENan8p",
-            "text": "<p>have a look at this @boateng</p>",
+            "text": "Have a look at this @boateng.",
             "user": {
               "id": "xE7jOejl9FI"
             },
