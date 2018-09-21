@@ -12845,18 +12845,22 @@ interval=WEEK" -u admin:district</screen>
       <section xml:id="webapi_creating_tei">
         <title>Creating a new tracked entity instance</title>
         <para>For creating a new person in the system, you will be working with the <emphasis
-            role="italic">trackedEntityInstances</emphasis> resource. A template payload can be seen below:<screen>{
+            role="italic">trackedEntityInstances</emphasis> resource. A template payload can be seen
+          below:<screen>{
     &quot;trackedEntity&quot;: &quot;tracked-entity-id&quot;,
     &quot;orgUnit&quot;: &quot;org-unit-id&quot;,
-    "coordinates": "[1, 1]",
+    "geometry": &lt;GeoJson>,
     &quot;attributes&quot;: [ {
         &quot;attribute&quot;: &quot;attribute-id&quot;,
         &quot;value&quot;: &quot;attribute-value&quot;
     } ]
-}</screen><note>
-            <para>The "coordinates" field was introduced in 2.29, and accepts a coordinate or
-              polygon as a value.</para>
-          </note></para>
+}</screen></para>
+        <para>The field "geometry" accepts a GeoJson object, where the type of the GeoJson have to
+          match the featureType of the TrackedEntityType definition. An example GeoJson object looks
+          like this:<screen>{
+  "type": "Point",
+  "coordinates": [1, 1]
+}</screen></para>
         <para>For getting the IDs for <emphasis role="italic">relationship</emphasis>, <emphasis
             role="italic">attributes</emphasis> you can have a look at the respective resources
             <emphasis role="italic">relationshipTypes</emphasis>, <emphasis role="italic"
