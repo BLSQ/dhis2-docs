@@ -11751,6 +11751,13 @@ interval=WEEK" -u admin:district</screen>
     },
     "username": "johndoe123",
     "password": "Your-password-123",
+    "skype": "john.doe",
+    "telegram": "joh.doe",
+    "whatsApp": "+1-541-754-3010",
+    "facebookMessenger": "john.doe",
+    "avatar": {
+      "id": "&lt;fileResource id>"
+    },
     "userRoles": [
       {
         "id": "Ufph3mGRmMo"
@@ -11777,6 +11784,8 @@ interval=WEEK" -u admin:district</screen>
         >/api/users/ID</emphasis>.<screen>curl -X PUT -u user:pass -d @u.json -H &quot;Content-Type: application/json&quot; http://server/api/26/users/ID</screen></para>
       <para>For more info about the full payload available, please see <emphasis role="italic"
           >/api/schemas/user</emphasis></para>
+      <para>For more info about uploading and retrieving user avatars, please see
+          <emphasis>/fileResources</emphasis> endpoint.</para>
     </section>
     <section xml:id="webapi_user_invitations">
       <title>User account invitations</title>
@@ -12888,8 +12897,9 @@ interval=WEEK" -u admin:district</screen>
           this:<screen>curl -d @tei.json &quot;https://play.dhis2.org/demo/api/trackedEntityInstances&quot; -X POST 
 -H &quot;Content-Type: application/json&quot; -u admin:district -v</screen></para>
         <para>To create multiple instances in one request you can wrap the payload in an outer array
-          like this and POST to the same resource as
-          above:<screen>{
+          like this and POST to the same resource as above:<uri
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          /><screen>{
   &quot;trackedEntityInstances&quot;: [
     {
       &quot;trackedEntity&quot;: &quot;nEenWmSyUEp&quot;,
