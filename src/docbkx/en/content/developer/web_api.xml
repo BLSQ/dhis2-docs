@@ -15244,7 +15244,7 @@ interval=WEEK" -u admin:district</screen>
                   <entry>5</entry>
                   <entry>enrollment</entry>
                   <entry>identifier</entry>
-                  <entry>Identifier of enrollment (program stage instance)</entry>
+                  <entry>Identifier of enrollment (program instance)</entry>
                 </row>
                 <row>
                   <entry>6</entry>
