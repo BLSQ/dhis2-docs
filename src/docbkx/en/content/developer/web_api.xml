@@ -12945,9 +12945,15 @@ interval=WEEK" -u admin:district</screen>
           the URL like this, where &lt;tracked-entity-instance-identifier&gt; should be replaced by
           the identifier of the tracked entity instance:</para>
         <screen>/api/trackedEntityInstances/&lt;tracked-entity-instance-id&gt;</screen>
-        <para>The payload has to contain all, even non-modified, attributes. Attributes that were
-          present before and are not present in the current payload anymore will be removed by the
-          system.</para>
+        <para>The payload has to contain all, even non-modified, attributes and relationships.
+          Attributes or relationships that were present before and are not present in the current
+          payload anymore will be removed from the system. This means that if
+          attributes/relationships are empty in the current payload, all existing
+          attributes/relationships will be deleted from the system. From 2.31, it is possible to
+          ignore empty attributes/relationships in the current payload. A request parameter of
+            <emphasis>ignoreEmptyCollection</emphasis> set to <emphasis role="bold">true</emphasis>
+          can be used in case you do not wish to send in any attributes/relationships and also do
+          not want them to be deleted from the system.</para>
         <para>It is not allowed to update an already deleted tracked entity instance. Also, it is
           not allowed to mark a tracked entity instance as deleted via an update request. The same
           rules apply to enrollments and events.</para>
