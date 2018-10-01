@@ -80,6 +80,9 @@
             </itemizedlist>
         </listitem>
         <listitem>
+            <para>(Optional) Provide values for the fields <emphasis role="bold">OpenID, LDAP identifier, Mobile phone number, WhatsApp, Facebook messenger, Skype, Telegram and Twitter</emphasis>.</para>
+        </listitem>
+        <listitem>
             <para>Select an <emphasis role="bold">Interface language</emphasis>.</para>
             <?oxy_comment_start author="cecilia" timestamp="20161111T160329+0100" comment="Reword."?>
             <para>You can select a language into which fixed elements of the DHIS2 user interface
