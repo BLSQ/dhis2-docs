@@ -42,9 +42,26 @@
                         <entry>The plain text segment will remain unchanged in all generated values.
                             This special segment is defined by wrapping text between two double
                             quotes. If your pattern should include separation symbols like a dash,
-                            you should use this "-".</entry>
+                            you should use this "-".<para>The plain text segment also allows for
+                                placeholder text. That means you can specify that parts of the plain
+                                text segment should be any of a set of characters. Currently there
+                                are 4 supported special characters you can use:<itemizedlist>
+                                    <listitem>
+                                        <para>\d (0-9)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>\x (a-z)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>\X (A-Z)</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>\w (a-zA-Z0-9)</para>
+                                    </listitem>
+                                </itemizedlist></para></entry>
                         <entry>None</entry>
-                        <entry>"Hello world" → None → Hello world</entry>
+                        <entry>"Hello world" → None → Hello world<para>"Hello \x\x\x" → "Hello you"
+                                → Hello you</para><para>"\d\d\d" → "123" → 123</para></entry>
                     </row>
                     <row>
                         <entry>CURRENT_DATE(format)</entry>
