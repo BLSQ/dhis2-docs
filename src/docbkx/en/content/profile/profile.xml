@@ -19,8 +19,8 @@
         enable or disable SMS and email notifications. If you wish to, you can choose to display a
         short name, such as "Joe" in the analysis modules, rather than your full name. </para>
   <para>In <emphasis role="bold">User profile</emphasis>, you can add personal information to your
-        profile such as your email address, mobile phone number, date of birth and more. When you
-        send messages, the person receiving the message can see these profile details.</para> 
+        profile such as your email address, mobile phone number, date of birth, profile picture and more. When you
+        send messages, the person receiving the message can see these profile details. You can also provide account names for various direct messaging services, which will be used by the system.</para> 
   <para>In <emphasis role="bold">Account settings</emphasis>, you can reset your password and setup
             2-Factor authentication. Setting up 2-Factor authentication will require you to download the 
             Google Authenticator app on you mobile device.</para>
