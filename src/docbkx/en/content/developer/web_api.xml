@@ -11296,7 +11296,8 @@ interval=WEEK" -u admin:district</screen>
   &quot;name&quot; : &quot;clickatell&quot;,
   &quot;username&quot;: &quot;clickatelluser&quot;,
   &quot;password&quot;: &quot;abc123&quot;,
-  &quot;Auth-token&quot;: &quot;XXXXXXXXXXXXXXXXXXXX&quot;,
+  &quot;authtoken&quot;: &quot;XXXXXXXXXXXXXXXXXXXX&quot;,
+  &quot;urlTemplate&quot;: &quot;https://platform.clickatell.com/messages&quot;,
 }</screen>
       <para><emphasis role="italic">Bulksms</emphasis></para>
       <screen>{ 
