@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter version="5.0"
+    xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+    xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook" 
+    xml:id="android_config_program">
+    <title>Configure DHIS2 programs to work on Android apps</title>
+    <para>To use event programs and tracker programs on the Android <emphasis role="bold">Event
+            Capture</emphasis> and <emphasis role="bold">Tracker Capture</emphasis> apps, you must
+        configure both the programs and the users' profiles on your
+        <?oxy_comment_start author="cecilia" timestamp="20161107T095657+0100" comment="DHIS2 web?
+you DHIS2 web instance?"?>DHIS2<?oxy_comment_end?>
+        web instance. You do this in the <emphasis role="bold">Users</emphasis> and <emphasis
+            role="bold">Program</emphasis> web apps.<note>
+            <itemizedlist>
+                <listitem>
+                    <para>To work on an Android device you must assign the same <emphasis
+                            role="bold">Data capture and maintenance organisation units</emphasis>
+                        as the organisation units you've assigned the program to.</para>
+                </listitem>
+                <listitem>
+                    <para>In the Android apps you want to save as much data as possible. Therefore,
+                        the user can only download and capture data against the <emphasis
+                            role="bold">Data capture and maintenance organisation units</emphasis>.
+                        You configure these organisation units in the <emphasis role="bold"
+                            >Users</emphasis> app.</para>
+                </listitem>
+                <listitem>
+                    <para>If you select the top organisation unit as the <emphasis role="bold">Data
+                            capture and maintenance organisation units</emphasis>, the user can only
+                        download and capture data on the top organisation unit.</para>
+                </listitem>
+                <listitem>
+                    <para>To give the user access to download and capture data on all organisation
+                        units, you must assign all organisation units as <emphasis role="bold">Data
+                            capture and maintenance organisation units</emphasis>.</para>
+                </listitem>
+            </itemizedlist>
+        </note></para>
+    <orderedlist>
+        <listitem>
+            <para>In the <emphasis role="bold">Users</emphasis> app, create a new or update an
+                existing user with the following settings:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Available roles</emphasis>: Assign a user role that
+                        allow the user to access programs.</para>
+                </listitem>
+                <listitem>
+                    <para><emphasis role="bold">Data capture and maintenance organisation
+                            units</emphasis>: Select the organisation units that are relevant for
+                        your program.</para>
+                    <para>The <emphasis role="bold">Data capture and maintenance organisation
+                            units</emphasis> control for which organisation units the user can do
+                        data entry. You must assign at least one data capture and maintenance
+                        organisation unit to each user.</para>
+                </listitem>
+            </itemizedlist>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="90%" align="center"
+                            fileref="resources/images/android/common/config_program_user_setting.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </listitem>
+        <listitem>
+            <para>In the <emphasis role="bold">Users</emphasis> app, assign programs to the user
+                role you selected in the previous step.</para>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="90%" align="center"
+                            fileref="resources/images/android/common/config_program_userrole_setting.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </listitem>
+        <listitem>
+            <para>In the <emphasis role="bold">Program</emphasis> app, assign your programs to the
+                same organisation units as the <emphasis role="bold">Data capture and maintenance
+                    organisation units</emphasis> you selected in the <emphasis role="bold"
+                    >Users</emphasis> app.</para>
+            <screenshot>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata width="60%" align="center"
+                            fileref="resources/images/android/common/config_program_orgunit_setting.png"
+                            format="PNG"/>
+                    </imageobject>
+                </mediaobject>
+            </screenshot>
+        </listitem>
+        <listitem>
+            <para>Open the relevant Android app and log in with the user you created.</para>
+        </listitem>
+        <listitem>
+            <para>Pull down to synch with the DHIS2 web instance.</para>
+            <para>The app downloads all programs and organisation units the user has access
+                to.</para>
+        </listitem>
+    </orderedlist>
+    <note>
+        <title>Error
+            <?oxy_comment_start author="cecilia" timestamp="20161114T114138+0100" comment="Nov2016: SME confirms that only one error message is available." flag="done"?>message<?oxy_comment_end?></title>
+        <screenshot>
+            <mediaobject>
+                <imageobject>
+                    <imagedata width="40%" align="center"
+                        fileref="resources/images/android/common/config_error_program.png"
+                        format="PNG"/>
+                </imageobject>
+            </mediaobject>
+        </screenshot>
+        <itemizedlist>
+            <listitem>
+                <para>Error message: "You don't have any programs assigned to the organisation
+                    unit"</para>
+            </listitem>
+            <listitem>
+                <para>Solution: In the <emphasis role="bold">Program</emphasis> app, assign programs
+                    to the relevant organisation units.</para>
+            </listitem>
+        </itemizedlist>
+    </note>
+    <para>See
+        <?oxy_comment_start author="cecilia" timestamp="20161102T135023+0100" comment="Add URL to correct sections when build works."?>also<?oxy_comment_end?>:</para>
+    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="https://ci.dhis2.org/docs/master/en/user/html/manage_tracker_programs.html"
+            >Manage programs</link></para>
+    <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="https://ci.dhis2.org/docs/master/en/user/html/mgt_user_role_group.html"
+            >Manage users, user roles and user groups</link></para>
+</chapter>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0"
+    xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+    xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xml:id="edit_multiple_object_groups">
+    <?oxy_comment_start author="cecilia" timestamp="20160531T151901+0200" comment="Feature used by implmenter and admin" flag="done"?>
+    <title>Edit multiple object groups <?oxy_comment_start author="cecilia" timestamp="20160626T173553+0200" comment="Before release:
+Verify that this topic is linked in to book"?>at<?oxy_comment_end?>
+        <?oxy_comment_start author="cecilia" timestamp="20160531T151833+0200" comment="Feedback to SME: In search field, add what you&apos;re selecting, For example Select an object or Select a group.
+
+See GItHub #171 https://github.com/dhis2/maintenance-app/issues/171
+"?>once<?oxy_comment_end?></title>
+    <?oxy_comment_end?>
+    <para>The <emphasis role="bold">Metadata group editor</emphasis> in the <emphasis role="bold"
+            >Maintenance</emphasis> app allows you to edit multiple object groups at the same time.
+        You can edit the following objects types:</para>
+    <table frame="all">
+        <title>Object types in the Metadata group editor</title>
+        <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <thead>
+                <row>
+                    <entry>
+                        <para>Object type</para>
+                    </entry>
+                    <entry>
+                        <para>Available functions</para>
+                    </entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry>
+                        <para>Category option</para>
+                    </entry>
+                    <entry>
+                        <para/>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para><?oxy_comment_start author="cecilia" timestamp="20160531T101152+0200" comment="Lars submitted ticket for category option groups:
+https://github.com/dhis2/maintenance-app/issues/168
+"?>Category
+                            option group<?oxy_comment_end?></para>
+                    </entry>
+                    <entry>
+                        <para/>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Data element</para>
+                    </entry>
+                    <entry>
+                        <para>Add one data element to multiple data element groups</para>
+                        <para>Remove one data element from multiple data element groups</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Data element group</para>
+                    </entry>
+                    <entry>
+                        <para>Add multiple data elements to one data element group</para>
+                        <para>Remove multiple data elements from one data element group</para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Indicator</para>
+                    </entry>
+                    <entry>
+                        <para>Add one indicator to multiple indicator groups</para>
+                        <para>Remove one indicator from multiple indicator groups </para>
+                    </entry>
+                </row>
+                <row>
+                    <entry>
+                        <para>Indicator group</para>
+                    </entry>
+                    <entry>
+                        <para>Add multiple indicators to one indicator group</para>
+                        <para>Remove multiple indicators from one indicator group</para>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+    <section>
+        <title>Edit multiple objects in an object group</title>
+        <orderedlist>
+            <listitem>
+                <para>Open the <emphasis role="bold">Maintenance</emphasis> app and click <emphasis
+                        role="bold">Metadata group editor</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>Click <emphasis role="bold">Manage items in group</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>Select an object group type, for example <emphasis role="bold">Indicator
+                        groups</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>Select an object group, for example <emphasis role="bold"
+                    >HIV</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>In the left-hand list, select the object(s) you want to add to the object
+                    group and click the right arrow.</para>
+            </listitem>
+            <listitem>
+                <para>In the right-hand list, select the object(s) you want to remove from the
+                    object group and click the left
+                    <?oxy_comment_start author="cecilia" timestamp="20160531T130118+0200" comment="For SME: Auto-saved?"?>arrow<?oxy_comment_end?>.</para>
+            </listitem>
+        </orderedlist>
+    </section>
+    <section>
+        <title>Edit an object in multiple object groups</title>
+        <orderedlist>
+            <listitem>
+                <para>Open the <emphasis role="bold">Maintenance</emphasis> app and click <emphasis
+                        role="bold">Metadata group editor</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>Click <emphasis role="bold">Manage groups for item</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>Select an object type, for example <emphasis role="bold"
+                    >Indicators</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>Select an object, for example <emphasis role="bold">ANC LLITN
+                        coverage</emphasis>.</para>
+            </listitem>
+            <listitem>
+                <para>In the left-hand list, select the objects group(s) you want to add the object
+                    to and click the right arrow.</para>
+            </listitem>
+            <listitem>
+                <para>In the right-hand list, select the object group(s) you want to
+                    r<?oxy_comment_start author="cecilia" timestamp="20160531T132847+0200" comment="Revise wording, maybe &quot;from which you want to remove...&quot;"?>emove
+                    the object from<?oxy_comment_end?> and click the left
+                    <?oxy_comment_start author="cecilia" timestamp="20160531T130118+0200" comment="For SME: Auto-saved?"?>arrow<?oxy_comment_end?>,</para>
+            </listitem>
+        </orderedlist>
+    </section>
+</section>

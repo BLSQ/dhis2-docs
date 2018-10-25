@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<section version="5.0"
+    xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+    xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xml:id="about_tracked_entity">
+    <title>About tracked entities</title>
+    <para>A tracked entity is a types of entities which can be tracked through the system. It can be
+        anything from persons to commodities, for example a medicine or a person.</para>
+    <para>A program must have one tracked entity. To enrol a tracked entity instance into a program,
+        the tracked entity of an entity and tracked entity of a program must be the same.</para>
+    <para>Tracked entity attributes are used to register extra information for a tracked entity.
+        Tracked entity attributes can be shared between programs.</para>
+</section>

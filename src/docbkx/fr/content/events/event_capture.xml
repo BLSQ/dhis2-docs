@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8'?>
+      <chapter version="5.0"
+         xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+          xmlns="http://docbook.org/ns/docbook"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:xhtml="http://www.w3.org/1999/xhtml"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mth="http://www.w3.org/1998/Math/MathML"
+         xmlns:db="http://docbook.org/ns/docbook"
+         xml:id="event_capture_app">
+  <title>Using the Event Capture
+    <?oxy_comment_start author="cecilia" timestamp="20160826T105701+0200" comment="To verify:
+- Is there a certain workflow? If so, add section.
+- Explain the pre-req, you need to create a program
+- Explain that in Event Capture you register events without registration, (in one single program stage?)
+Within a porgram you can create an event with registreation or without registration -  what&apos;s the third option?"?>app<?oxy_comment_end?></title>
+    <section xml:id="about_event_capture_app">
+    <title>About the Event
+      <?oxy_comment_start author="cecilia" timestamp="20160826T105748+0200" comment="For tech writer:
+Add definitions of: event, event without registration, ..."?>Capture<?oxy_comment_end?>
+      app</title>
+    <para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/images/event_capture/event_list.png" format="PNG"
+              width="70%" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+    <para>In the <emphasis role="bold">Event Capture</emphasis> app you register events that
+      occurred at a particular time and place. An event can happen at any given point in time.
+      T<?oxy_comment_start author="cecilia" timestamp="20160829T095328+0200" comment="Rewrite
+"?>his
+      stands in contrast to routine<?oxy_comment_end?> data, which can be captured for predefined,
+      regular intervals. Events are sometimes called cases or records. In DHIS2,
+      e<?oxy_comment_start author="cecilia" timestamp="20160829T095359+0200" comment="Can an event be registered without a program?"?>vents<?oxy_comment_end?>
+      are linked to a program. The <emphasis role="bold">Event Capture</emphasis> app lets you
+      select the organisation unit and program and specify a date when a event happened, before
+      entering information for the event.</para>
+    <para>The <emphasis role="bold">Event Capture</emphasis> app works online and offline. If the
+      Internet connectivity drops, you can continue to capture events. The events will be stored
+      locally in your web browser (client). When connectivity has returned, the system will ask you
+      to upload the locally stored data. The system then sends the data to the server where the data
+      is stored.</para>
+    <para>
+      <note>
+        <?oxy_comment_start author="cecilia" timestamp="20160829T140850+0200" comment="Verify with SME if this is still correct.
+So data is saved on the local machine but not accessible in the newly reopened web browser?"?>
+        <para>If you close the web browser while in offline mode, it is not possible to reopen a new
+          web browser window and continue the working session. However the data will still be saved
+          locally and can be uploaded to the server the next time the machine is online and the you
+          have logged into the server.</para>
+        <?oxy_comment_end?>
+      </note>
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>You only see programs associated with the organisation unit you've selected and
+          programs you've access to view through your user role.</para>
+      </listitem>
+      <listitem>
+        <?oxy_comment_start author="cecilia" timestamp="20160905T160429+0200" comment="For SME: What does this mean?"?>
+        <para>Both
+          s<?oxy_comment_start author="cecilia" timestamp="20170125T163435+0100" comment="Removed the following text (more for implementer or program config section):
+&quot;Another feature available in the Event Capture app is skip-logic and validation functionality. Using program rules engine it is possible to put some rules for a program and take some actions when the rules are met. Currently supported actions are skipping/hiding a data element or an entire section, display warning for some soft-validations or display error for hard-validations. For example if a rule defined says &quot;DataElementA &gt; 100&quot; and has action as &quot;show warning&quot; and message &quot;Datalelement A can not have value more than 100&quot;. What will happen during data entry is - the moment a value greater than 100 is entered for data element A, the warning message will be displayed. Because, it is just a warning it is still possible to keep the value more than 100. However, if the action is &quot;Show error&quot;, the error message will be displayed and the system will also ignore the value - i.e. it is not possible to store a value that violates the rule.&quot;"?>kip-logic
+          <?oxy_comment_end?>and validation error/warning messages are supported during
+          registration.</para>
+        <?oxy_comment_end?>
+      </listitem>
+      <listitem>
+        <para>When you close an organisation unit, you can't register or edit events
+          <?oxy_comment_start author="cecilia" timestamp="20170102T105411+0100" comment="Related to this organisation unit?
+
+Pending info from SME. 
+Could also effect TEIs."?>to<?oxy_comment_end?>
+          this organisation unit in the <emphasis role="bold">Event Capture</emphasis> app. You can
+          still view and filter the event list and view the details of an event.</para>
+      </listitem>
+      <listitem>
+        <para>On-the-fly indicator expression evaluation is supported. If a program has indicators
+          defined for it and the moment all values related to the indicator expression are filled,
+          the system will calculate indicator and display the result.</para>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="resources/images/event_capture/event_editing.png" format="PNG"
+                  width="70%" align="center"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+      </listitem>
+      <?oxy_comment_start author="cecilia" timestamp="20170125T162904+0100" comment="Verify if this info is still valid."?>
+      <listitem>
+        <para><emphasis role="bold">Sorting:</emphasis> this can be done by clicking the sorting
+          icon of each column header. A red sorting icon implies the current sorting column.
+          However, the sorting functionality works only within the page displayed. Currently, it is
+          not possible to do sorting from serverside.</para>
+      </listitem>
+      <?oxy_comment_end?>
+      <listitem>
+        <para><emphasis role="bold">Filtering:</emphasis> this is done by clicking the small search
+          icon shown to the right of each column header. Clicking them provides an input field to
+          type a filtering criteria. The system starts applying the filter the moment a user starts
+          to type. During filtering it is possible to define start and end dates for date type data
+          elements and lower and upper limits for number types. Server side filtering is not-support
+          at the moment.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <!--<section>
+    <title><?oxy_comment_start author="cecilia" timestamp="20161005T145658+0200" comment="At next release: add workflow section"?>Workflow<?oxy_comment_end?></title>
+    <para/>
+  </section>-->
+    <section xml:id="event_capture_register_event">
+    <title><?oxy_comment_start author="cecilia" timestamp="20160826T111244+0200" comment="Or Create an event?
+Add an event?"?>Register<?oxy_comment_end?>
+      an
+      <?oxy_comment_start author="cecilia" timestamp="20160826T105820+0200" comment="Or event data?"?>event<?oxy_comment_end?></title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>You'll only see programs associated with the selected organisation unit and programs
+          you've access to through your user role.</para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Register event</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Select a date.</para>
+      </listitem>
+      <listitem>
+        <para>Fill in the required
+          <?oxy_comment_start author="cecilia" timestamp="20160826T141524+0200" comment="Does the fields depend on which program you&apos;ve chosen?"?>information<?oxy_comment_end?>.</para>
+        <para>If the program's program stage is configured to capture GPS coordinate, you can enter
+          the coordinates in two ways:</para>
+        <itemizedlist>
+          <listitem>
+            <para>Enter values directly in corresponding fields.</para>
+          </listitem>
+          <listitem>
+            <para>Choose a location in a map.
+              <?oxy_comment_start author="cecilia" timestamp="20160829T155603+0200" comment="Verify function."?>The
+              map option also displays polygons and points that are defined for organisation
+              units.<?oxy_comment_end?></para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Save and add new</emphasis> or <emphasis role="bold">Save
+            and go back</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_edit_event">
+    <title>Edit an event</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click the event you want to
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152358+0200" comment="Modify or change?Or update?"?>modify<?oxy_comment_end?>
+          and select <emphasis role="bold">Edit</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Modify the event details and click <emphasis role="bold">Update</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_edit_event_grid">
+    <title>Edit events in
+      <?oxy_comment_start author="cecilia" timestamp="20160826T110418+0200" comment="Verify name, is grid correct?
+Maybe grid format?
+table?
+Maybe multiple events at the same time?"?>grid<?oxy_comment_end?></title>
+    <para>The <emphasis role="bold">Edit in grid</emphasis> function allows you to edit a selected
+      event within the table but only those columns (data elements) visible in the grid. If you need
+      more columns, use <emphasis role="bold">Show/hide columns</emphasis> to specify which columns
+      should be displayed in the
+      <?oxy_comment_start author="cecilia" timestamp="20160829T160635+0200" comment="Event list or Event table?"?>list<?oxy_comment_end?>.</para>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click the event you want to
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152358+0200" comment="Modify or change?Or update?"?>modify<?oxy_comment_end?>
+          and select <emphasis role="bold">Edit in grid</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Modify the event details.</para>
+      </listitem>
+      <listitem>
+        <?oxy_comment_start author="cecilia" timestamp="20160826T152836+0200" comment="Review wording
+Verify with SME how it should work, how you close edit mode"?>
+        <para>Click on another event to close the edit mode.</para>
+        <?oxy_comment_end?>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_share_event_edit_mode">
+    <title>Share events in edit
+      <?oxy_comment_start author="cecilia" timestamp="20161005T170648+0200" comment="Verify with SME that descriptions is correct."?>mode<?oxy_comment_end?></title>
+    <para>You can share an event in edit mode via its web address.</para>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Open the event you want to share in edit mode.</para>
+      </listitem>
+      <listitem>
+        <para>Copy the URL.</para>
+        <para>Make sure that the URL contains "event" and "ou"
+          (<?oxy_comment_start author="cecilia" timestamp="20161005T171224+0200" comment="Verify that link works and that the example is correct."?>organisation<?oxy_comment_end?>
+          unit)
+          <?oxy_comment_start author="cecilia" timestamp="20161007T173245+0200" comment="At next release, add example that works."?>parameters<?oxy_comment_end?>.</para>
+        <!--<example><para><link xlink:href="https://play.dhis2.org/dev/dhis-web-event-capture/index.html#/%3Fou=DiszpKrYNg8%26event=onXW2DQHRGS" xmlns:xlink="http://www.w3.org/1999/xlink"/></para></example>-->
+      </listitem>
+      <listitem>
+        <para>Paste the URL in the sharing method of your choice, for example an e-mail or a message
+          within DHIS2.</para>
+        <para>If you're not logged in to DHIS2 when you click the link, you'll be asked to do so and
+          then taken to the dashboard.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_view_event_audit_history">
+    <title>View an event
+      <?oxy_comment_start author="cecilia" timestamp="20160826T105907+0200" comment="is audit history really necessary? Why not history? or log?"?>audit<?oxy_comment_end?>
+      history </title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click an event and <?oxy_comment_start author="cecilia" timestamp="20160826T152950+0200" comment="Feedback to SME:
+All lower caps in pop-up menu
+
+Suggestion:
+It looks like only changes to an event are logged. Suggest to log also the creation."?>select<?oxy_comment_end?>
+          <emphasis role="bold">Audit history</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_delete_event">
+    <title>Delete an event</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click an event and select <emphasis role="bold">Remove</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Remove</emphasis> to cocnfirm the
+          <?oxy_comment_start author="cecilia" timestamp="20160826T153300+0200" comment="A soft delete?
+Can you undo this action?
+
+If not, add WARNING!"?>deletion<?oxy_comment_end?>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_modify_event_list_layout">
+    <title>Modify an event list's
+      <?oxy_comment_start author="cecilia" timestamp="20160826T110022+0200" comment="Verify the word display, can it be replaced?
+Look?
+Layout?"?>layout<?oxy_comment_end?>
+    </title>
+    <para>You can select which columns to show or hide in an event list. This can be useful for
+      example when you have a long list of data elements assigned to a program stage. Once you've
+      modified the layout, it's saved on your user profile. You can have different layouts for
+      different programs.</para>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click the <emphasis role="bold">Show/hide columns</emphasis> icon.</para>
+      </listitem>
+      <listitem>
+        <para>Select the columns you want to display and <?oxy_comment_start author="cecilia" timestamp="20161005T171710+0200" comment="The layout should be saved per user. Add comment about that.
+Doesn&apos;t seem to work though..."?>click<?oxy_comment_end?>
+          <emphasis role="bold">Close</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_print_event_list">
+    <title>Print an
+      <?oxy_comment_start author="cecilia" timestamp="20160826T105933+0200" comment="Events list?
+Event list?
+List of events?"?>event<?oxy_comment_end?>
+      list</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Print
+            <?oxy_comment_start author="cecilia" timestamp="20160826T154430+0200" comment="Verify with SME if the name of the UI eleement changes depending on the program settings.
+
+In old doc:
+&quot;This button also changes its label accordingly - for example &quot;Print details&quot; and &quot;Print form&quot; - and does the printing functionality.&quot;"?>list<?oxy_comment_end?></emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+   <section xml:id="event_capture_download_event_list">
+    <title>Download an event list</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Event Capture</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Select an organisation unit.</para>
+      </listitem>
+      <listitem>
+        <para>Select a program.</para>
+        <para>All events registered to the selected program
+          <?oxy_comment_start author="cecilia" timestamp="20160826T152250+0200" comment="Review wording."?>show<?oxy_comment_end?>
+          up in a list.</para>
+      </listitem>
+      <listitem>
+        <para>Click the <emphasis role="bold">Downlad</emphasis> icon and select a format.</para>
+        <para>You can download an event list in XML, JSON or CSV formats.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+</chapter>

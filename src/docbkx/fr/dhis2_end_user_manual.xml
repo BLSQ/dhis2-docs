@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<book version="5.0"
+      xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+      xml:id="index" xmlns="http://docbook.org/ns/docbook"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:xl="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:ns2="http://www.w3.org/1998/Math/MathML"
+      xmlns:ns="http://docbook.org/ns/docbook"
+      xmlns:date="http://exslt.org/dates-and-times">
+  <title>DHIS2 End-user Manual</title>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/bookinfo/bookinfo.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/preface/preface.xml" encoding="UTF-8"/>
+    <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/intro/database_demo_server.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/data_entry/toc_data_entry.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/data_quality/toc_data_quality.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/analysis/using_reporting.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/analysis/pivot_tables.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/analysis/data_visualizer.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/analysis/using_gis.xml" encoding="UTF-8"/>
+  <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/analysis/using_maps.xml" encoding="UTF-8"/>
+   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/dashboard/dashboard.xml" encoding="UTF-8"/>
+   <xi:include  xmlns:xi="http://www.w3.org/2001/XInclude" href="content/messages/messages.xml" encoding="UTF-8"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="content/profile/profile.xml" encoding="UTF-8"/>
+</book>

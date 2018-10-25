@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter version="5.0"
+  xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+  xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
+  xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
+  xmlns:db="http://docbook.org/ns/docbook" xml:id="metadata_sync">
+  <title>Configure
+    <?oxy_comment_start author="cecilia" timestamp="20160704T114426+0200" comment="At next release: verify if content exist.
+
+For 2.24: 
+Removed last section because it didn&apos;t contain any information:
+Title:Optimization of initial setup of new field instances
+To be done." flag="done"?>metadata<?oxy_comment_end?>
+    s<?oxy_comment_start author="cecilia" timestamp="20160704T122650+0200" comment="At next release:
+Do full editorial review of content." flag="done"?>ynchronizing<?oxy_comment_end?></title>
+  <section>
+    <title>About data and metadata synchronization</title>
+    <para>You can synchronize data and metadata between different DHIS2 instances. Given two
+      instances in a central-local deployment strategy, metadata created at the central system can
+      be synchronized with the local system and the data created at local system can be synchronized
+      with the central system. This can be useful when you've multiple stand-alone instances of
+      DHIS2 and global metadata needs to be created at all the local instances.</para>
+    <para>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center"
+              fileref="resources/images/metadata_synchronization/dhis2_architecture.png"
+              format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </para>
+    <para>If metadata creation and update take place at the central system and if the metadata
+      synchronisation task is enabled, the metadata gets synchronized down to all the local
+      instances which are bound to the central instance. These local instances will in turn push
+      data values to the central instance. Enabling or disabling versioning of metadata
+      synchronization at local instance, will not hinder the metadata synchronization process. This
+      is because the metadata synchronization interacts with versioning end points of the central
+      instance and not with end points of the local instance.</para>
+    <para>Each snapshot of metadata export generated is referred to a metadata version. A new
+      metadata version contains only the changes between the previous version and the current
+      version, that is it's an export between two timestamps. All metadata versions are maintained
+      in the DHIS2 database and are available to all local instances that connect to it. You can
+      schedule each of the local instances to download new metadata versions. It is recommended to
+      keep the metadata versions' sizes small and
+      <?oxy_comment_start author="cecilia" timestamp="20170508T141626+0200" comment="Logical name?
+"?>logical<?oxy_comment_end?>.</para>
+    <para>
+      <warning>
+        <title>Don't create new metadata versions on local instances</title>
+        <para dir="ltr">Each instance of DHIS2, whether central or local, can create metadata
+          versions. The local instance is meant to synchronize metadata from a central system and
+          not create metadata on its own.</para>
+        <para dir="ltr">If a new metadata version is created on the local instance, this instance
+          can't receive new metadata versions from the central instance, since the content of the
+          metadata versions will be out of synchronization.</para>
+        <para dir="ltr">If you've created metadata versions on a local instance, you must manually
+          deleted these versions from the database before you can synchronize with the central
+          instance.</para>
+        <example>
+          <para>Assume the central and local DHIS2 instances have identical metadata snapshots until
+            version 10. Then the local instance creates a new snapshot called version 11. After
+            that, the central instance creates a new snapshot called version 11. When the local
+            instance attempts to synchronize metadata, version 11 is not downloaded. However, the
+            content of version 11 on the local instance is not identical to the content of version
+            11 on the central instance.</para>
+        </example>
+      </warning>
+    </para>
+    <note>
+      <para>You can also use the <emphasis role="bold">Import-Export</emphasis> app to synchronize
+        metadata manually.</para>
+    </note>
+  </section>
+  <section>
+    <title>Workflow</title>
+    <orderedlist>
+      <listitem>
+        <para>On the central instance, configure metadata versioning. You should do this once the
+          central instance contains metadata.</para>
+      </listitem>
+      <listitem>
+        <para>Connect local instance(s) to the central instance.</para>
+      </listitem>
+      <listitem>
+        <para>On local instance(s), configure automatic synchronization.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <?oxy_comment_start author="cecilia" timestamp="20170421T081339+0200" comment="Is this relevant? Do you need to actually create each metadata version manually on the central instance?"?>
+  <section>
+    <title>Configure metadata versioning on central instance</title>
+    <para>
+      <note>
+        <para>To synchronize metadata, the user account of the central system must have the
+          following authority:</para>
+        <para><emphasis role="bold">F_METADATA_MANAGE</emphasis></para>
+        <para>Only users with this authority will then be able to create and download metadata. This
+          is to ensure security of the central system where the metadata is created. Instead of
+          giving the credentials of user having ALL authority to the field instances, you need to
+          create a user having this specific authority only.</para>
+      </note>
+    </para>
+    <orderedlist>
+      <listitem>
+        <para>On the central instance, open the <emphasis role="bold">System Settings</emphasis> app
+          and click <emphasis role="bold">Synchronization</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Go to the <emphasis role="bold">Metadata versioning</emphasis> section and select
+            <emphasis role="bold">Enable versioning for metadata sync</emphasis>.</para>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="50%" align="center"
+                  fileref="resources/images/metadata_synchronization/metadata_versioning.png"
+                  format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+      </listitem>
+      <listitem>
+        <para>(Optional) Select <emphasis role="bold">Don't sync metadata if DHIS versions
+            <?oxy_comment_start author="cecilia" timestamp="20170405T143758+0200" comment="What exactly does this imply? Why would you do this?"?>differ<?oxy_comment_end?></emphasis>.</para>
+      </listitem>
+      <listitem>
+        <?oxy_custom_start type="oxy_content_highlight" color="235,192,230"?>
+        <para>Select a type of metadata version: <emphasis role="bold">Best effort</emphasis> or
+            <emphasis role="bold">Atomic</emphasis>.</para>
+        <?oxy_custom_end?>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis>Best effort</emphasis> means that if the metadata import encounters
+              missing references (for example missing data elements on a data element group import)
+              it ignores the errors and continues the import.</para>
+          </listitem>
+          <listitem>
+            <para dir="ltr"><emphasis>Atomic</emphasis> means all or nothing - the metadata import
+              will fail if any of the references do not exist.</para>
+            <para>
+              <note>
+                <para>Each metadata entity is associated with a &quot;User&quot; object. If this
+                  &quot;User&quot; reference is missing while importing metadata version of type
+                  ATOMIC, the import will fail at the validation phase itself. This means that the
+                  user who creates metadata also needs to synchronize down to local instances to
+                  successfully import the metadata version of type ATOMIC.</para>
+              </note>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Create new version</emphasis>. The new version is added to
+          the versioning table.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <?oxy_comment_end?>
+  <section>
+    <title>Connect local instance to central instance</title>
+    <para>To enable metadata synchronization, you must configure the connection between the local
+      instance and the central instance.</para>
+    <orderedlist>
+      <listitem>
+        <para>On the local instance, open the <emphasis role="bold">System Settings</emphasis> app
+          and click <emphasis role="bold">Synchronization</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Add the central DHIS2 instance's details to the local instance:</para>
+        <itemizedlist>
+          <listitem>
+            <para><emphasis role="bold">Remote server URL</emphasis></para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">Remote server user name</emphasis></para>
+          </listitem>
+          <listitem>
+            <para><emphasis role="bold">Remote server password</emphasis></para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Go to the <emphasis role="bold">Metadata versioning</emphasis> section and select
+            <emphasis role="bold">Enable versioning for metadata sync</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>(Optional) Select <emphasis role="bold">Don't sync metadata if DHIS versions
+            differ</emphasis>.</para>
+        <para>The metadata schema changes between versions of DHIS2 which could make different
+          metadata versions incompatible.</para>
+        <para>When enabled, this option will not allow metadata synchronization to occur if the
+          central and local instance(s) have different DHIS2 versions. This apply to metadata
+          synchronization done both via the user interface and the API.</para>
+        <para>The only time it might be valuable to disable this option is when synchronizing basic
+          entities, for example data elements, that have not changed across DHIS2 versions.</para>
+      </listitem>
+      <listitem>
+        <para>(Optional) Configure email notifications to notify users about successful or
+          unsuccessful metadata synchronization:</para>
+        <orderedlist>
+          <listitem>
+            <para>Open the <emphasis role="bold">System Settings</emphasis> app and click <emphasis
+                role="bold">Email</emphasis>. </para>
+          </listitem>
+          <listitem>
+            <para>Enter <emphasis role="bold">Host name</emphasis>, <emphasis role="bold"
+                >Port</emphasis>, <emphasis role="bold">User name</emphasis>, <emphasis role="bold"
+                >Password</emphasis> and <emphasis role="bold">Email sender</emphasis>.</para>
+          </listitem>
+          <listitem>
+            <para>Click <emphasis role="bold">Server</emphasis> and enter a <emphasis role="bold"
+                >System notifications email address</emphasis>.</para>
+            <para>This email address will receive notifications about the metadata synchronization
+              status.</para>
+          </listitem>
+        </orderedlist>
+        <para>
+          <tip>
+            <para>When you receive email notification about a metadata synchronization failure,
+              check which metadata version that causes the error and resolve it. Then you avoid
+              future errors when the system downloads new metadata versions.</para>
+          </tip>
+        </para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section>
+    <title>Configure automatic metadata synchronization on local instance</title>
+    <para>Once you have configured automatic metadata synchronization (scheduling) on local
+      instance(s), the scheduler will run at that specific time and synchronize (download and
+      import) the metadata from the central instance. No manual intervention is required from the
+      users at the local instance(s).</para>
+    <para>After the scheduler has completed the metadata synchronization, the local instance will
+      have the metadata exactly as created on the central system. </para>
+    <para>
+      <note>
+        <para>Passwords of users are not synchronized. They are nullified for security reasons.
+          After metadata synchronization, the Admin user must reset these passwords.</para>
+      </note>
+    </para>
+    <orderedlist>
+      <listitem>
+        <para>On the local instance, open the <emphasis role="bold">Data Administration</emphasis>
+          app and click <emphasis role="bold">Scheduling</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>In the <emphasis role="bold">Metadata Synchronization</emphasis> section, select
+            <emphasis role="bold">Enabled</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Select a time period: <emphasis role="bold">Daily</emphasis>, <emphasis role="bold"
+            >Weekly</emphasis>, <emphasis role="bold">Monthly</emphasis> or <emphasis role="bold"
+            >Yearly</emphasis>. </para>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" align="center"
+                  fileref="resources/images/metadata_synchronization/metadata_sync.png" format="PNG"
+                />
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Start</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section>
+    <title>Create a new
+      <?oxy_comment_start author="cecilia" timestamp="20170405T140205+0200" comment="Only metadata versioning? Not data veroninig?"?>metadata<?oxy_comment_end?>
+      version manually on central or local instance</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">System Settings</emphasis> app and click <emphasis
+            role="bold">Synchronization</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Go to the <emphasis role="bold">Metadata versioning</emphasis> section and select
+            <emphasis role="bold">Enable versioning for metadata sync</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>(Optional) Select <emphasis role="bold">Don't sync metadata if DHIS versions
+            <?oxy_comment_start author="cecilia" timestamp="20170405T143758+0200" comment="What exactly does this imply? Why would you do this?"?>differ<?oxy_comment_end?></emphasis>.</para>
+      </listitem>
+      <listitem>
+        <?oxy_custom_start type="oxy_content_highlight" color="235,192,230"?>
+        <para>Select <emphasis role="bold">Best effort</emphasis> or <emphasis role="bold"
+            >Atomic</emphasis>.</para>
+        <?oxy_custom_end?>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Create new version</emphasis>. The new version is added to
+          the versioning table.</para>
+      </listitem>
+    </orderedlist>
+    <para>
+      <example>
+        <title>Versioning table for a central instance</title>
+        <para>When the system is a <emphasis role="italics">central instance</emphasis>, you'll see
+          three columns in the versioning table:</para>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="80%" align="center"
+                  fileref="resources/images/settings/metadata_versioning_table.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+        <informaltable frame="all">
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <thead>
+              <row valign="top">
+                <entry valign="top">
+                  <para>Object</para>
+                </entry>
+                <entry valign="top">
+                  <para>Description</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row valign="top">
+                <entry valign="top">
+                  <para>Master version</para>
+                </entry>
+                <entry valign="top">
+                  <para>The latest
+                    <?oxy_comment_start author="cecilia" timestamp="20170405T152617+0200" comment="The latest version of what?"?>version<?oxy_comment_end?>
+                    in the system.</para>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry valign="top">
+                  <para>Version</para>
+                </entry>
+                <entry valign="top">
+                  <para>Name of the version. The name is automatically generated by system.</para>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry valign="top">
+                  <para>When</para>
+                </entry>
+                <entry valign="top">
+                  <para>The timestamp of the metadata version creation at the central
+                    instance.</para>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry valign="top">
+                  <para>Type</para>
+                </entry>
+                <entry valign="top">
+                  <para>Type of metadata
+                    <?oxy_comment_start author="cecilia" timestamp="20160704T115615+0200" comment="At next release: Add link to Concept in Settings chapter.
+2.24: Linking doesn&apos;t work, removed link:
+&quot;For getting more details about how to create versions and how they are captured internally please see Concept&quot; " flag="done"?>version<?oxy_comment_end?>.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </example>
+    </para>
+    <para>
+      <example>
+        <title>Versioning table for a local instance</title>
+        <para>When system is a <emphasis role="italics">local instance</emphasis>, you'll see four
+          columns in the versioning table:</para>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="80%" align="center"
+                  fileref="resources/images/settings/metadata_versioning_table_failure_case.png"
+                  format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+        <informaltable frame="all">
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry valign="top">
+                  <para>Object</para>
+                </entry>
+                <entry valign="top">
+                  <para>Description</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry valign="top">
+                  <para>Master version</para>
+                </entry>
+                <entry valign="top">
+                  <para>The latest version of the central instance.</para>
+                  <para>
+                    <note>
+                      <?oxy_comment_start author="cecilia" timestamp="20170405T152858+0200" comment="Does this note add any value?"?>
+                      <para>The master version information is the central instance&apos;s latest
+                        version. This is important to look at the difference between the versions of
+                        metadata that exist at central and at local.</para>
+                      <?oxy_comment_end?>
+                    </note>
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para>Last sync attempt</para>
+                </entry>
+                <entry valign="top">
+                  <para>If the last sync attempt is a failure, this will be displayed.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para>Version</para>
+                </entry>
+                <entry valign="top">
+                  <para>Name of the version. The name is automatically generated by system.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para>When</para>
+                </entry>
+                <entry valign="top">
+                  <para>The timestamp of the metadata version creation at the central
+                    instance.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para>Type</para>
+                </entry>
+                <entry valign="top">
+                  <para>Type of metadata version.</para>
+                </entry>
+              </row>
+              <row>
+                <entry valign="top">
+                  <para>Last sync</para>
+                </entry>
+                <entry valign="top">
+                  <para>Timestamp of when the last sync happened for this version in this
+                    system.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </example>
+    </para>
+  </section>
+  <section>
+    <title>Reference information: metadata synchronization configuration parameters</title>
+    <para>The process which performs metadata synchronization is called Metadata Sync Task. This
+      task performs a series of steps before syncing of metadata:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Push data (aggregate data and anonymous events data) from local instance to central
+          instance.</para>
+      </listitem>
+      <listitem>
+        <para>Gets the current metadata version of the local instance. Then uses this version
+          information as a baseline to fetch the list of metadata versions created after the
+          baseline.</para>
+      </listitem>
+      <listitem>
+        <para>If there are new versions created at central instance, it performs the synchronization
+          of metadata versions one after the other. A mail will be sent to the configured user (if
+          any) after each successful synchronization of metadata version at the local
+          instance.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Once the Metadata Sync Task has run at the scheduled time, the task can retry (if any of
+      the steps fail) based on the configuration of the following parameters defined in
+        <filename>dhis.conf</filename> file:</para>
+    <informaltable frame="all">
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+        <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+        <thead>
+          <row>
+            <entry>Parameter</entry>
+            <entry>Default value</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para><code>metadata.sync.retry</code></para>
+            </entry>
+            <entry>
+              <para>3</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para><code>metadata.sync.retry.time.frequency.millisec</code></para>
+            </entry>
+            <entry>
+              <para>30000</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para>Each retry will be made after the time (in millisecond) as specified. If the steps still
+      fail even after all the retries, then the scheduler stops its execution and then a mail will
+      be sent to the
+      <?oxy_comment_start author="cecilia" timestamp="20170508T150653+0200" comment="What happens if you haven&apos;t configured a user?"?>configured<?oxy_comment_end?>
+      user (if any). If no values are specified then the default values will be used.</para>
+    <para>
+      <example>
+        <title>Metadata synchronization configuration parameters</title>
+        <para><code>metadata.sync.retry</code> = 5</para>
+        <para><code>metadata.sync.retry.time.frequency.millisec</code> = 10000</para>
+      </example>
+    </para>
+  </section>
+</chapter>

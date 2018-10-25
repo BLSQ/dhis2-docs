@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter version="5.0"
+         xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+          xmlns="http://docbook.org/ns/docbook"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:xl="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:xhtml="http://www.w3.org/1999/xhtml"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mth="http://www.w3.org/1998/Math/MathML"
+         xmlns:db="http://docbook.org/ns/docbook" xml:id="doc_guide_chapter">
+  <title>DHIS2 Documentation Guide</title>
+  <section xml:id="docs_1">
+    <title>DHIS2 Documentation System Overview</title>
+    <para remap="">DHIS2 is a web-based  information management system under very active
+      development with typically four releases per year. Each release typically includes a number of
+      new features and additional functionality.  Given the fast pace of development, the system's
+      wide user base and distributed, global nature of development, a comprehensive documentation
+      system is required. An in-depth discussion of the need for documentation of DHIS2 has been
+      considered previously.<citation>Store2007</citation>
+      <link xl:href="http://www.docbook.org">DocBook</link> is a comprehensive, standard XML based
+      markup language for  the creation of books, papers and other technical documents maintained by
+        <link xl:href=" http://www.oasis-open.org/">OASIS</link> . In this chapter, we will describe
+      the documentation system of DHIS2 and how you can contribute. </para>
+  </section>
+  <section xml:id="docs_2">
+    <title>Introduction</title>
+    <para>One of the main advantages of <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="http://docbook.org/whatis">DocBook</link> is that there is complete separation
+      between the content and presentation. DocBook is a pure XML markup format used for technical
+      documentation. In spite of the hundreds of tags which DocBook supports, only a very small
+      subset of its features are currently used for the DHIS2 documentation. Since DocBook can be
+      transformed into a wide variety of formats (HTML, PDF, etc) and is a text-based format, it
+      serves as an ideal format for documentation of the system.</para>
+<para>There exist a wide range of text editors which can be used for the creation of DocBook files.
+      A fairly complete list of possibilities is located <link
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="http://wiki.docbook.org/topic/DocBookAuthoringTools">here</link>. It is
+      currently recommended to use the <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="https://www.oxygenxml.com"><trademark class="registered">
+          &lt;oXygen/&gt;</trademark> XML editor</link> for editing DocBook source files. In
+      principle, any text editing program or XML editor can be used to author DocBook files. Other
+      good possibilities are excellent and freely available text editor<link
+        xl:href="http://jedit.org/">jEdit</link> with the XML plugin installed, or the <link
+        xl:href="https://www.gnu.org/software/emacs/">cross-platform Emacs</link> text editor. Both
+      of these programs support editing DocBook XML. </para>
+
+    <para>One of the key concepts to keep in mind when authoring documentation in DocBook, or other
+      presentation neutral formats, is that the <emphasis role="bold">content</emphasis> of the
+      document should be considered first. The <emphasis role="bold">presentation</emphasis> of the
+      document will take place in a separate transformation step, whereby the source XML will be
+      rendered into different formats, such as HTML and PDF.  It is therefore important that the
+      document is well organised and structured, with appropriate tags and structural elements being
+      considered.</para>
+    <para>It is good practice to break your document in to various sections using the
+        <tag>sect</tag> tag. It is easy to make use of the modular nature of DocBook, and split very
+      complex chapters into smaller, more manageable pieces. This concept is essentially the same as
+        <trademark class="registered">Microsoft Word</trademark> or other word processing programs.
+      DocBook will automatically take care of numbering the sections for you when the document is
+      produced. </para>
+    <para>Two other important elements are the <tag>itemizedlist</tag> and<tag> numberedlist</tag>.
+      These are quite similar, but an itemised list corresponds to a bulleted list, which a numbered
+      list will be rendered with each element being numbered sequentially. Other key elements are
+        <tag>screenshot</tag> and <tag>table</tag> which should be self-explanatory. </para>
+    <para>The reader is referered to the DocBook documentation for a more in-depth description of
+      the exact elements which are availbale to be used. Currently, the DHIS2 documentation is
+      using version 5.0 of DocBook.</para>
+  </section>
+  <section xml:id="docs_3">
+    <title>Getting started with GitHub</title>
+    <para>The DHIS2 documentation system is managed at <link
+        xl:href="https://github.com/dhis2/dhis2-docbook-docs">GitHub</link> in its own source code
+      repository. GitHub is a collaborative platform that enables multiple people to work on
+      software projects collaboratively. In order for this to be possible, a version control system
+      is necessary in order to manage all the changes that multiple users may make. GitHub uses the
+        <emphasis>git</emphasis> source control system. While it is beyond the scope of this
+      document to describe the functionality of <emphasis>git</emphasis>, users who wish to create
+      documentation will need to gain at least a basic understanding of how the system works. A
+      basic guide is provided in the next section. The reader is referred to the <link
+        xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://git-scm.com/book/en/v2">git
+        manual</link> for futher more detailed information.  </para>
+    <para>In order to start adding or editing the documentation, you should first perform a checkout
+      of the source code. If you do not already have a GitHub account, you will need to get one.
+      This can be done <link xl:href="https://github.com/">here</link>. Once you register with
+      GitHub, you will need to request access to the<emphasis> dhis2-documenters</emphasis> group if
+      you wish to modify the source code of the documentation directly.</para>
+    <para>Login to GitHub, and then file an issue <link
+        xl:href="https://github.com/dhis2/dhis2docs/issues/new">here</link>. Your request will need
+      to be approved by the group administrators. Once you have been granted access to the group,
+      you can commit changes to the documentation branch and send and receive notifications if you
+      wish. Alternatively, you can clone the documentation into your own repository, commit your
+      changes to your own fork, and request that your changes be merged with the source of the
+      documenation with a pull request <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="https://github.com/dhis2/dhis2-docs/pulls">here</link>.</para>
+  </section>
+  <section xml:id="docs_4">
+    <title>Getting the document source</title>
+    <para>In order to edit the documentation, you will need to download the source  of the
+      documentation to your computer. GitHub uses a version control system known as git . There are
+      different methods for getting Git working on your system, depending on which operating system
+      you are using. A good step-by-step guide for <trademark class="registered"
+        >Microsoft</trademark> operating systems can be viewed <link
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="https://help.github.com/articles/getting-started-with-github-for-windows"
+        >here</link>. Alternatively, if you are comfortable using the command line, you can download
+      git from <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="http://git-scm.com/download/win">this page</link> If you are using Linux, you
+      will need to install git on your system through your package manager, or from source code. A
+      very thorough reference for how git is used is available in a number of different formats
+        <link xl:href="http://git-scm.com/book">here</link>.</para>
+    <para>Once you have installed git on your system, you will need to download the document source.
+Just follow this procedure:</para>
+    <orderedlist>
+      <listitem>
+        <para>Make sure you have git installed.</para>
+      </listitem>
+      <listitem>
+        <para> On <trademark class="registered">Windows</trademark> systems, visit <link
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="https://github.com/dhis2/dhis2docs"
+            >https://github.com/dhis2/dhis2docs</link> and press &quot;Clone in Desktop&quot;. If
+          you are using the command line, just type <command>git clone
+            git@github.com:dhis2/dhis2docs.git</command>
+        </para>
+      </listitem>
+      <listitem>
+        <para>The download process should start and all the documentation source files will be
+downloaded to the folder that you specified.</para>
+      </listitem>
+      <listitem>
+        <para>The DHIS2 documents depend on other branches for their documentation. Be sure to keep
+          these these up to date as well. When you build the documentation, the necessary submodules
+          will be downloaded automatically as part of the build process ,if you have not already
+          done so. </para>
+      </listitem>
+      <listitem>
+        <para> Once you have the source, be sure to create your own branch for editing. Simply
+            execute<command> git checkout -b mybranch</command> where <emphasis>mybranch</emphasis>
+          is the name of the branch you wish to create. </para>
+      </listitem>
+    </orderedlist>
+  </section>
+  <section xml:id="docs_5">
+    <title>Editing the documentation</title>
+    <para>Once you have downloaded the source, you should have a series of folders inside of the
+      repository directory.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Place all files in a folder in the following format
+            <filename>/src/docbkx/content/XXXX</filename>. XXXX  represents one of the thematic
+          folders which are used to organize the documentation.</para>
+      </listitem>
+      <listitem>
+        <para>Place images that you linked to in the
+            <filename>/dhis2docs/src/docbkx/XX/resources/images</filename> folder. Link these inside
+          your DocBook file using a relative file link. When the documentation is built, in a
+          separate step, the images will be automatically copied over to the correct
+          directory.</para>
+      </listitem>
+    </itemizedlist>
+    <table frame="all">
+      <title>File naming conventions for modularization</title>
+      <tgroup cols="4" align="left">
+        <colspec colname="newCol1" colnum="1" colwidth="1*"/>
+        <colspec colname="c1" colnum="2" colwidth="1.0*"/>
+        <colspec colname="c2" colnum="3" colwidth="1.0*"/>
+        <colspec colname="newCol2" colnum="4" colwidth="1*"/>
+        <thead>
+          <row>
+            <entry>
+              <para>File prefix</para>
+            </entry>
+            <entry>
+              <para>Topic type</para>
+            </entry>
+            <entry>
+              <para>Description</para>
+            </entry>
+            <entry>
+              <para>Example</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>c</para>
+            </entry>
+            <entry>
+              <para>Concept</para>
+            </entry>
+            <entry>
+              <para>This topic contains a short description about the feature.</para>
+            </entry>
+            <entry>
+              <para><filename>c_pg_rule.xml</filename></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>r</para>
+            </entry>
+            <entry>
+              <para>Reference</para>
+            </entry>
+            <entry>
+              <para>This topic contains relevant reference information, for example operators and
+                functions to use in program rule expressions.</para>
+            </entry>
+            <entry>
+              <para><filename>r_pg_indicator_expression.xml</filename></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>t</para>
+            </entry>
+            <entry>
+              <para>Task</para>
+            </entry>
+            <entry>
+              <para>This topic contains detailed step-by-step instructions of how to perform a
+                task.</para>
+            </entry>
+            <entry>
+              <para><filename>t_pg_rule_create.xml</filename></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>toc</para>
+            </entry>
+            <entry>
+              <para>-</para>
+            </entry>
+            <entry>
+              <para>This topic contains the xi:include links that together create a complete
+                section.</para>
+              <para>You shouldn't mix xi:include links and content in the same topic.</para>
+            </entry>
+            <entry>
+              <para><filename>toc_pg_rule.xml</filename></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>wf</para>
+            </entry>
+            <entry>
+              <para>-</para>
+            </entry>
+            <entry>
+              <para>This topic contains the process the user must go through to complete a
+                complicated task, for example create a program rule.</para>
+            </entry>
+            <entry>
+              <para><filename>wf_pg_rule.xml</filename></para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>
+      <example>
+        <title>File naming of program rule topics</title>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="70%" align="center"
+                  fileref="resources/images/implementation_guide/doc_topic_name.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+      </example>
+    </para>
+  </section>
+  <section>
+    <title>DHIS2 Bibliography</title>
+    <para>DHIS2 has a rich set of academic literature which can serve as useful resources during
+      implementations, project proposals and more detailed reading than what is appropriate for a
+      general user manual. A specialized bibliography has been added to the source code of the
+      application. <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="http://www.bibtex.org">BibTeX</link> is a specialized language which is widely
+      used in the academic world to handle bibliographic databases. A large number of free and open
+      source tools are capable of working with BibTeX. Currently, the recommended tool of choice for
+      manipulating the DHIS2 bibliography is <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="http://jabref.sourceforge.net/">JabRef</link>. </para>
+    <para>To get started with the bibliography, download a copy of JabRef and open the
+        <filename>/src/bibliography/dhis2_bibliography.bib file</filename>. . Add some new
+      references, then export the bibliography back to the
+        <filename>/src/docbkx/en/dhis2_bibliography.xml</filename> file, using the DocBook 5.0
+      export format. The updated bibliography will automatically be included in the documentation
+      after you commit your changes.</para>
+  </section>
+  <section xml:id="docs_6">
+    <title>Using images</title>
+    <para>Screen shots are very useful for providing information to users on how particular actions
+should be performed. DocBook has no intrinsic mechanisms to know exactly how an image should be rendered in the final document. Therefore, it is necessary to provide instructions through element attributes. The following XML code fragment demonstrates how an image can be specified to occupy 80% of the available page width. For screen shots in landscape format, this seems to be an appropriate amount. You may need to experiment a bit to obtain a proper width for your image. Alternatively, you can edit the resolution of the image itself, in order to obtain a proper size during rendering. </para>
+    <programlisting>&lt;screenshot&gt;
+ &lt;title&gt;DHIS2 Login screen&lt;/title&gt;
+  &lt;mediaobject&gt;
+   &lt;imageobject&gt; 
+    &lt;imagedata fileref=&quot;resources/images/login/dhis2_login_screen.jpg&quot; format=&quot;JPG&quot; width=&quot;80%&quot;/&gt;
+   &lt;/imageobject&gt;
+  &lt;/mediaobject&gt; 
+&lt;/screenshot&gt;</programlisting>
+    <para>For other images, depending on their size, a different value may be necessary. If you do
+not specify a width for you image, and its intrinsic size is larger than the available screen width, the image may overflow in certain document types with a fixed width, such as PDF. </para>
+    <para>Its is important that all images begin with <filename>resources/images/XXXX</filename>
+      where XXXX is the folder where the image is actually located. When the documentation is
+      actually built, the images will be copied into the correct location for the different formats.
+      If you are having trouble seeing the image in your editor, be sure you create a symlink to
+      this folder in the corresponding documents <filename>content</filename> folder. </para>
+  </section>
+  <section xml:id="docs_7">
+    <title>Linking documents together</title>
+    <para>DocBook provides a modular framework where many separate documents can be linked together
+into a master document. Fragments from different documents can also be reused in different contexts. It is therefore important to consider whether your document should be constructed as an article or a chapter. Chapters are essentially portions of a book, and can therefore be linked together into a larger document very easily. Articles are essentially standalone documents, but they can also be assembled together into a larger document at the component level. </para>
+    <para>Should you wish to link several articles together into a book, DocBook provides a
+mechanism to assign an id to a section. In the example below, a section has been assigned an id. This id must be unique within the document. </para>
+    <para>
+<programlisting>  &lt;section xml:id=&quot;mod2_1&quot;&gt;
+&lt;title&gt;Getting started with DHIS2&lt;/title&gt; ....</programlisting> </para>
+    <para>In order to include an article into a book, an Xinclude statement must be used. The
+following example shows how. </para>
+    <para>
+<programlisting>&lt;chapter&gt;
+&lt;title&gt;Getting started with DHIS2&lt;/title&gt; 
+&lt;xi:include xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; href=&quot;dhis2_user_man_mod2.xml&quot;
+ xpointer=&quot;mod2_1&quot; encoding=&quot;UTF-8&quot;/&gt;
+... </programlisting>
+</para>
+    <para>Note that the file name and id have been assigned in the parent document, referring to the
+actual file (href) and particular fragment of the child document that should be referenced in the parent document (xpointer). </para>
+    <para>Including chapters in a book is very simple. The example below illustrates how: </para>
+    <para><programlisting>&lt;xi:include xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; href=&quot;dhis2_user_man_
+mod1.xml&quot; encoding=&quot;UTF-8&quot;/&gt; </programlisting>
+</para>
+    <para>In this case, there is no need to explicitly reference a part of the document, unless you
+only want to include a portion of the chapter. If you want to use a section of the chapter, you can assign an id to that section, and then reference that section through an xpointer. </para>
+  </section>
+  <section xml:id="docs_8">
+    <title>Handling multilingual documentation</title>
+    <para>The DHIS2 docuemtnation has been translated into a number of different languages including
+      French, Spanish and Portuguese. If you would like to create a translation of the documentation
+      or contribute to one of the exisiting translations, please contact the DHIS2 documentation
+      team at the email provided at the end of this chapter. </para>
+  </section>
+  <section xml:id="docs_9">
+    <title>Building the documentation</title>
+    <para>One of the key advantages of the DocBook format is that the source documentation can be
+      transformed into a wide variety of formats, including HTML, chunked HTML, XHTML, PDF, and a
+      number of other formats. There are a wide variety of tools that are capable of performing this
+      task. Basically the XML source of the document is transformed using the standard <link
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="https://sourceforge.net/projects/docbook/files/docbook-xsl/">DocBook XSL style
+        sheets</link> into the desired output  format. The complete list of tools capable of
+      transforming DocBook will not be listed here, but a few examples are provided below. </para>
+    <para>Latest builds of the documentation are available from the <link
+        xl:href="http://www.dhis2.org/documentation">DHIS2 website</link>. The latest snapshot
+      builds and previous versions of the documentation are available through a searchable site
+      located <link xl:href="http://dhis2.github.io/dhis2-docs/">here</link>.</para>
+    <section>
+      <title>Building the documentation with Apache maven</title>
+      <para>In order to transform the documentation source files to different formats, such as HTML
+or PDF, you will need to install the Apache Maven program. You can get a copy <link xl:href="http://maven.apache.org/download.html">here</link> or by installing it through your package manager if you are using Linux. Just execute the command <command>mvn clean package</command> on Windows or on Linux from the <filename>/dhis2-docbook-docs </filename>directory. Maven will start to download the necessary components to transform the
+documents into HMTL,PDF and RTF. Once the process has completed (be patient the first time, as there are a number of components that must be downloaded), all of the target document types will be generated in the /<filename>dhis2docs/target/docbkx</filename> directory in respective sub-directories.</para>
+    </section>
+    <section>
+      <title>Building with xmlto</title>
+      <para><command>xmlto</command> is a useful utility available on Linux platforms for
+transforming DocBook documents into many different formats. More information on the package can be found <link xl:href="http://cyberelk.net/tim/software/xmlto/">here</link>. If you do not want to use Apache Maven for some reason, you can install <command>xmlto</command> through your package manager. Once you have installed <command>xmlto</command> you can just execute 
+<cmdsynopsis><command>xmlto</command><arg>htmlfile_to_transform</arg></cmdsynopsis> where the <replaceable>file_to_transform</replaceable> parameter is the name of the file you wish to transform. There are many other formats available, such as PDF, PS, JavaHelp and others. </para>
+    </section>
+  </section>
+  <section xml:id="docs_10">
+    <title>Committing your changes back to GitHub</title>
+    <para>Once you have finished editing your document, you will need to commit your changes back to
+      GitHub. Open up a command prompt on Windows or a shell on Linux, and navigate to the folder
+      where you have placed your documentation. If you have added any new files or folders to your
+      local repository, you will need to add them to the source tree with the <command>git add
+      </command> command, followed by the folder or file name(s) that you have added. Be sure to
+      include a descriptive comment with your commit. <cmdsynopsis>
+        <command>git commit </command>
+        <arg>-m</arg>
+        <arg>&quot;Improved documentation on organisation unit imports with CSV."</arg>
+      </cmdsynopsis>Finally, you should push the changes back to the repository with <command>git
+        push origin mybranch</command>, where "mybranch" is the name of the branch which you created
+      when you checked out the document source or which you happent o be working on.  In order to do
+      this, you will need the necessary permissions to commit to the repository.When you have
+      committed your changes, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="https://github.com/dhis2/dhis2-docs/pulls">you can issue a pull request</link>
+      to have them merged with the master branch. You changes will be reviewed by the core
+      documentation team and tested to ensure they do not break the build, as well as reviwed for
+      quality.  As mentioned previously, you can also push your changes to your own GitHub repo, if
+      you do not have access to the main repo, and submit a pull request for your changes to be
+      merged.</para>
+    <para>If you have any questions, or cannot find that you can get started, just send an email
+with your problem to <email>dhis2-documenters@lists.launchpad.net</email>.</para>
+  </section>
+</chapter>

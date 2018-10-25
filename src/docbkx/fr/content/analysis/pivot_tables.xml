@@ -1,0 +1,925 @@
+<?xml version='1.0' encoding='UTF-8'?>
+      <chapter version="5.0"
+  xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd"
+  xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.w3.org/1999/xlink"
+  xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:svg="http://www.w3.org/2000/svg" xmlns:mth="http://www.w3.org/1998/Math/MathML"
+  xmlns:db="http://docbook.org/ns/docbook" xml:id="pivot">
+  <title>Analyze data in pivot tables</title>
+  <section xml:id="pivot_about">
+    <title>About the Pivot Table app</title>
+    <para>With the <emphasis role="bold">Pivot Table</emphasis> app, you can create pivot tables
+      based on all available data dimensions in DHIS2. A pivot table is a dynamic tool for data
+      analysis which lets you summarize and arrange data according to its dimensions. Examples of
+      data dimensions in DHIS2 are:<itemizedlist>
+        <listitem>
+          <para>data dimension itself (for example data elements, indicators and events)</para>
+        </listitem>
+        <listitem>
+          <para>periods (representing the time period for the data)</para>
+        </listitem>
+        <listitem>
+          <para><?oxy_comment_start author="rachaelb" timestamp="20160414T151427+0200" comment="organization rather than organizational (cf terminilogy entry for &quot;organization unit&quot;)"?>organisation<?oxy_comment_end?>
+            hierarchy (representing the geographical location of the data)</para>
+        </listitem>
+      </itemizedlist></para>
+    <para>From these dimensions you can freely select <emphasis role="italic">dimension
+        items</emphasis> to include in the pivot table. You can create additional dimensions in
+      DHIS2 with the
+      <?oxy_comment_start author="Home" timestamp="20160406T133539+0200" comment="What is the exact name of this function in the UI?"?>group
+      set functionality<?oxy_comment_end?>.
+      T<?oxy_comment_start author="Home" timestamp="20160406T133642+0200" comment="How do you do this?"?>his
+      allows for different aggregation pathways, such as aggregation by &quot;Partner&quot; or
+      facility type. <?oxy_comment_end?></para>
+    <para>A pivot table
+      <?oxy_comment_start author="Home" timestamp="20160406T133748+0200" comment="Do you always have all three dimesnions?
+
+Revise phrase to &quot;A pivot table arranges data...&quot; = correct?"?>can
+      arrange data dimensions on <emphasis role="italic">columns</emphasis>, <emphasis role="italic"
+        >rows</emphasis>, and as <emphasis role="italic">filters<?oxy_comment_end?></emphasis>. When
+      you place a data dimension on columns, the pivot table will display one column per dimension
+      item. If you place multiple data dimensions on columns, the pivot table displays one column
+      for all combinations of the items in the selected dimensions. When you place a data dimension
+      on rows, the pivot table displays one row per dimension item in a similar fashion. The
+      dimensions you select as filters will not be included in the pivot table, but will aggregate
+      and filter the table data based on the selected filter items.</para>
+    <para>
+      <tip>
+        <title>Constraints and tips</title>
+        <itemizedlist>
+          <listitem>
+            <para>You must select at least one dimension on columns or rows.</para>
+          </listitem>
+          <listitem>
+            <para>You must include at least one period.</para>
+          </listitem>
+          <listitem>
+            <?oxy_comment_start author="cecilia" timestamp="20170519T085258+0200" comment="Still correct?"?>
+            <para>Data element group sets and reporting rates can't appear in the same pivot
+              table.</para>
+            <?oxy_comment_end?>
+          </listitem>
+          <listitem>
+            <para>A pivot table can't contain more than the maximum number of analytic records which
+              have been specified in the system settings. The maximum number of records could also
+              be constrained by the maximum RAM which is available to your browser. You will be prompted
+              with a warning if your requested table exceeds a particular size. From this prompt,
+              you can either cancel the request or continue building the table. Consider making
+              smaller tables instead of one table which displays all of your data elements and
+              indicators together.</para>
+          </listitem>
+          <listitem>
+            <para>The <emphasis role="bold">Pivot Table</emphasis> app supports drill-down and up
+              for periods and organisation unit. This means that you can for example drill down from
+              yearly periods to quarters, months and weeks inside a pivot table. You can also drill
+              down from the global organisation unit to countries, provinces and facilities.</para>
+          </listitem>
+        </itemizedlist>
+      </tip>
+    </para>
+  </section>
+  <section xml:id="pivot_create">
+    <title>Create a pivot table</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Pivot Table</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>In the
+          <?oxy_comment_start author="Home" timestamp="20160406T140229+0200" comment="Must define the names of the different areas of the UI."?>menu
+          to the left<?oxy_comment_end?>, select the dimension items you want to analyse, for
+          example data elements or indicators.</para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Layout</emphasis> and arrange the data dimensions as
+          columns, rows and filters. </para>
+        <para>You can keep the default
+          <?oxy_comment_start author="Home" timestamp="20160406T140808+0200" comment="Revise wording. Use &quot;selection&quot; or maybe settings."?>selection<?oxy_comment_end?>
+          if you want.</para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Update</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+    <para>
+      <example>
+        <title>Example pivot table with data elements as columns and periods as rows.</title>
+        <para>In this example, indicators are listed as columns and periods as rows.</para>
+        <para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="80%" align="center"
+                  fileref="resources/images/pivot_table/basic_pivot.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </para>
+      </example>
+    </para>
+    <section>
+      <title>Select dimension
+        <?oxy_comment_start author="Home" timestamp="20160406T163208+0200" comment="Review this section.
+Items in list must correspond to explaintions below. Now they&apos;re not corresponding.
+Consider presenting content in a table."?>items<?oxy_comment_end?></title>
+      <para>The left menu lists sections for all available data dimensions. From each section you
+        can select any number of dimension items. As an example, you can open the section for data
+        elements and select any number of data elements from the available list. You can select an
+        item by marking it and clicking on the arrow in the section header or simply double-clicking
+        on the item. Before you can use a data dimension in your pivot table you must at least
+        select one dimension item. If you arrange a dimension as columns or rows but do not select
+        any dimension items, the dimension is ignored.</para>
+      <para>You must choose at least one data dimension type to create a pivot table. The available
+        types are described in this table:<table frame="all">
+          <title>Data dimension types</title>
+          <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <colspec colname="newCol3" colnum="3" colwidth="1*"/>
+            <thead>
+              <row>
+                <entry>Data dimension type</entry>
+                <entry>Definition</entry>
+                <entry>Examples</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Indicators</entry>
+                <entry>An indicator is a calculated formula based on data elements.</entry>
+                <entry>Coverage of immunization across a specific district.</entry>
+              </row>
+              <row>
+                <entry>Data elements</entry>
+                <entry>Represents the phenomenon for which data has been captured.</entry>
+                <entry>Number of malaria cases; number of BCG doses given.</entry>
+              </row>
+              <row>
+                <entry>Data sets</entry>
+                <entry>A collection of data elements grouped for data collection. You can select :<itemizedlist>
+                    <listitem>
+                      <para><emphasis role="bold">Reporting rates</emphasis>: the percentage of
+                        actual reports compared to the expected number of reports</para>
+                    </listitem>
+                    <listitem>
+                      <para><emphasis role="bold">Reporting rates on time</emphasis>: the reporting
+                        rates based on timely form submissions. A timely submission must happen
+                        within a number of days after the reporting period.</para>
+                    </listitem>
+                    <listitem>
+                      <para><emphasis role="bold">Actual reports</emphasis>: the actual number of
+                        reports</para>
+                    </listitem>
+                    <listitem>
+                      <para><emphasis role="bold">Actual reports on time</emphasis>: the actual
+                        number of reports based on timely form submissions. A timely submission must
+                        happen within a number of days after the reporting period.</para>
+                    </listitem>
+                    <listitem>
+                      <para><emphasis role="bold">Expected reports</emphasis>: the number of
+                        expected reports based on organisation units where the data set and the
+                        reporting frequency has been assigned.</para>
+                    </listitem>
+                  </itemizedlist></entry>
+                <entry>Reporting rates for immunization and morbidity forms. </entry>
+              </row>
+              <row>
+                <entry>Event data items</entry>
+                <entry>A data element that is part of a program representing events that have been
+                  captured.</entry>
+                <entry>Average weight and height for children in a nutrition program.</entry>
+              </row>
+              <row>
+                <entry>Program indicators</entry>
+                <entry>A calculated formula based on data elements in a program representing events. </entry>
+                <entry>Average BMI score for children in a nutrition program.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table></para>
+      <para>You can combine these dimensions to display for example aggregate data with reporting
+        rates, or event data items together with program indicators, all in the same pivot tables.
+        For the &quot;data element&quot; data dimension, you are also able to select
+        &quot;Totals&quot; and &quot;Details&quot;, which will allow you to view different category
+        combination options together on the same pivot table. </para>
+      <para>For the period dimension you can choose between using fixed periods or relative periods.
+        An example of a fixed period is &quot;January 2012&quot;. To select fixed periods start by
+        selecting a period type from the period type list. You can then select periods from the list
+        of available periods. </para>
+      <para>Relative periods are periods relative to the current date. Examples of relative periods
+        are &quot;Last month&quot;, &quot;Last 12 months&quot;, &quot;Last 5 years&quot;. Relative
+        periods can be selected by ticking the check-boxes next to each period. The main advantage
+        of using relative periods is that when you save a pivot table favorite, it will stay updated
+        with the latest data as time goes by without the need for constantly updating it.</para>
+      <para>For the organisation unit dimension you can select any number of organisation units from
+        the hierarchy. To select all organisation units below a specific parent organisation unit,
+        right click and click &quot;Select all children&quot;. To manually select multiple
+        organisation units, click and hold the <emphasis role="bold">Ctrl</emphasis> key while
+        clicking on organisation units. You can tick &quot;User org unit&quot;, &quot;User
+        sub-units&quot; or &quot;User sub-x2-units&quot; in order to dynamically insert the
+        organisation unit or units associated with your user account. This is useful when you save a
+        pivot table favorite and want to share it with other users, as the organisation units linked
+        with the other user&apos;s account will be used when viewing the favorite.</para>
+      <screenshot>
+        <title>Selection of fixed and relative periods.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="60%" align="center"
+              fileref="resources/images/pivot_table/period_dimension.png" format="PNG" scale="80"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>Dynamic dimensions can consist of organisation unit group sets, data element group sets,
+        or category option group sets which have been configured with the type of
+        &quot;Disaggregation&quot;. Once the group sets have been configured, they will be come
+        available in the pivot tables, and can be used as additional analysis dimensions, for
+        instance to analyse aggregate data by Type of organisation unit or Implementing partner.
+        Dynamic dimensions work the same as fixed dimensions. </para>
+      <tip>
+        <para>Some dynamic dimensions may contain many items. This can cause issues with certain
+          browsers due to the length of the URL when many dimension members are selected. A special
+          &quot;All&quot; check box is available for dynamic dimensions, which allows you to include
+          all available dimensions implicitly in your pivot table, without specifying each and every
+          dimension member.</para>
+      </tip>
+    </section>
+    <section>
+      <title>Modify pivot table
+        <?oxy_comment_start author="Home" timestamp="20160406T162540+0200" comment="Would you modify the layout often? Or is it more or less set once you have saved the table as a favorite?"?>layout<?oxy_comment_end?></title>
+      <para>After selecting data dimensions it is time to arrange your pivot table. Click
+        &quot;Layout&quot; in the top menu to open the layout screen. In this screen you can
+        position your data dimensions as table columns, rows or filters by clicking and dragging the
+        dimensions from the dimensions list to the respective column, row and filter lists. You can
+        set any number of dimensions in any of the lists. For instance, you can click on
+        &quot;Organisation units&quot; and drag it to the row list in order to position the
+        organisation unit dimension as table rows. Note that indicators, data elements and data set
+        reporting rates are part of the common &quot;Data&quot; dimension and will be displayed
+        together in the pivot table. For instance, after selecting indicators and data elements in
+        the left menu, you can drag &quot;Organisation Unit&quot; from the available dimensions list
+        to the row dimension list in order to arrange them as rows in the pivot table.</para>
+      <screenshot>
+        <title>The table layout screen.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="40%" align="center"
+              fileref="resources/images/pivot_table/table_layout.png" format="PNG" scale="90"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+      <para>After you have set up your pivot table you can click &quot;Update&quot; to render your
+        pivot table, or click &quot;Hide&quot; to hide the layout screen without any changes taking
+        effect. Since we in our example have selected both the period and organisation unit
+        dimension as rows, the pivot table will generate all combinations of the items in these
+        dimensions and produce a table like this:</para>
+      <screenshot>
+        <title>Pivot table where organisation units and periods are repeated on rows.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="80%" align="center"
+              fileref="resources/images/pivot_table/pivot_rows.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+  </section>
+  <section xml:id="pivot_change_display">
+    <title>Change the display of your pivot table</title>
+    <orderedlist>
+      <listitem>
+        <para>Open the <emphasis role="bold">Pivot Table</emphasis> app.</para>
+      </listitem>
+      <listitem>
+        <para>Create a new pivot table or open a favorite.</para>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Options</emphasis>.</para>
+      </listitem>
+      <listitem>
+        <para>Set the options as required.</para>
+        <table frame="all">
+          <title>Pivot table options</title>
+          <tgroup cols="3" align="left">
+            <colspec colname="newCol1" colnum="1" colwidth="1*"/>
+            <colspec colname="c1" colnum="2" colwidth="1.67*"/>
+            <colspec colname="c2" colnum="3" colwidth="2*"/>
+            <thead>
+              <row>
+                <entry namest="newCol1" nameend="c1" align="left" valign="top">
+                  <para><?oxy_comment_start author="Home" timestamp="20160406T170516+0200" comment="Must update this list. More settings in GUI under Parameters&quot;."?>Option<?oxy_comment_end?></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Description</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Data</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Show column totals</emphasis></para>
+                  <para><emphasis role="bold">Show row totals</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Displays total values in the table for each row and column, as well as a
+                    total for all values in the table.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Show column sub-totals</emphasis></para>
+                  <para><emphasis role="bold">Show row sub-totals</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Displays subtotals in the table for each dimension.</para>
+                  <para>If you only select one dimension, subtotals will be hidden for those columns
+                    or rows. This is because the values will be equal to the subtotals.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Show dimension labels</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Shows the dimension names as part of the pivot tables.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Hide empty rows</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Hides empty rows from the table. This is useful when you look at large
+                    tables where a big part of the dimension items don't have data in order to keep
+                    the table more readable.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Hide empty columns</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Hides empty columns from the table. This is useful when you look at large
+                    tables where a big part of the dimension items don't have data in order to keep
+                    the table more readable.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Skip rounding</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Skips the rounding of data values, offering the full precision of data
+                    values. Can be useful for finance data where the full dollar amount is
+                    required.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Aggregation type</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>The default aggregation operator can be over-ridden here, by selecting a
+                    different aggregation operator. Some of the aggregation types are <emphasis
+                      role="bold">Count</emphasis>, <emphasis role="bold">Min</emphasis> and
+                      <emphasis role="bold">Max</emphasis>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Number type</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Sets the type of value you want to display in the pivot table: <emphasis
+                      role="bold">Value</emphasis>, <emphasis role="bold">Percentage of
+                      row</emphasis> or <emphasis role="bold">Percentage of
+                    column</emphasis>.</para>
+                  <para>The options <emphasis role="bold">Percentage of row</emphasis> and<emphasis
+                      role="bold">Percentage of column</emphasis> mean that you'll display values as
+                    percentages of row total or percentage of column total instead of the aggregated
+                    value. This is useful when you want to see the contribution of data elements,
+                    categories or organisation units to the total value.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Measure criteria</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Allows for the data to be filtered on the server side.</para>
+                  <para>You can instruct the system to return only records where the aggregated data
+                    value is equal, greater than, greater or equal, less than or less or equal to certain values.</para>
+                  <para>If both parts of the filter are used, it's possible to filter out a range of data records.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Events</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Include only completed events</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Includes only completed events in the aggregation process. This is useful
+                    for example to exclude partial events in indicator calculations.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Organisation units</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Show hierarchy</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Shows the name of all ancestors for organisation units, for example "Sierra
+                    Leone / Bombali / Tamabaka / Sanya CHP&quot; for Sanya CHP.</para>
+                  <para>The organisation units are then sorted alphabetically which will order the
+                    organisation units according to the hierarchy.</para>
+                  <para dir="ltr">When you download a pivot table with organisation units as rows
+                    and you've selected <emphasis role="bold">Show hierarchy</emphasis>, each
+                    organisation unit level is rendered as a separate column. This is useful for
+                    example when you create Excel pivot tables on a local computer.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Legend</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Apply legend</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Applies a legend to the values. This mean that you can apply a colour to the
+                    values.</para>
+                  <para dir="ltr">Select <emphasis role="bold">By data item</emphasis> to color the
+                    table cells individually according to each data element or indicator.</para>
+                  <para>You configure legends in the <emphasis role="bold">Maintenance</emphasis>
+                    app.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Style</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Colors the text or background of cells in pivot tables based on the selected
+                    legend.</para>
+                  <para>You can use this option for scorecards to identify high and low values at a
+                    glance.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Style</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Display density</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls the size of the cells in the table. You can set it to <emphasis
+                      role="bold">Comfortable</emphasis>, <emphasis role="bold">Normal</emphasis> or
+                      <emphasis role="bold">Compact</emphasis>. </para>
+                  <para><emphasis role="bold">Compact</emphasis> is useful when you want to fit
+                    large tables into the browser screen.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Font size</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls the size of the table text font. You can set it to <emphasis
+                      role="bold">Large</emphasis>, <emphasis role="bold">Normal</emphasis> or
+                      <emphasis role="bold">Small</emphasis>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top"/>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Digit group separator</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls which character to separate groups of digits or
+                    &quot;thousands&quot;. You can set it to <emphasis role="bold">Comma</emphasis>,
+                      <emphasis role="bold">Space</emphasis> or <emphasis role="bold"
+                      >None</emphasis>.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">General</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Table title</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Type a title here to display it above the table.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold"
+                      ><?oxy_comment_start author="cecilia" timestamp="20170530T133530+0200" comment="These settings must be explained better. Does it work as expected?"?>Parameters<?oxy_comment_end?>
+                      (for standard reports only)</emphasis></para>
+                </entry>
+                <entry align="left" valign="top" namest="c1" nameend="c2">
+                  <para>
+                    <note>
+                      <para>You create standard reports in the <emphasis role="bold"
+                          >Reports</emphasis> app.</para>
+                      <para>In the <emphasis role="bold">Pivot Table</emphasis> app you set which
+                        parameters the system should prompt the user for.</para>
+                    </note>
+                  </para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Reporting period</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls whether to ask user to enter a report period.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Organisation unit</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls whether to ask user to enter an organisation unit.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Parent organisation unit</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls whether to ask user to enter a parent organisation unit.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Include regression</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Includes a column with regression values to the pivot table.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Include cumulative</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Includes a column with cumulative values to the pivot table.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Sort order</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls the sort order of the values.</para>
+                </entry>
+              </row>
+              <row>
+                <entry align="left" valign="top">
+                  <para/>
+                </entry>
+                <entry align="left" valign="top">
+                  <para><emphasis role="bold">Top limit</emphasis></para>
+                </entry>
+                <entry align="left" valign="top">
+                  <para>Controls the maximum number of rows to include in the pivot table.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </listitem>
+      <listitem>
+        <para>Click <emphasis role="bold">Update</emphasis>.</para>
+      </listitem>
+    </orderedlist>
+  </section>
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../generic/favorites.xml" encoding="UTF-8"/>
+  <section xml:id="pivot_download_data">
+    <title>Download data from a pivot table</title>
+    <section>
+      <title>Download table layout data format</title>
+      <para>To download the data in the current pivot table: </para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">Download</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Under <emphasis role="bold">Table layout</emphasis>, click the format you want to
+            download: Microsoft Excel, CSV or HTML.</para>
+          <para>The data table will have one column per dimension and contain names of the dimension
+            items. </para>
+          <para>
+            <tip>
+              <para dir="ltr">When you download a pivot table with organisation units as rows and
+                you've selected <emphasis role="bold">Show hierarchy</emphasis> in <emphasis
+                  role="bold">Table options</emphasis>, each organisation unit level is rendered as
+                a separate column. This is useful for example when you create Excel pivot tables on
+                a local computer.</para>
+            </tip>
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        <tip>
+          <para>You can
+            <?oxy_comment_start author="Home" timestamp="20160411T162253+0200" comment="FYI: Information about how you create a pivot tabel in Excel has been removed. Instructions for a different software than DHIS2 shouldn&apos;t been in this topic."?>create<?oxy_comment_end?>
+            a pivot table in
+            <?oxy_comment_start author="Home" timestamp="20160408T095906+0200" comment="Microsoft is a registered trademark, it must be marked in applications and user docs.
+Refer to: https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx
+Excel is a registered trademark, it must be marked in applications and user docs.
+Refer to: https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx#941ec897-4e24-4d80-8b94-47f4122a241b
+"?>Microsoft<?oxy_comment_end?>
+            Excel from the downloaded Excel file.</para>
+        </tip>
+      </para>
+    </section>
+    <section>
+      <title>Download plain data source format</title>
+      <para>You can download data in the current pivot table in JSON, XML, Excel, and CSV as plain
+        data formats with different identification schemes (ID, Code, and Name). The data document
+        uses identifiers of the dimension items and opens in a new browser window to display the URL
+        of the request to the Web API in the address bar. This is useful for developers of apps and
+        other client modules based on the DHIS2 Web API or for those who require a plan data source,
+        for instance for import into statistical packages.</para>
+      <para>To download plain data source formats:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">Download</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Under <emphasis role="bold">Plain data source</emphasis>, click the format you want
+            to download.</para>
+          <para>
+            <table frame="all">
+              <title>Available formats</title>
+              <tgroup cols="3">
+                <colspec colname="newCol1" colnum="1" colwidth="1*"/>
+                <colspec colname="c1" colnum="2" colwidth="1.83*"/>
+                <colspec colname="c2" colnum="3" colwidth="2.6*"/>
+                <thead>
+                  <row>
+                    <entry>
+                      <para>Format</para>
+                    </entry>
+                    <entry>
+                      <para>Action</para>
+                    </entry>
+                    <entry>
+                      <para>Description</para>
+                    </entry>
+                  </row>
+                </thead>
+                <tbody>
+                  <row>
+                    <entry>
+                      <para>JSON</para>
+                    </entry>
+                    <entry>
+                      <para>Click <emphasis role="bold">JSON</emphasis></para>
+                    </entry>
+                    <entry>
+                      <para>Downloads JSON format based on ID property. </para>
+                      <para>You can also download JSON format based on <emphasis role="bold"
+                          >Code</emphasis> or <emphasis role="bold">Name</emphasis> property.
+                      </para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <para>XML</para>
+                    </entry>
+                    <entry>
+                      <para>Click <emphasis role="bold">XML</emphasis></para>
+                    </entry>
+                    <entry>
+                      <para>Downloads XML format based on ID property.</para>
+                      <para>You can also download XML format based on <emphasis role="bold"
+                          >Code</emphasis> or <emphasis role="bold">Name</emphasis> property.
+                      </para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <para>Microsoft Excel</para>
+                    </entry>
+                    <entry>
+                      <para>Click <emphasis role="bold">Microsoft Excel</emphasis></para>
+                    </entry>
+                    <entry>
+                      <para>Downloads XML format based on ID property.</para>
+                      <para>You can also download Microsoft Excel format based on <emphasis
+                          role="bold">Code</emphasis> or <emphasis role="bold">Name</emphasis>
+                        property.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <para>CSV</para>
+                    </entry>
+                    <entry>Click <emphasis role="bold">CSV</emphasis></entry>
+                    <entry>
+                      <para>Downloads CSV format based on ID property.</para>
+                      <para>You can also download CSV format based on <emphasis role="bold"
+                          >Code</emphasis> or <emphasis role="bold">Name</emphasis> property.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <para>JRXML</para>
+                    </entry>
+                    <entry>
+                      <para>Put the cursor on <emphasis role="bold">Advanced</emphasis> and click
+                          <emphasis role="bold">JRXML</emphasis></para>
+                    </entry>
+                    <entry>
+                      <para>Produces a template of a Jasper Report which can be further customized
+                        based on your exact needs and used as the basis for a standard report in
+                        DHIS2.</para>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry>
+                      <para>Raw data SQL</para>
+                    </entry>
+                    <entry>
+                      <para>Put the cursor on <emphasis role="bold">Advanced</emphasis> and click
+                          <emphasis role="bold">Raw data SQL</emphasis></para>
+                    </entry>
+                    <entry>
+                      <para>Provides the actual SQL statement used to generate the pivot table. You
+                        can use it as a data source in a Jasper report, or as the basis for an SQL
+                        view.</para>
+                    </entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Download a CSV format without rendering data in the web browser</title>
+      <para>You can download data in CSV format directly without rendering the data in the web
+        browser. This helps to reduce any constraints in the system settings that has been set with
+        regards to the maximum number of analytic records. This lets you download much larger
+        batches of data that you can use for later offline analysis. </para>
+      <para>To download data in CSV format without first rendering data in the web browser:</para>
+      <orderedlist>
+        <listitem>
+          <para>Click the arrow beside <emphasis role="bold">Update</emphasis>.</para>
+          <mediaobject>
+            <imageobject>
+              <imagedata align="center" fileref="resources/images/pivot_table/data_dump.png"
+                format="PNG"/>
+            </imageobject>
+          </mediaobject>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">CSV</emphasis> to download the format based on ID
+            property.</para>
+          <para>The file downloads to your computer.</para>
+          <para>
+            <tip>
+              <para>You can also download CSV format based on <emphasis role="bold">Code</emphasis>
+                or <emphasis role="bold">Name</emphasis> property.</para>
+            </tip>
+          </para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+  <section xml:id="pivot_embed">
+    <title>Embed a pivot table in an external web page</title>
+    <para>Certain analysis-related resources in DHIS2, like pivot tables, charts and maps, can be
+      embedded in any web page by using a plug-in. You will find more information about the plug-ins
+      in the Web API chapter in the <emphasis>DHIS2 Developer Manual</emphasis>.</para>
+    <para>To generate a HTML fragment that you can use to display the pivot table in an external web
+      page:</para>
+    <para>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">Embed</emphasis>.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">Select</emphasis> to highlight the HTML fragment.</para>
+        </listitem>
+      </orderedlist>
+    </para>
+  </section>
+  <section xml:id="pivot_integration">
+    <title>Visualize pivot table data as a chart or a map</title>
+    <para>When you have made a pivot table you can switch between pivot table, chart and map
+      visualization of your data. </para>
+    <section>
+      <title>Open a pivot table as a chart</title>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">Chart</emphasis> > <emphasis role="bold">Open this table
+              as chart</emphasis>.</para>
+          <para>Your current pivot table opens as a chart.</para>
+        </listitem>
+      </orderedlist>
+      <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata width="25%" fileref="resources/images/pivot_table/pivot_integration.png"
+              format="PNG" scale="100" align="center"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </section>
+    <section>
+      <title>Open a pivot table selection as a chart</title>
+      <para>If you want to visualize a small part of your pivot table as a chart you can click
+        directly on a value in the table instead opening the whole table. </para>
+      <orderedlist>
+        <listitem>
+          <para>In the pivot table, click a value. </para>
+          <screenshot>
+            <mediaobject>
+              <imageobject>
+                <imagedata width="35%"
+                  fileref="resources/images/pivot_table/pivot_integration_table.png" format="PNG"
+                  scale="100" align="center"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </listitem>
+        <listitem>
+          <para>To verify the selection, hold the cursor over <emphasis role="bold">Open selection
+              as chart</emphasis>. The highlighted dimension headers in the table indicate what data
+            will be visualized as a chart.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">Open selection as chart</emphasis>.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Open a pivot table as a map</title>
+      <orderedlist>
+        <listitem>
+          <para>Click <emphasis role="bold">Chart</emphasis> > <emphasis role="bold">Open this table
+              as map</emphasis></para>
+          <para>Your current pivot table opens as a map.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section>
+      <title>Open a pivot table selection as a map</title>
+      <orderedlist>
+        <listitem>
+          <para>In the pivot table, click a value.</para>
+          <para>A menu displays.</para>
+        </listitem>
+        <listitem>
+          <para>Click <emphasis role="bold">Open selection as
+              <?oxy_comment_start author="Home" timestamp="20160408T114014+0200" comment="Function doesn&apos;t work. Reported to Lars.
+
+"?>map<?oxy_comment_end?></emphasis>.</para>
+          <para>Your selection opens as a map. </para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+</chapter>
